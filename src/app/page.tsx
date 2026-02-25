@@ -1,8 +1,28 @@
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ReactNode } from 'react';
-import ProductCard from '@/components/ProductCard';
-import { getFeaturedProducts, getProductBySlug } from '@/lib/products';
+import type { LucideIcon } from 'lucide-react';
+import {
+  Facebook,
+  MapPin,
+  PhoneCall,
+  Mail,
+  Clock4,
+  Flag,
+  Layers3,
+  ShieldCheck,
+  Award,
+  Target,
+  ShoppingBag,
+  UtensilsCrossed,
+  Sparkles,
+  Car,
+  Radio,
+  Users2,
+  GraduationCap,
+  Megaphone,
+  Trophy
+} from 'lucide-react';
 
 type SectionHeaderProps = {
   label: string;
@@ -26,421 +46,651 @@ const SectionHeader = ({
   const labelClass = animated ? 'reveal reveal-down' : '';
   const titleClass = animated ? 'reveal reveal-up reveal-delay-1' : '';
   const subtitleClass = animated ? 'reveal reveal-up reveal-delay-2' : '';
-  const subtitleBaseClass = subtitleClassName ?? 'script-accent';
+  const subtitleBaseClass = subtitleClassName ?? 'subtitle-accent';
 
   return (
     <div className={`${alignmentClass} ${spacingClass} space-y-3`}>
-      <p className={`text-sm uppercase tracking-[0.3em] text-[var(--accent)] ${labelClass}`}>{label}</p>
+      <p className={`section-label ${labelClass}`}>{label}</p>
       <h2 className={`section-title ${titleClass}`}>{title}</h2>
       {subtitle && <p className={`${subtitleBaseClass} ${subtitleClass}`}>{subtitle}</p>}
     </div>
   );
 };
 
-export default function Page() {
-  const featuredProducts = getFeaturedProducts();
-  const bagFeatureSlugs = ['bold-cart-bag-01', 'palm-stand-bag-01'];
-  const featuredHighlightSlugs = ['golf-cover'];
-  const featuredExclusionSlugs = ['golf-tees'];
-  const bagFeatureProducts = bagFeatureSlugs
-    .map(slug => getProductBySlug(slug))
-    .filter((product): product is NonNullable<typeof product> => Boolean(product));
-  const featuredGridProducts = (() => {
-    const highlights = featuredHighlightSlugs
-      .map(slug => featuredProducts.find(product => product.slug === slug))
-      .filter((product): product is NonNullable<typeof product> => Boolean(product));
-    const others = featuredProducts.filter(
-      product => !featuredHighlightSlugs.includes(product.slug) && !featuredExclusionSlugs.includes(product.slug)
-    );
-    const combined = [...highlights, ...others];
+type IconBlock = {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+};
 
-    return combined;
-  })();
-  const highlightProduct = featuredGridProducts.find(product => product.slug === 'golf-cover') ?? featuredGridProducts[0];
-  const secondaryPrioritySlugs = ['birdie-logo-cap-mint', 'birdiez-script-cap', 'floral-fairway-polo'];
-  const secondarySlotOverrides: Record<string, number> = {
-    'birdie-logo-cap-mint': 0,
-    'birdiez-script-cap': 1,
-    'floral-fairway-polo': 3
-  };
-  const secondaryProducts = (() => {
-    const candidates = featuredGridProducts.filter(product => product.id !== highlightProduct?.id);
-    const prioritized = secondaryPrioritySlugs
-      .map(slug => candidates.find(product => product.slug === slug))
-      .filter((product): product is NonNullable<typeof product> => Boolean(product));
-    const remainder = candidates.filter(product => !secondaryPrioritySlugs.includes(product.slug));
-    const ordered = [...prioritized, ...remainder];
-    const slots: (typeof ordered[number] | null)[] = new Array(4).fill(null);
+const rangeHighlights: { stat: string; title: string; description: string; icon: LucideIcon }[] = [
+  {
+    stat: '388 YARDS',
+    title: 'Northern Thailand’s longest range',
+    description: 'Stretch shots down a 388-yard field that mirrors the visuals of a real course.',
+    icon: Flag
+  },
+  {
+    stat: '68 BAYS',
+    title: 'Two-level layout',
+    description: 'Practice from 68 spacious, ventilated bays across two levels with real course sightlines.',
+    icon: Layers3
+  },
+  {
+    stat: 'TOUR BALLS',
+    title: 'TaylorMade & Srixon practice balls',
+    description: 'Double-layered balls preserve spin, launch, and feel so your data translates on course.',
+    icon: ShieldCheck
+  },
+  {
+    stat: 'THAI PGA',
+    title: 'Certified guidance daily',
+    description: 'Thailand PGA professionals are on-site for scheduled lessons or quick walk-up coaching.',
+    icon: Award
+  }
+];
 
-    ordered.forEach(product => {
-      const slotIndex = secondarySlotOverrides[product.slug];
-      if (typeof slotIndex === 'number' && slotIndex >= 0 && slotIndex < slots.length && !slots[slotIndex]) {
-        slots[slotIndex] = product;
-      }
-    });
+const serviceHighlights: IconBlock[] = [
+  {
+    title: 'TrackMan analysis room',
+    description: 'Step into the lab to capture every club + ball metric before you tee it up outside.',
+    icon: Target
+  },
+  {
+    title: 'Professional club fitting',
+    description: 'Dial in heads, shafts, and grips with launch data and on-staff fitters.',
+    icon: ShoppingBag
+  },
+  {
+    title: 'Multiple pro shops',
+    description: 'Stock up on apparel, equipment, and accessories without leaving the range.',
+    icon: Radio
+  },
+  {
+    title: 'Food & beverage service',
+    description: 'Keep sessions going with coffee, Thai bites, and evening refreshments.',
+    icon: UtensilsCrossed
+  },
+  {
+    title: 'Thai massage & spa',
+    description: 'Recharge between sessions with in-house therapists and spa rooms.',
+    icon: Sparkles
+  },
+  {
+    title: 'M Car Spa + parking',
+    description: 'Park over 200 vehicles or book a detailing while you practice.',
+    icon: Car
+  }
+];
 
-    ordered.forEach(product => {
-      if (typeof secondarySlotOverrides[product.slug] === 'number') {
-        return;
-      }
-      const emptyIndex = slots.findIndex(item => item === null);
-      if (emptyIndex !== -1) {
-        slots[emptyIndex] = product;
-      }
-    });
+const simulatorRooms = [
+  { name: 'Room 1', capacity: '1 – 4 guests', price: '500฿ / hour', note: 'Dedicated TrackMan iO bay' },
+  { name: 'Room 2', capacity: '1 – 4 guests', price: '500฿ / hour', note: 'Matching layout with lounge seating' },
+  { name: 'Room 3 · Performance Bay', capacity: '1 – 6 guests', price: '700฿ / hour', note: 'Expanded hitting zone + on-screen data' }
+];
 
-    return slots.filter((product): product is NonNullable<typeof product> => Boolean(product));
-  })();
-  const bagPositionClasses = ['lg:col-start-1 lg:row-start-4', 'lg:col-start-2 lg:row-start-4'];
-  const secondaryPositionClasses = [
-    'lg:col-start-3 lg:row-start-1',
-    'lg:col-start-4 lg:row-start-1',
-    'lg:col-start-3 lg:row-start-2',
-    'lg:col-start-4 lg:row-start-2'
-  ];
-  const shopCategories = [
-    { slug: 'shirts', label: 'APPAREL', image: '/images/shirt.png' },
-    { slug: 'headwear', label: 'HEADWEAR', image: '/images/cap.png' },
-    { slug: 'bags', label: 'BAGS', image: '/images/golfbag%20birdiez.png' },
-    { slug: 'accessories', label: 'ACCESSORIES', image: '/images/gloves.png' }
-  ];
+const academyPrograms = [
+  {
+    name: 'Hourly Courses',
+    duration: '1 • 12 • 20 hour packs',
+    schedule: 'Monday – Sunday • 10:00 AM – 8:00 PM',
+    notes: [
+      'One-on-one instruction with Thailand PGA coaches',
+      'Flexible scheduling with no expiration date',
+      'Includes on-course practice sessions with your coach'
+    ]
+  },
+  {
+    name: 'Monthly Unlimited',
+    duration: 'Evenings • 5:00 PM – 8:00 PM',
+    schedule: 'Monday – Friday',
+    notes: [
+      'Designed for players chasing consistent reps',
+      'Coaches provide ongoing, supervised training',
+      'Small-group format when multiple students attend'
+    ]
+  },
+  {
+    name: 'On-Course Immersion',
+    duration: 'Book as add-on',
+    schedule: 'Available upon request',
+    notes: [
+      'Bring academy learnings onto the course with your coach',
+      'Focus on scoring strategy, shot selection, and confidence',
+      'Additional fee varies by venue and program length'
+    ]
+  }
+];
+
+const ballRates = {
+  standard: [
+    {
+      type: 'OLD BALLS',
+      badge: 'Standard rate',
+      price: '\u0e3f40 / tray',
+      note: '40 baht per tray • No membership required'
+    },
+    {
+      type: 'NEW BALLS',
+      badge: 'Standard rate',
+      price: '\u0e3f50 / tray',
+      note: 'Fresh stock upgrade • No membership required'
+    }
+  ],
+  memberships: {
+    old: [
+      { package: '\u0e3f2,000 package', rate: '37\u0e3f per tray' },
+      { package: '\u0e3f4,000 package', rate: '36\u0e3f per tray' },
+      { package: '\u0e3f12,000 package', rate: '34\u0e3f per tray' }
+    ],
+    fresh: [
+      { package: '\u0e3f3,000 package', rate: '48\u0e3f per tray' },
+      { package: '\u0e3f5,000 package', rate: '46\u0e3f per tray' },
+      { package: '\u0e3f15,000 package', rate: '40\u0e3f per tray' }
+    ]
+  }
+};
+
+type NewsCard = IconBlock & { badge: string };
+
+const newsItems: NewsCard[] = [
+  {
+    badge: 'Announcements',
+    title: 'News & Events Hub',
+    description: 'Follow M Sport Driving Range on Facebook for public relations updates, announcements, and special programming.',
+    icon: Megaphone
+  },
+  {
+    badge: 'Events',
+    title: 'Corporate & Community Nights',
+    description: 'Plan TrackMan combines, company socials, or league nights with concierge hosts, F&B partners, and live leaderboards.',
+    icon: Trophy
+  },
+  {
+    badge: 'Academy',
+    title: 'Academy Enrollment Open',
+    description: 'Hourly packs and monthly unlimited memberships welcome Thai and international golfers of every age.',
+    icon: GraduationCap
+  }
+];
+
+const contactDetails = {
+  address: ['M Sport Driving Range', '188 Moo 3, San Klang, San Kamphaeng', 'Chiang Mai 50130, Thailand'],
+  phone: '087 419 9199',
+  email: 'msportcomplex@gmail.com',
+  facebook: 'https://www.facebook.com/MSportDrivingRange',
+  rangeHours: 'Driving Range • 8:00 AM – 10:00 PM daily',
+  exclusiveHours: 'M Exclusive Room • 8:00 AM – 11:00 PM daily'
+};
+
+const rangeMetrics = [
+  { label: 'Range Length', value: '388', detail: 'yards downrange' },
+  { label: 'Driving Bays', value: '68', detail: 'two-level lineup' },
+  { label: 'Exclusive Rooms', value: '5', detail: 'VVIP suites' }
+];
+
+const [rangeLengthFeature, bayLayoutFeature, tourBallFeature, coachingFeature] = rangeHighlights;
+
+export default function HomePage() {
+  const [roomOne, roomTwo, performanceBay] = simulatorRooms;
 
   return (
-    <main>
-      <section id="home" className="section-anchor relative h-screen flex items-center justify-center section-cream">
+    <main className="flex min-h-screen flex-col items-center justify-between relative">
+      <section
+        id="home"
+        className="section-anchor relative h-[95vh] min-h-[620px] flex items-center justify-center section-cream w-full overflow-hidden"
+      >
         <video
           autoPlay
           loop
           muted
           playsInline
-          poster="/images/hero-cover.jpg"
+          poster="/images/drivingrangeMSPORT.mp4"
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/HeroBirdiez.webm" type="video/webm" />
+          <source src="/images/drivingrangeMSPORT.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-black/30" />
-        
-        <div className="relative z-10 text-center px-6 flex flex-col items-center gap-6 reveal reveal-up">
+        <div className="absolute inset-0 bg-black/45" />
+
+        <div className="relative z-10 text-center px-6 flex flex-col items-center gap-6 max-w-4xl">
+          <p className="accent-pill reveal reveal-down">Msport Collective</p>
           <Image
-            src="/images/LOGO%20White.png"
-            alt="Birdiez white logo"
-            width={640}
-            height={240}
-            className="h-48 w-auto reveal reveal-down"
+            src="/images/Msport%20logo.png"
+            alt="Msport Driving Range logo"
+            width={420}
+            height={180}
+            className="h-28 w-auto reveal reveal-down"
             priority
           />
-          <p className="script-accent hero-subtitle text-white mb-8 mx-auto text-center reveal reveal-up reveal-delay-2">
-            <span className="block sm:hidden">Built by players</span>
-            <span className="block sm:hidden">for players</span>
-            <span className="hidden sm:inline">Built by players for players</span>
+          <p className="subtitle-accent text-white/80 reveal reveal-up">
+            Northern Thailand’s largest and longest driving range lives in Chiang Mai
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center reveal reveal-up reveal-delay-3">
+          <h1 className="hero-title text-white reveal reveal-up reveal-delay-1">MSPORT DRIVING RANGE</h1>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center reveal reveal-up reveal-delay-2">
             <Link
-              href="/shop"
-              className="accent-bg px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform duration-300"
+              href="/shop#trackman"
+              className="accent-bg px-10 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform duration-300"
             >
-              Shop Now
+              Book a Sim Bay
             </Link>
             <Link
-              href="#location"
-              className="bg-transparent border-2 border-[#EFE9DC] text-[#EFE9DC] px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform duration-300"
+              href="tel:+66874199199"
+              className="bg-transparent border-2 border-white text-white px-10 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform duration-300"
             >
-              Reserve In Store
+              Call 087 419 9199
             </Link>
+          </div>
+
+          <div className="grid grid-cols-3 gap-4 mt-8 text-white max-w-4xl">
+            {rangeMetrics.map(metric => (
+              <div key={metric.label} className="bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/20">
+                <p className="text-4xl font-black tracking-tight">{metric.value}</p>
+                <p className="uppercase tracking-[0.25em] text-xs opacity-80 mt-1">{metric.label}</p>
+                <p className="text-sm opacity-80 mt-2">{metric.detail}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section id="about" className="section-anchor section-cream cream-overlay py-20 border-t border-[#706C61]/10">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 grid gap-12 lg:grid-cols-[0.95fr_1.05fr] items-center">
-          <div className="rounded-3xl shadow-[0_25px_70px_rgba(34,34,34,0.15)] bg-white/50 p-3 reveal reveal-left">
-            <div className="relative group rounded-2xl overflow-hidden">
-              <Image
-                src="/images/birdiezaboutus.png"
-                alt="Birdiez about us"
-                width={800}
-                height={600}
-                className="w-full h-auto object-contain"
-                priority
+      <section id="about" className="section-anchor section-cream py-20 border-t border-[#706C61]/10 w-full">
+        <div className="mx-auto w-full max-w-6xl px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] items-center">
+            <div className="rounded-3xl shadow-[0_25px_70px_rgba(34,34,34,0.2)] bg-white/70 p-3 reveal reveal-left">
+              <div className="relative rounded-2xl overflow-hidden">
+                <video autoPlay loop muted playsInline poster="/images/female driver.mp4" className="w-full h-full object-cover" style={{ objectPosition: 'center 20%' }}>
+                  <source src="/images/female driver.mp4" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
+              </div>
+            </div>
+            <div className="reveal reveal-right space-y-6 text-lg leading-relaxed">
+              <SectionHeader
+                label="About"
+                title="Msport Driving Range"
+                subtitle="Full-service facility in San Kamphaeng, Chiang Mai"
+                align="left"
               />
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              >
-                <source src="/images/birdiezaboutus.webm" type="video/webm" />
-              </video>
-            </div>
-          </div>
-          <div className="reveal reveal-right space-y-6 text-lg leading-relaxed">
-            <SectionHeader
-              label="About Us"
-              title="BUILT FROM OBSESSION"
-              subtitle="For the love of the game."
-              align="left"
-            />
-            <div className="space-y-4">
-              <p className="reveal reveal-up reveal-delay-3">
-                We’re a group of friends who caught the golf bug — and fell in love with Chiang Mai’s incredibly welcoming golf community.
-                After meeting new players every week, we knew we wanted to build more than just a shop.
-              </p>
-              <p className="reveal reveal-up reveal-delay-4">
-                With backgrounds in marketing and retail, we created Birdiez inside the brand new MSport Driving Range — blending modern golf
-                style with real golf culture, on and off the course.
-              </p>
-              <p className="reveal reveal-up reveal-delay-5">
-                We’re also building a Chiang Mai golf app to help players connect, track scores, and compete in fun challenges and local tournaments.
-              </p>
+              <div className="space-y-4">
+                <p className="reveal reveal-up reveal-delay-2">
+                  Msport Driving Range spans 388 yards with 68 bays across two levels, realistic course visuals, and a constant Chiang Mai breeze.
+                  It’s the go-to destination for both casual sessions and serious training.
+                </p>
+                <p className="reveal reveal-up reveal-delay-3">
+                  Every bucket uses double-layered TaylorMade and Srixon practice balls, delivering authentic spin and ball flight. Thailand PGA
+                  coaches, TrackMan analysis, fittings, and multiple pro shops keep you progressing.
+                </p>
+                <p className="reveal reveal-up reveal-delay-4">
+                  Relax after your reps with food and beverage service, Thai massage, spa treatments, or a fresh car wash at M Car Spa—without
+                  leaving the property.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="collections" className="section-anchor section-matcha py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <section id="range" className="section-anchor section-matcha py-24 w-full">
+        <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
           <SectionHeader
-            label="Shop"
-            title={(
-              <>
-                THE
-                <br />
-                COLLECTION
-              </>
-            )}
-            subtitle="Curated for Chiang Mai golfers."
+            label="Range Overview"
+            title="DRIVING RANGE"
+            subtitle="Northern Thailand’s longest playing field"
           />
 
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-6">
-            {shopCategories.map((category, idx) => (
-              <Link
-                key={category.slug}
-                href={`/shop?category=${category.slug}`}
-                className={`group relative aspect-[3/4] rounded-2xl overflow-hidden reveal reveal-up ${
-                  idx % 4 === 1 ? 'reveal-delay-1' : idx % 4 === 2 ? 'reveal-delay-2' : idx % 4 === 3 ? 'reveal-delay-3' : ''
-                }`}
-              >
-                <Image
-                  src={category.image}
-                  alt={category.label}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-4 inset-x-3 flex justify-center sm:justify-start">
-                  <h3 className="text-[clamp(1.05rem,4.5vw,1.35rem)] sm:text-3xl font-black uppercase text-white tracking-[0.22em] leading-tight whitespace-nowrap">
-                    {category.label}
-                  </h3>
+          <div className="grid gap-6 md:grid-cols-3">
+            <article className="relative overflow-hidden rounded-[32px] bg-[#1B1B1A] text-white p-6 flex flex-col justify-end min-h-[260px] reveal reveal-up md:col-span-2">
+              <div className="absolute inset-0">
+                <video autoPlay loop muted playsInline poster="/images/Msport.webm" className="w-full h-full object-cover" aria-hidden="true">
+                  <source src="/images/Msport.webm" type="video/webm" />
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+              </div>
+              <div className="relative z-10 space-y-3">
+                <rangeLengthFeature.icon className="h-9 w-9 text-[var(--accent)]" />
+                <p className="text-xs uppercase tracking-[0.35em] text-white/80">{rangeLengthFeature.stat}</p>
+                <h3 className="text-3xl font-black leading-tight">{rangeLengthFeature.title}</h3>
+                <p className="text-sm text-white/80 max-w-xl">{rangeLengthFeature.description}</p>
+              </div>
+            </article>
+
+            <article className="bg-white rounded-[32px] p-6 shadow-[0_25px_70px_rgba(34,34,34,0.12)] border border-[#E3E3E0] flex flex-col justify-between reveal reveal-up">
+              <div>
+                <bayLayoutFeature.icon className="h-8 w-8 text-[var(--accent)]" />
+                <p className="text-xs uppercase tracking-[0.35em] text-[var(--accent)] mt-3">{bayLayoutFeature.stat}</p>
+                <h3 className="text-2xl font-black mt-2">{bayLayoutFeature.title}</h3>
+                <p className="text-sm text-[#4A4A44] mt-2">{bayLayoutFeature.description}</p>
+              </div>
+              <div className="mt-6 rounded-2xl overflow-hidden border border-[#E3E3E0]/60">
+                <Image src="/images/baylayoutvisual.jpg" alt="Msport bay layout" width={640} height={420} className="w-full h-full object-cover" />
+              </div>
+            </article>
+
+            <article className="rounded-[32px] p-6 bg-[#EFE9DC] shadow-[0_25px_70px_rgba(34,34,34,0.1)] flex flex-col justify-between reveal reveal-up">
+              <div>
+                <tourBallFeature.icon className="h-8 w-8 text-[var(--accent)]" />
+                <p className="text-xs uppercase tracking-[0.35em] text-[var(--accent)] mt-3">{tourBallFeature.stat}</p>
+                <h3 className="text-2xl font-black mt-2">{tourBallFeature.title}</h3>
+              </div>
+              <p className="text-sm text-[#4A4A44] mt-4">{tourBallFeature.description}</p>
+            </article>
+
+            <article className="rounded-[32px] bg-white p-6 shadow-[0_25px_70px_rgba(34,34,34,0.12)] border border-[#E3E3E0] flex flex-col md:flex-row items-center gap-6 reveal reveal-up md:col-span-2">
+              <div className="flex-1 space-y-3">
+                <coachingFeature.icon className="h-8 w-8 text-[var(--accent)]" />
+                <p className="text-xs uppercase tracking-[0.35em] text-[var(--accent)] mt-1">{coachingFeature.stat}</p>
+                <h3 className="text-2xl font-black leading-tight">{coachingFeature.title}</h3>
+                <p className="text-sm text-[#4A4A44]">{coachingFeature.description}</p>
+              </div>
+              <div className="flex-1 w-full">
+                <div className="rounded-2xl overflow-hidden border border-[#E3E3E0]/60 h-full min-h-[180px]">
+                  <Image src="/images/thaipgacoaching.jpg" alt="Thai PGA coaching" width={640} height={420} className="w-full h-full object-cover" />
                 </div>
-              </Link>
-            ))}
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <section id="featured" className="section-anchor section-cream cream-overlay py-20">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 space-y-8">
+      <section id="services" className="section-anchor section-cream py-24 w-full">
+        <div className="mx-auto w-full max-w-6xl px-6 lg:px-8 space-y-12">
           <SectionHeader
-            label="Featured"
-            title={(
-              <>
-                EXCLUSIVE
-                <br />
-                DROPS
-              </>
-            )}
-            subtitle="Limited pieces available in store."
+            label="Facilities"
+            title="BEYOND THE RANGE"
+            subtitle="Everything you need in one complex."
           />
 
-          <div className="space-y-5 lg:hidden">
-            <div className="reveal reveal-left rounded-3xl overflow-hidden shadow-[0_25px_70px_rgba(10,10,10,0.2)] h-full min-h-[260px]">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                poster="/images/birdiez%20shop.png"
-                className="w-full h-full object-cover"
-              >
-                <source src="/images/golfbagbold.mp4" type="video/mp4" />
-              </video>
-            </div>
+          <div className="image-placeholder text-[var(--accent)]/80">Lifestyle Imagery Coming Soon</div>
 
-            {highlightProduct && (
-              <div className="reveal reveal-right">
-                <ProductCard product={highlightProduct} />
-              </div>
-            )}
-
-            {secondaryProducts.length > 0 && (
-              <div className="grid grid-cols-2 gap-4">
-                {secondaryProducts.slice(0, 4).map((product, idx) => (
-                  <div key={product.id} className={`reveal reveal-up ${idx === 1 ? 'reveal-delay-1' : ''} ${idx === 2 ? 'reveal-delay-2' : ''} ${idx === 3 ? 'reveal-delay-3' : ''}`}>
-                    <ProductCard product={product} forceSquareOnMobile />
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {bagFeatureProducts.length > 0 ? (
-              <div className="grid grid-cols-2 gap-4">
-                {bagFeatureProducts.slice(0, 2).map((product, idx) => (
-                  <div key={product.id} className={`reveal reveal-up ${idx ? 'reveal-delay-2' : 'reveal-delay-1'}`}>
-                    <ProductCard product={product} />
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="reveal reveal-up rounded-2xl border border-dashed border-white/30 p-6 text-center text-sm text-white/70">
-                Bag products coming soon.
-              </div>
-            )}
-          </div>
-
-          <div className="hidden lg:grid gap-4 lg:gap-x-4 lg:gap-y-2 lg:grid-cols-4 lg:[grid-template-rows:repeat(4,_minmax(0,_1fr))]">
-            <div className="reveal reveal-left rounded-3xl overflow-hidden shadow-[0_25px_70px_rgba(10,10,10,0.2)] h-full min-h-[260px] lg:col-span-2 lg:row-span-3">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                poster="/images/birdiez%20shop.png"
-                className="w-full h-full object-cover"
-              >
-                <source src="/images/golfbagbold.mp4" type="video/mp4" />
-              </video>
-            </div>
-
-            {highlightProduct && (
-              <div className="reveal reveal-right lg:col-span-2 lg:row-span-2 lg:col-start-3 lg:row-start-3">
-                <ProductCard product={highlightProduct} />
-              </div>
-            )}
-
-            {secondaryProducts.map((product, idx) => (
-              <div
-                key={product.id}
-                className={`reveal reveal-up ${idx === 1 ? 'reveal-delay-1' : ''} ${idx === 2 ? 'reveal-delay-2' : ''} ${idx === 3 ? 'reveal-delay-3' : ''} ${secondaryPositionClasses[idx] ?? ''}`}
-              >
-                <ProductCard product={product} />
-              </div>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {serviceHighlights.map(service => (
+              <article key={service.title} className="bg-white rounded-3xl p-6 shadow-[0_15px_45px_rgba(34,34,34,0.12)] border border-[#E3E3E0] reveal reveal-up">
+                <service.icon className="h-8 w-8 text-[var(--accent)]" />
+                <h3 className="text-2xl font-black mb-3 mt-3 leading-tight">{service.title}</h3>
+                <p className="text-sm text-[#4A4A44] leading-relaxed">{service.description}</p>
+              </article>
             ))}
-
-            {bagFeatureProducts.slice(0, 2).map((product, idx) => (
-              <div
-                key={product.id}
-                className={`reveal reveal-up ${idx ? 'reveal-delay-2' : 'reveal-delay-1'} ${bagPositionClasses[idx] ?? ''}`}
-              >
-                <ProductCard product={product} />
-              </div>
-            ))}
-
-            {bagFeatureProducts.length === 0 && (
-              <div className="reveal reveal-up lg:col-span-2 lg:row-start-4 rounded-2xl border border-dashed border-white/30 p-6 text-center text-sm text-white/70">
-                Bag products coming soon.
-              </div>
-            )}
           </div>
         </div>
       </section>
 
-      <section id="lifestyle" className="section-anchor section-smoke py-24">
-        <div className="mx-auto max-w-6xl lg:max-w-7xl px-6 lg:px-8 grid gap-12 lg:grid-cols-[0.95fr_1.05fr] items-center">
-          <div className="space-y-6 text-lg leading-relaxed">
-            <p className="text-sm uppercase tracking-[0.3em] text-[var(--accent)] reveal reveal-down">
-              Lifestyle
-            </p>
-            <h2 className="section-title reveal reveal-up reveal-delay-1">
-              PLAY HARD.
-              <br />
-              DRESS SHARP.
-            </h2>
-            <p className="script-accent reveal reveal-up reveal-delay-2">
-              Performance matters. So does presence.
-            </p>
-            <p className="reveal reveal-up reveal-delay-3">
-              Birdiez is built for golfers who care how they show up — on the range, on the course, and anywhere the day takes them. Our pieces move effortlessly from early practice sessions to city nights.
-            </p>
-            <p className="reveal reveal-up reveal-delay-4">
-              Rooted in Chiang Mai’s welcoming golf community, we’re here for the conversations between shots, the new friendships, and the shared love of the game.
-            </p>
-            <p className="reveal reveal-up reveal-delay-5">
-              Wear it to play. Wear it anywhere.
-            </p>
+      <section id="exclusive" className="section-anchor w-full bg-[#11110f]">
+        <div className="grid lg:grid-cols-[1.05fr_0.95fr] min-h-[720px]">
+          <div className="px-6 lg:px-20 py-20 text-white flex flex-col gap-10 justify-center">
+            <div className="space-y-4 max-w-2xl">
+              <SectionHeader
+                label="Golf Simulators"
+                title="INDOOR TRACKMAN SUITES"
+                subtitle="Enjoy indoor simulator golf with the TRACKMAN iO system 🧡"
+                align="left"
+              />
+              <p className="text-base text-white/85">
+                Three private rooms stay icy-cool in the Chiang Mai heat and support TrackMan combines, league nights, or quick rainy-day sessions.
+                Choose the bay that matches your group energy and data needs.
+              </p>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2">
+              {[roomOne, roomTwo].map(room => (
+                <article key={room?.name} className="bg-white/10 border border-white/10 rounded-2xl p-5 text-white/90 space-y-3">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="text-xl font-black">{room?.name}</h3>
+                      <p className="text-[11px] uppercase tracking-[0.35em]">{room?.capacity}</p>
+                    </div>
+                    <span className="text-2xl font-black text-[var(--accent)]">{room?.price}</span>
+                  </div>
+                  <p className="text-sm text-white/70">{room?.note}</p>
+                </article>
+              ))}
+              {performanceBay && (
+                <article className="md:col-span-2 bg-white/15 border border-white/20 rounded-3xl p-6 text-white space-y-4 shadow-[0_15px_45px_rgba(0,0,0,0.35)]">
+                  <div className="flex items-start justify-between gap-6">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.45em] text-[var(--accent)]">Performance Bay</p>
+                      <h3 className="text-3xl font-black mt-1">{performanceBay.name}</h3>
+                      <p className="text-[12px] uppercase tracking-[0.35em] text-white/70">{performanceBay.capacity}</p>
+                    </div>
+                    <span className="text-3xl font-black text-[var(--accent)]">{performanceBay.price}</span>
+                  </div>
+                  <p className="text-base text-white/80">{performanceBay.note}</p>
+                  <div className="flex flex-wrap gap-2 text-xs text-white/65">
+                    <span className="px-3 py-1 rounded-full border border-white/20">Impact Vision</span>
+                    <span className="px-3 py-1 rounded-full border border-white/20">Putting Mode</span>
+                    <span className="px-3 py-1 rounded-full border border-white/20">Concierge Setup</span>
+                  </div>
+                </article>
+              )}
+            </div>
+
+            <div className="flex flex-wrap items-center gap-4">
+              <Link href="/shop#trackman" className="accent-bg px-6 py-3 rounded-xl font-bold text-sm">
+                Book a simulator
+              </Link>
+              <Link href="mailto:msportcomplex@gmail.com" className="font-semibold underline-offset-4 underline text-sm">
+                Ask about custom events
+              </Link>
+            </div>
+
+            <div className="flex flex-wrap gap-4 text-sm text-white/80">
+              <div className="border border-white/20 rounded-2xl px-5 py-4">
+                <p className="text-[11px] uppercase tracking-[0.35em] text-[var(--accent)]">Sessions</p>
+                <p className="text-lg font-semibold">Daily · 10:00 AM – Midnight</p>
+              </div>
+              <div className="border border-white/20 rounded-2xl px-5 py-4">
+                <p className="text-[11px] uppercase tracking-[0.35em] text-[var(--accent)]">Service</p>
+                <p className="text-lg font-semibold">Food & drinks to every bay</p>
+              </div>
+              <div className="border border-white/20 rounded-2xl px-5 py-4">
+                <p className="text-[11px] uppercase tracking-[0.35em] text-[var(--accent)]">Technology</p>
+                <p className="text-lg font-semibold">TrackMan iO concierge</p>
+              </div>
+            </div>
           </div>
 
-          <div className="rounded-3xl shadow-[0_25px_70px_rgba(10,10,10,0.25)] bg-[#EFE9DC]/10 p-3 reveal reveal-right reveal-delay-6">
-            <div className="relative rounded-2xl overflow-hidden min-h-[320px] sm:min-h-[420px] lg:h-[520px] group">
-              <Image
-                src="/images/birdiez%20shop.png"
-                alt="Inside the Birdiez shop"
-                width={720}
-                height={520}
-                className="w-full h-full object-contain sm:object-cover"
-                priority
-              />
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 hidden sm:block group-hover:opacity-100"
-              >
-                <source src="/images/birdiezshop.webm" type="video/webm" />
-              </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent mix-blend-multiply pointer-events-none" />
+          <div className="relative min-h-[520px] lg:min-h-[760px]">
+            <Image src="/images/simroom.png" alt="Msport TrackMan suite" fill className="object-cover" priority={false} />
+            <div className="absolute inset-0 bg-gradient-to-l from-black/65 via-transparent to-transparent" />
+          </div>
+        </div>
+      </section>
+
+      <section id="academy" className="section-anchor relative overflow-hidden py-24 w-full">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/images/Msport.webm"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/images/swing driver.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-white/35 backdrop-blur-sm" />
+
+        <div className="relative mx-auto w-full max-w-6xl px-6 lg:px-8">
+          <SectionHeader
+            label="M Sport Golf Academy (MGA)"
+            title="M SPORT ACADEMY"
+            subtitle="Thailand PGA coaches for every level"
+            subtitleClassName="subtitle-accent text-white/80"
+          />
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            {academyPrograms.map(program => (
+              <article key={program.name} className="bg-white/95 backdrop-blur rounded-3xl p-6 shadow-[0_25px_70px_rgba(0,0,0,0.45)] border border-white/20 reveal reveal-up">
+                <GraduationCap className="h-8 w-8 text-[var(--accent)]" />
+                <p className="text-xs uppercase tracking-[0.35em] text-[var(--accent)] mt-3">{program.duration}</p>
+                <h3 className="text-2xl font-black mt-2">{program.name}</h3>
+                <p className="text-sm font-semibold mt-1 text-[#4A4A44]">{program.schedule}</p>
+                <ul className="mt-4 space-y-2 text-sm text-[#4A4A44]">
+                  {program.notes.map(note => (
+                    <li key={note} className="flex items-start gap-2">
+                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
+                      <span>{note}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="membership" className="section-anchor section-matcha py-24 w-full">
+        <div className="mx-auto w-full max-w-6xl px-6 lg:px-8 space-y-12">
+          <SectionHeader
+            label="Range Pricing"
+            title="BALL RATES"
+            subtitle="Choose between standard trays or pre-paid packages for old and new balls."
+          />
+
+          <div className="relative overflow-hidden rounded-[32px] border border-[#E3E3E0] shadow-[0_25px_70px_rgba(34,34,34,0.12)]">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              poster="/images/ballsmsport.mp4"
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src="/images/ballsmsport.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#1B1B1A]/80 via-[#1B1B1A]/45 to-transparent" />
+            <div className="relative z-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] items-start p-8 lg:p-12 text-white">
+              <div className="space-y-4">
+                <p className="section-label text-white/80">Live from the trays</p>
+                <h3 className="text-3xl lg:text-4xl font-black leading-tight">Old + new ball options filmed at Msport</h3>
+                <p className="text-sm lg:text-base text-white/80">
+                  Watch the Msport team rotate stock, wash, and prep every bucket. Choose the rate that keeps your practice or data sessions on pace.
+                </p>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {ballRates.standard.map(rate => (
+                    <article key={rate.type} className="bg-white/10 rounded-2xl border border-white/10 p-4">
+                      <p className="text-[10px] uppercase tracking-[0.4em] text-[var(--accent)]">{rate.badge}</p>
+                      <h4 className="text-xl font-black mt-1">{rate.type}</h4>
+                      <p className="text-2xl font-semibold mt-1">{rate.price}</p>
+                      <p className="text-xs text-white/75 mt-2">{rate.note}</p>
+                    </article>
+                  ))}
+                </div>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-3xl p-6 border border-white/15 space-y-5">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.35em] text-[var(--accent)]">Old balls membership</p>
+                  <ul className="mt-3 space-y-2 text-sm">
+                    {ballRates.memberships.old.map(pkg => (
+                      <li key={pkg.package} className="flex items-center justify-between gap-4">
+                        <span className="font-semibold">{pkg.package}</span>
+                        <span className="text-[var(--accent)] font-bold">{pkg.rate}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.35em] text-[var(--accent)]/80">New balls membership</p>
+                  <ul className="mt-3 space-y-2 text-sm">
+                    {ballRates.memberships.fresh.map(pkg => (
+                      <li key={pkg.package} className="flex items-center justify-between gap-4 text-white">
+                        <span className="font-semibold">{pkg.package}</span>
+                        <span className="text-[var(--accent)] font-bold">{pkg.rate}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <Link href="mailto:msportcomplex@gmail.com" className="inline-flex items-center justify-center accent-bg px-6 py-3 rounded-xl font-bold w-full text-center">
+                  Reserve trays
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="app-teaser" className="section-anchor section-matcha py-20 border-t border-[#706C61]/10">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 grid gap-12 lg:grid-cols-2 items-center">
-          <div className="rounded-3xl shadow-[0_25px_70px_rgba(34,34,34,0.15)] bg-white/50 p-3 reveal reveal-left flex-shrink-0">
-            <div className="relative group rounded-2xl overflow-hidden w-full max-w-[600px] mx-auto">
-              <Image
-                src="/images/birdiez%20app%20.png"
-                alt="Birdiez app preview"
-                width={800}
-                height={600}
-                className="w-full h-auto object-contain"
-                priority
-              />
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              >
-                <source src="/images/birdiez%20app%20.webm" type="video/webm" />
-              </video>
-            </div>
+      <section id="news" className="section-anchor section-cream py-24 w-full">
+        <div className="mx-auto w-full max-w-6xl px-6 lg:px-8 space-y-12">
+          <SectionHeader
+            label="Updates & Stories"
+            title="NEWS & EVENTS"
+            subtitle="Announcements, public relations, and happenings from Msport Driving Range."
+          />
+
+          <div className="grid gap-8 lg:grid-cols-3">
+            {newsItems.map((item, idx) => (
+              <article key={item.title} className="bg-white rounded-[28px] overflow-hidden shadow-[0_25px_70px_rgba(34,34,34,0.12)] border border-[#E3E3E0] flex flex-col reveal reveal-up">
+                <div className="relative h-48">
+                  <Image
+                    src={`https://images.unsplash.com/photo-15${idx + 1}03431${idx + 1}209-a25ddb2bd4${idx + 1}?auto=format&w=1200&q=80`}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                    <p className="text-[11px] uppercase tracking-[0.4em] text-[var(--accent)]">{item.badge}</p>
+                    <h3 className="text-xl font-black mt-1">{item.title}</h3>
+                  </div>
+                </div>
+                <div className="p-6 flex flex-col gap-4 text-[#4A4A44] flex-1">
+                  <p className="text-sm leading-relaxed">{item.description}</p>
+                  <div className="mt-auto">
+                    <Link href="https://www.facebook.com/MSportDrivingRange" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 font-semibold text-[var(--accent)]">
+                      Read update <span aria-hidden="true">→</span>
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
-          <div className="reveal reveal-right">
+        </div>
+      </section>
+
+      <section id="expansion" className="section-anchor section-smoke py-24 w-full">
+        <div className="mx-auto w-full max-w-6xl px-6 lg:px-8 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
+          <div className="space-y-6 text-white">
             <SectionHeader
-              label="Community"
-              title="Download the App"
-              subtitle="Find players. Track scores."
+              label="Second Facility"
+              title="EXPANSION"
+              subtitle="Msport is adding another driving range to Northern Thailand"
               align="left"
+              subtitleClassName="subtitle-accent text-white/70"
+              animated={false}
             />
-            <div className="space-y-4 text-lg leading-relaxed">
-              <p className="reveal reveal-up reveal-delay-3">
-                Build your Chiang Mai golf circle with challenges, events, and up-to-date course intel. Our app makes discovering new partners and tracking your rounds effortless.
-              </p>
-              <p className="reveal reveal-up reveal-delay-4">
-                Whether you're coordinating range meetups or planning weekend tournaments, Birdiez keeps every golfer in sync with real-time updates and shared scorecards.
-              </p>
-              <p className="reveal reveal-up reveal-delay-5">
-                From new friendships to competitive leaderboards, the community lives right inside the app—wear Birdiez, then tap in.
-              </p>
-            </div>
+            <p className="text-lg text-white/85">
+              We are finalizing a new Msport Driving Range facility to double bay capacity, offer more TrackMan suites, and bring our service
+              model to another side of Chiang Mai. Construction is underway with opening details to be announced soon.
+            </p>
+            <ul className="space-y-3 text-sm font-semibold text-white">
+              <li className="flex items-start gap-3">
+                <span className="mt-1 h-2 w-2 rounded-full bg-[var(--accent)]" />
+                72 additional bays with familiar Msport layouts
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1 h-2 w-2 rounded-full bg-[var(--accent)]" />
+                Expanded academy studios and performance labs
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1 h-2 w-2 rounded-full bg-[var(--accent)]" />
+                Community pavilion for events and league nights
+              </li>
+            </ul>
+          </div>
+          <div className="bg-white rounded-3xl p-8 shadow-[0_25px_70px_rgba(34,34,34,0.12)] border border-[#E3E3E0] space-y-4">
+            <p className="subtitle-accent">Register for updates</p>
+            <h3 className="text-3xl font-black">Msport Range No. 2</h3>
+            <p className="text-sm text-[#4A4A44]">
+              Join our mailing list to be first to tour the new facility, lock in founding memberships, and reserve TrackMan suites during the
+              preview week.
+            </p>
+            <Link href="mailto:msportcomplex@gmail.com" className="inline-flex items-center justify-center accent-bg px-6 py-3 rounded-xl font-bold">
+              Notify me when it opens
+            </Link>
+            <div className="image-placeholder mt-4">Expansion Render Placeholder</div>
           </div>
         </div>
       </section>
 
-      <section id="location" className="section-anchor section-cream cream-overlay pt-0 pb-16 lg:pb-0">
+      <section id="contact" className="section-anchor section-cream pt-0 pb-24 lg:pb-12 w-full">
         <div className="reveal reveal-scale">
           <div className="w-full aspect-[24/9] lg:aspect-[24/7] overflow-hidden rounded-none">
             <video
@@ -455,35 +705,71 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 mt-10">
-          <div className="flex flex-col lg:flex-row items-start justify-between gap-8">
-            <div className="flex-1">
+        <div className="mx-auto w-full max-w-6xl px-6 lg:px-8 mt-10 pb-12">
+          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="bg-white rounded-3xl p-8 shadow-[0_25px_70px_rgba(34,34,34,0.15)] space-y-6">
               <SectionHeader
-                label="Location"
-                title={(
-                  <>
-                    VISIT
-                    <br />
-                    THE SHOP
-                  </>
-                )}
-                subtitle="Inside MSport Driving Range."
-                subtitleClassName="text-base md:text-xl font-semibold tracking-tight text-[#706C61]"
+                label="Contact"
+                title="CONNECT WITH MSPORT"
+                subtitle="Bookings, walk-ins, and news updates."
                 align="left"
               />
+              <div className="space-y-4 text-[#4A4A44]">
+                <div className="flex gap-4">
+                  <MapPin className="h-6 w-6 text-[var(--accent)]" />
+                  <div>
+                    {contactDetails.address.map(line => (
+                      <p key={line} className="text-sm font-semibold">
+                        {line}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <PhoneCall className="h-6 w-6 text-[var(--accent)]" />
+                  <div>
+                    <p className="text-sm font-semibold">{contactDetails.phone}</p>
+                    <p className="text-xs opacity-70">Call or Line / WhatsApp concierge</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <Mail className="h-6 w-6 text-[var(--accent)]" />
+                  <div>
+                    <p className="text-sm font-semibold">{contactDetails.email}</p>
+                    <p className="text-xs opacity-70">General inquiries & bookings</p>
+                  </div>
+                </div>
+                <Link
+                  href={contactDetails.facebook}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)]"
+                >
+                  <Facebook className="h-5 w-5" /> M Sport Driving Range on Facebook
+                </Link>
+              </div>
             </div>
 
-            <div className="w-full lg:max-w-sm bg-[#706C61] text-[#EFE9DC] border border-[#706C61]/10 rounded-2xl p-6 space-y-4 text-left shadow-[0_15px_45px_rgba(10,10,10,0.12)]">
-              <div className="reveal reveal-up">
-                <p className="text-xs uppercase tracking-[0.3em] text-[var(--accent)]">Address</p>
-                <p className="font-bold text-xl mt-1">MSport Driving Range</p>
-                <p className="text-sm opacity-80">Chiang Mai, Thailand</p>
+            <div className="bg-[#1B1B1A] text-white rounded-3xl p-8 space-y-6 shadow-[0_25px_70px_rgba(0,0,0,0.4)]">
+              <div className="flex items-center gap-3">
+                <Clock4 className="h-6 w-6 text-[var(--accent)]" />
+                <div>
+                  <p className="text-xs uppercase tracking-[0.3em]">Hours</p>
+                  <p className="font-semibold">{contactDetails.rangeHours}</p>
+                  <p className="text-sm text-white/70">Standard driving range</p>
+                </div>
               </div>
-              <div className="reveal reveal-up reveal-delay-1">
-                <p className="text-xs uppercase tracking-[0.3em] text-[var(--accent)]">Opening Hours</p>
-                <p className="text-sm font-semibold mt-1">Daily • 8:00 AM – 8:00 PM</p>
-                <p className="text-sm opacity-80">Walk-ins welcome · Reserve for fittings</p>
+              <div className="flex items-center gap-3">
+                <Clock4 className="h-6 w-6 text-[var(--accent)]" />
+                <div>
+                  <p className="text-xs uppercase tracking-[0.3em]">Exclusive Room</p>
+                  <p className="font-semibold">{contactDetails.exclusiveHours}</p>
+                  <p className="text-sm text-white/70">VVIP suites + private coaching</p>
+                </div>
               </div>
+              <p className="text-sm text-white/80">
+                Secure parking for 200+ vehicles, traditional Thai massage, spa services, F&B, and M Car Spa keep every visit effortless.
+              </p>
             </div>
           </div>
         </div>

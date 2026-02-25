@@ -21,16 +21,16 @@ export default function Navbar() {
 
   const navLinks: NavLink[] = [
     { href: '/#home', label: 'Home', sectionId: 'home' },
-    { href: '/#about', label: 'About Us', sectionId: 'about' },
-    { href: '/#collections', label: 'Collections', sectionId: 'collections' },
-    { href: '/#featured', label: 'Featured', sectionId: 'featured' },
-    { href: '/#lifestyle', label: 'Lifestyle', sectionId: 'lifestyle' },
-    { href: '/#app-teaser', label: 'Community', sectionId: 'app-teaser' },
+    { href: '/#about', label: 'About', sectionId: 'about' },
+    { href: '/#experiences', label: 'Experiences', sectionId: 'experiences' },
+    { href: '/#facilities', label: 'Facilities', sectionId: 'facilities' },
+    { href: '/#coaching', label: 'Coaching', sectionId: 'coaching' },
+    { href: '/#membership', label: 'Membership', sectionId: 'membership' },
     { href: '/#location', label: 'Visit Us', sectionId: 'location' },
     { href: '/shop', label: 'Shop' }
   ];
 
-  const sectionIds = ['home', 'about', 'collections', 'featured', 'lifestyle', 'app-teaser', 'location'];
+  const sectionIds = ['home', 'about', 'experiences', 'facilities', 'coaching', 'membership', 'location'];
   const MIN_ACTIVE_RATIO = 0.2;
 
   useEffect(() => {
@@ -107,15 +107,15 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 bg-[#EFE9DC] text-[#706C61] border-b border-[#706C61]/10">
+      <nav className="sticky top-0 z-50 bg-[#F7F7F5] text-[#3A3A36] border-b border-[#3A3A36]/10 backdrop-blur">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
-            <Link href="/" className="flex items-center" aria-label="Birdiez Home">
-              <Image 
-                src="/images/LOGO%20TOPNAV.png" 
-                alt="Birdiez" 
-                width={140} 
-                height={40}
+            <Link href="/" className="flex items-center" aria-label="Msport Driving Range Home">
+              <Image
+                src="/images/Msport%20logo.png"
+                alt="Msport Driving Range logo"
+                width={150}
+                height={48}
                 className="h-10 w-auto"
                 priority
               />
@@ -161,10 +161,10 @@ export default function Navbar() {
               </Link>
               
               <Link
-                href="#location"
+                href="/shop"
                 className="hidden md:block accent-bg px-6 py-2.5 rounded-xl font-semibold text-sm hover:scale-105 transition-transform duration-300"
               >
-                Reserve
+                Book a Bay
               </Link>
 
               <button
@@ -206,11 +206,11 @@ export default function Navbar() {
               );
             })}
             <Link
-              href="#location"
+              href="/shop"
               onClick={() => setMobileMenuOpen(false)}
               className="mt-4 accent-bg px-8 py-4 rounded-xl font-bold text-lg"
             >
-              Reserve In Store
+              Book Your Session
             </Link>
           </div>
         </div>

@@ -4,14 +4,18 @@ import { Facebook, Instagram } from 'lucide-react';
 
 const footerNav = {
   shop: [
-    { slug: 'shirts', label: 'Apparel' },
-    { slug: 'headwear', label: 'Headwear' },
-    { slug: 'bags', label: 'Bags' },
-    { slug: 'equipment', label: 'Equipment' },
-    { slug: 'accessories', label: 'Accessories' },
-    { slug: 'secondhand', label: 'Secondhand Finds' }
+    { href: '/shop#trackman', label: 'TrackMan Sim Rooms' },
+    { href: '/shop#coaching', label: 'Pro Coaching' },
+    { href: '/shop#membership', label: 'Membership Card' },
+    { href: '/shop#events', label: 'Corporate Events' },
+    { href: '/shop#practice', label: 'Practice Bundles' },
+    { href: '/shop#gift', label: 'Gift Cards' }
   ],
-  community: [{ href: '#app-teaser', label: 'Join the App' }]
+  community: [
+    { href: '#membership', label: 'Membership' },
+    { href: '#coaching', label: 'Coaching Team' },
+    { href: '/shop#trackman', label: 'Book a Bay' }
+  ]
 };
 
 export default function Footer() {
@@ -20,7 +24,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 lg:px-6 py-7 space-y-4">
         <div className="grid gap-y-5 lg:gap-y-0 lg:gap-x-24 grid-cols-1 lg:grid-cols-[auto_minmax(0,1fr)] items-start text-center lg:text-left">
           <div className="flex flex-col lg:flex-row items-center lg:items-center gap-4 lg:gap-6 shrink-0 max-w-sm mx-auto lg:mx-0">
-            <Image src="/images/LOGO%20White.png" alt="Birdiez white logo" width={200} height={72} className="w-48 h-auto" />
+            <Image src="/images/Msport%20logo.png" alt="Msport Driving Range logo" width={200} height={72} className="w-48 h-auto" />
 
             <div className="space-y-2 text-center lg:text-left">
               <div className="flex justify-center lg:justify-start gap-3">
@@ -43,7 +47,7 @@ export default function Footer() {
                   <Facebook className="h-6 w-6 text-white" />
                 </Link>
               </div>
-              <p className="text-xs font-semibold tracking-wide text-[#EFE9DC]">hello@birdiez.club</p>
+              <p className="text-xs font-semibold tracking-wide text-[#EFE9DC]">hello@msportdrivingrange.com</p>
             </div>
           </div>
 
@@ -59,9 +63,9 @@ export default function Footer() {
 
         <div className="flex flex-col items-center gap-2 border-t border-white/10 pt-3 text-center">
           <p className="script-accent text-[var(--accent)] tracking-wide">
-            Built by players for the community.
+            Practice harder. Have more fun.
           </p>
-          <p className="text-[#EFE9DC]/60">&copy; {new Date().getFullYear()} Birdiez</p>
+          <p className="text-[#EFE9DC]/60">&copy; {new Date().getFullYear()} Msport Driving Range</p>
         </div>
       </div>
     </footer>
@@ -87,9 +91,9 @@ const ShopColumn = ({ centerOnMobile }: ShopColumnProps) => {
         {columns.map((col, colIdx) => (
           <ul key={colIdx} className="space-y-1">
             {col.map(link => (
-              <li key={link.slug}>
+              <li key={link.href}>
                 <Link
-                  href={`/shop?category=${link.slug}`}
+                  href={link.href}
                   className="text-[#EFE9DC]/80 hover:text-white transition-colors"
                 >
                   {link.label}

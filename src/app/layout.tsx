@@ -5,8 +5,8 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-    title: 'Birdiez - Modern Golf Fashion in Chiang Mai',
-    description: 'Premium golf apparel and accessories at MSport Driving Range, Chiang Mai'
+    title: 'Msport Driving Range — Chiang Mai',
+    description: 'Book TrackMan sims, golf coaching, and your Msport membership at Chiang Mai’s flagship driving range.'
 };
 
 const Layout = ({ children }: Readonly<{ children: ReactNode }>) => {

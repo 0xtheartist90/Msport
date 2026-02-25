@@ -12,11 +12,11 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --chalk-cream: #EFE9DC;
-  --olive-smoke: #706C61;
-  --matcha-mist: #C2D8C4;
-  --dusty-coal: #222222;
-  --accent: #FF8200;
+  --chalk-cream: #F7F7F5;
+  --olive-smoke: #3A3A36;
+  --matcha-mist: #E3E3E0;
+  --dusty-coal: #1C1C1A;
+  --accent: #FE0002;
   
   --background: var(--chalk-cream);
   --foreground: var(--olive-smoke);
@@ -64,7 +64,7 @@
   }
 
   body {
-    @apply bg-[#EFE9DC] text-[#706C61] font-sans antialiased overflow-x-hidden overflow-y-auto min-h-screen;
+    @apply bg-[#F7F7F5] text-[#3A3A36] font-sans antialiased overflow-x-hidden overflow-y-auto min-h-screen;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -74,40 +74,19 @@
 
 @layer utilities {
   .section-cream {
-    @apply bg-[#EFE9DC] text-[#706C61];
+    @apply bg-[#F7F7F5] text-[#3A3A36];
   }
   
   .section-smoke {
-    @apply bg-[#706C61] text-[#EFE9DC];
+    @apply bg-[#1B1B1A] text-[#EFE9DC];
   }
   
   .section-matcha {
-    @apply bg-[#C2D8C4] text-[#222222];
+    @apply bg-[#E3E3E0] text-[#1C1C1A];
   }
   
   .section-coal {
     @apply bg-[#222222] text-[#EFE9DC];
-  }
-
-  .cream-overlay {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cream-overlay::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("/images/BG overlay.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.45;
-  }
-
-  .cream-overlay > * {
-    position: relative;
-    z-index: 1;
   }
 
   .section-anchor {
@@ -135,11 +114,11 @@
   }
 
   .reveal-left {
-    --reveal-start: translateX(-64px);
+    --reveal-start: translateX(-20px);
   }
 
   .reveal-right {
-    --reveal-start: translateX(64px);
+    --reveal-start: translateX(20px);
   }
 
   .reveal-scale {
@@ -174,6 +153,29 @@
     transition-delay: 1.2s;
   }
 
+  .pattern-grid {
+    background-image: linear-gradient(90deg, rgba(58,58,54,0.08) 1px, transparent 1px),
+      linear-gradient(rgba(58,58,54,0.08) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-position: center;
+  }
+
+  .accent-pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-[var(--accent)]/40 px-4 py-2 uppercase tracking-[0.35em] text-[0.55rem] text-[var(--accent)];
+  }
+
+  .image-placeholder {
+    @apply relative overflow-hidden rounded-3xl border-2 border-dashed border-[var(--accent)]/40 bg-white/40 text-[var(--accent)] flex items-center justify-center text-xs tracking-[0.35em] font-semibold uppercase min-h-[220px];
+  }
+
+  .image-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(254,0,2,0.08), transparent 65%);
+    mix-blend-mode: multiply;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .reveal,
     .reveal.reveal-visible {
@@ -197,7 +199,7 @@
   }
   
   .section-title {
-    @apply font-extrabold uppercase tracking-tight leading-tight text-3xl md:text-5xl;
+    @apply font-black uppercase leading-[1] tracking-[-0.04em] text-[clamp(2.5rem,6vw,4.5rem)];
   }
   
   .serif-subtext {
@@ -205,12 +207,22 @@
   }
 
   .script-accent {
-    font-family: 'Valentine Delight Script', cursive;
-    font-size: clamp(1.7rem, 4.8vw, 3.25rem);
-    letter-spacing: 0.04em;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-weight: 500;
+    font-size: clamp(0.72rem, 0.9vw, 0.9rem);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
     white-space: normal;
-    display: block;
+    display: inline-block;
     color: var(--accent);
+  }
+
+  .subtitle-accent {
+    @apply text-[0.625rem] md:text-[0.7rem] font-semibold uppercase tracking-[0.15em] text-[var(--accent)];
+  }
+
+  .section-label {
+    @apply text-[0.55rem] md:text-[0.65rem] font-semibold uppercase tracking-[0.4em] text-[var(--accent)];
   }
 
   .hero-subtitle {
@@ -223,7 +235,7 @@
 
   @media (min-width: 640px) {
     .script-accent {
-      font-size: clamp(1.15rem, 3.2vw, 2.35rem);
+      font-size: clamp(1.2rem, 2.6vw, 2.1rem);
       white-space: nowrap;
       display: inline-block;
     }

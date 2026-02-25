@@ -1,203 +1,121 @@
 'use client';
 
-import { Suspense, useState, useEffect, useMemo } from 'react';
-import { useSearchParams } from 'next/navigation';
-import ProductCard from '@/components/ProductCard';
-import { products } from '@/lib/products';
-import { X } from 'lucide-react';
+import { Suspense } from 'react';
+import Link from 'next/link';
 
-function ShopContent() {
-  const searchParams = useSearchParams();
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 20000]);
-  const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+const bookingCards = [
+  {
+    id: 'trackman',
+    title: 'TrackMan Sim Rooms',
+    description: 'Reserve private bays with wall-to-wall TrackMan 4 data, playlist control, and concierge service.',
+    duration: '60 or 90 min slots',
+    price: 'Starting ฿1,200 / hr'
+  },
+  {
+    id: 'coaching',
+    title: 'Golf Coaching',
+    description: 'One-on-one sessions with Chiang Mai’s top coaches. Includes TrackMan reports and video notes.',
+    duration: '45 / 60 / 90 min',
+    price: 'From ฿1,900'
+  },
+  {
+    id: 'membership',
+    title: 'Msport Membership Card',
+    description: 'Unlock priority bookings, TrackMan hours, events, and concierge perks tailored to your goals.',
+    duration: 'Seasonal access',
+    price: 'From ฿8,900 / season'
+  }
+];
 
-  useEffect(() => {
-    const category = searchParams.get('category');
-    if (category) {
-      setSelectedCategory(category);
-    }
-  }, [searchParams]);
+const addOns = [
+  {
+    id: 'events',
+    title: 'Corporate Events & Leagues',
+    description: 'Dedicated hosts, live leaderboards, and F&B partners for 10–80 guests.',
+    price: 'Custom packages'
+  },
+  {
+    id: 'practice',
+    title: 'Practice Bundles',
+    description: 'Prepaid TrackMan and range credits with concierge scheduling.',
+    price: 'Save up to 15%'
+  },
+  {
+    id: 'gift',
+    title: 'Gift Cards',
+    description: 'Digital or physical cards for TrackMan sessions, coaching, or merch.',
+    price: 'Any amount'
+  }
+];
 
-  const categories = [
-    { value: 'all', label: 'All Products' },
-    { value: 'shirts', label: 'Apparel' },
-    { value: 'headwear', label: 'Headwear' },
-    { value: 'bags', label: 'Bags' },
-    { value: 'equipment', label: 'Equipment' },
-    { value: 'accessories', label: 'Accessories' },
-    { value: 'secondhand', label: 'Secondhand Finds' }
-  ];
-
-  const sizes = ['S', 'M', 'L', 'XL'];
-
-  const uniqueProducts = useMemo(() => {
-    const seenImages = new Set<string>();
-
-    return products.filter(product => {
-      if (product.id.startsWith('gen-')) {
-        return false;
-      }
-      const primaryImage = product.images?.[0];
-      if (!primaryImage) {
-        return false;
-      }
-      if (seenImages.has(primaryImage)) {
-        return false;
-      }
-      seenImages.add(primaryImage);
-
-      return true;
-    });
-  }, []);
-
-  const filteredProducts = uniqueProducts.filter(product => {
-    const categoryMatch = selectedCategory === 'all' || product.category === selectedCategory;
-    const priceMatch = product.price >= priceRange[0] && product.price <= priceRange[1];
-    const sizeMatch = selectedSizes.length === 0 || 
-      (product.sizes && product.sizes.some(size => selectedSizes.includes(size)));
-    
-    return categoryMatch && priceMatch && sizeMatch;
-  });
-
-  const toggleSize = (size: string) => {
-    setSelectedSizes(prev =>
-      prev.includes(size) ? prev.filter(s => s !== size) : [...prev, size]
-    );
-  };
-
-  const FilterSidebar = () => (
-    <div className="space-y-8">
-      <div>
-        <h3 className="font-bold text-lg mb-4">Categories</h3>
-        <div className="space-y-2">
-          {categories.map(cat => (
-            <button
-              key={cat.value}
-              onClick={() => setSelectedCategory(cat.value)}
-              className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
-                selectedCategory === cat.value
-                  ? 'accent-bg font-semibold'
-                  : 'hover:bg-[#706C61]/10'
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <h3 className="font-bold text-lg mb-4">Price Range</h3>
-        <div className="space-y-4">
-          <input
-            type="range"
-            min="0"
-            max="20000"
-            step="100"
-            value={priceRange[1]}
-            onChange={(e) => setPriceRange([0, parseInt(e.target.value)])}
-            className="w-full"
-          />
-          <p className="text-sm">Up to ฿{priceRange[1].toLocaleString()}</p>
-        </div>
-      </div>
-
-      <div>
-        <h3 className="font-bold text-lg mb-4">Size</h3>
-        <div className="grid grid-cols-2 gap-2">
-          {sizes.map(size => (
-            <button
-              key={size}
-              onClick={() => toggleSize(size)}
-              className={`px-4 py-2 rounded-lg border-2 transition-all ${
-                selectedSizes.includes(size)
-                  ? 'accent-bg accent-border font-semibold'
-                  : 'border-[#706C61]/20 hover:border-[#706C61]'
-              }`}
-            >
-              {size}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <button
-        onClick={() => {
-          setSelectedCategory('all');
-          setPriceRange([0, 20000]);
-          setSelectedSizes([]);
-        }}
-        className="w-full px-4 py-2 border border-[#706C61]/30 rounded-lg hover:bg-[#706C61]/10 transition-colors"
-      >
-        Clear Filters
-      </button>
-    </div>
-  );
-
+function BookingPage() {
   return (
-    <main className="section-cream min-h-screen py-12">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h1 className="section-title mb-4">THE SHOP</h1>
-          <p className="serif-subtext">Lifestyle golf essentials.</p>
-        </div>
+    <main className="section-cream min-h-screen py-16">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8 space-y-16">
+        <header className="text-center space-y-4">
+          <p className="text-sm uppercase tracking-[0.35em] text-[var(--accent)]">Msport Shop</p>
+          <h1 className="text-4xl md:text-6xl font-black tracking-tight">Book Your Time on the Range</h1>
+          <p className="serif-subtext">Select a TrackMan bay, lock in a coach, or activate your membership.</p>
+        </header>
 
-        <div className="lg:grid lg:grid-cols-[300px_1fr] lg:gap-12">
-          <aside className="hidden lg:block">
-            <FilterSidebar />
-          </aside>
-
-          <div className="lg:hidden mb-6">
-            <button
-              onClick={() => setMobileFiltersOpen(true)}
-              className="w-full accent-bg px-6 py-3 rounded-xl font-semibold"
-            >
-              Filters ({filteredProducts.length} products)
-            </button>
-          </div>
-
-          {mobileFiltersOpen && (
-            <div className="fixed inset-0 z-50 bg-[#EFE9DC] p-6 overflow-y-auto lg:hidden">
-              <div className="flex justify-between items-center mb-8">
-                <h2 className="text-2xl font-bold">Filters</h2>
-                <button onClick={() => setMobileFiltersOpen(false)}>
-                  <X className="h-6 w-6" />
-                </button>
+        <section className="grid gap-8 lg:grid-cols-3">
+          {bookingCards.map(card => (
+            <article key={card.id} id={card.id} className="bg-white rounded-3xl overflow-hidden shadow-[0_25px_70px_rgba(34,34,34,0.15)] flex flex-col">
+              <div className="h-48 bg-gradient-to-br from-[#1B1B1A] to-[var(--accent)]/70" />
+              <div className="p-6 flex flex-col gap-4 flex-1">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.35em] text-[var(--accent)]">{card.duration}</p>
+                  <h2 className="text-2xl font-black mt-2">{card.title}</h2>
+                  <p className="text-sm text-[#4A4A44] mt-2 leading-relaxed">{card.description}</p>
+                </div>
+                <div className="mt-auto">
+                  <p className="text-sm font-semibold text-[#4A4A44]">{card.price}</p>
+                  <Link
+                    href={`mailto:hello@msportdrivingrange.com?subject=${encodeURIComponent(card.title + ' Booking')}`}
+                    className="mt-3 inline-flex items-center justify-center w-full accent-bg py-3 rounded-xl font-bold"
+                  >
+                    Reserve now
+                  </Link>
+                </div>
               </div>
-              <FilterSidebar />
-            </div>
-          )}
+            </article>
+          ))}
+        </section>
 
-          <div>
-            <div className="mb-6 text-sm opacity-70">
-              Showing {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''}
+        <section className="bg-[#1B1B1A] text-white rounded-3xl p-8 space-y-8">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <p className="text-xs uppercase tracking-[0.35em] text-[var(--accent)]">Need extras?</p>
+              <h3 className="text-3xl font-black">Concierge add-ons</h3>
             </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProducts.map(product => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
-
-            {filteredProducts.length === 0 && (
-              <div className="text-center py-16">
-                <p className="text-xl opacity-60">No products found matching your filters.</p>
-                <button
-                  onClick={() => {
-                    setSelectedCategory('all');
-                    setPriceRange([0, 20000]);
-                    setSelectedSizes([]);
-                  }}
-                  className="mt-4 accent-bg px-6 py-3 rounded-xl font-semibold"
-                >
-                  Clear All Filters
-                </button>
-              </div>
-            )}
+            <Link href="mailto:hello@msportdrivingrange.com" className="px-6 py-3 rounded-xl font-semibold bg-white text-[#1B1B1A]">
+              Plan with us
+            </Link>
           </div>
-        </div>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {addOns.map(addOn => (
+              <div key={addOn.id} className="bg-white/10 rounded-2xl p-6">
+                <h4 className="text-xl font-bold">{addOn.title}</h4>
+                <p className="text-sm text-white/80 mt-2 leading-relaxed">{addOn.description}</p>
+                <p className="text-sm font-semibold mt-4 text-white">{addOn.price}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="text-center space-y-4">
+          <p className="text-sm uppercase tracking-[0.35em] text-[var(--accent)]">Still browsing?</p>
+          <h3 className="text-3xl font-black">Visit the range store in Chiang Mai</h3>
+          <p className="text-[#4A4A44]">Walk-ins welcome 8:00 AM – 8:00 PM daily. Members and bookings receive priority lanes.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="mailto:hello@msportdrivingrange.com" className="accent-bg px-8 py-3 rounded-xl font-bold">
+              Email concierge
+            </Link>
+            <Link href="/" className="border border-[#706C61] px-8 py-3 rounded-xl font-semibold">
+              Back to home
+            </Link>
+          </div>
+        </section>
       </div>
     </main>
   );
@@ -205,8 +123,8 @@ function ShopContent() {
 
 export default function ShopPage() {
   return (
-    <Suspense fallback={<div className="section-cream min-h-screen flex items-center justify-center">Loading shop...</div>}>
-      <ShopContent />
+    <Suspense fallback={<div className="section-cream min-h-screen flex items-center justify-center">Loading…</div>}>
+      <BookingPage />
     </Suspense>
   );
 }
