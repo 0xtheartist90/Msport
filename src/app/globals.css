@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Valentine Delight Script';
+  src: url('/Fonts/Valentine%20Delight.otf') format('opentype');
+  font-display: swap;
+}
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --chalk-cream: #EFE9DC;
+  --olive-smoke: #706C61;
+  --matcha-mist: #C2D8C4;
+  --dusty-coal: #222222;
+  --accent: #FF8200;
+  
+  --background: var(--chalk-cream);
+  --foreground: var(--olive-smoke);
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Valentine Delight Script', cursive;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply outline-none;
+  }
+  html {
+    @apply h-full;
+  }
+
+  body {
+    @apply bg-[#EFE9DC] text-[#706C61] font-sans antialiased overflow-x-hidden overflow-y-auto min-h-screen;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .section-cream {
+    @apply bg-[#EFE9DC] text-[#706C61];
+  }
+  
+  .section-smoke {
+    @apply bg-[#706C61] text-[#EFE9DC];
+  }
+  
+  .section-matcha {
+    @apply bg-[#C2D8C4] text-[#222222];
+  }
+  
+  .section-coal {
+    @apply bg-[#222222] text-[#EFE9DC];
+  }
+
+  .cream-overlay {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cream-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("/images/BG overlay.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.45;
+  }
+
+  .cream-overlay > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-anchor {
+    scroll-margin-top: 7rem;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: var(--reveal-start, translateY(48px));
+    transition: opacity 1.85s cubic-bezier(0.16, 1, 0.3, 1), transform 1.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+
+  .reveal.reveal-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal-up {
+    --reveal-start: translateY(48px);
+  }
+
+  .reveal-down {
+    --reveal-start: translateY(-48px);
+  }
+
+  .reveal-left {
+    --reveal-start: translateX(-64px);
+  }
+
+  .reveal-right {
+    --reveal-start: translateX(64px);
+  }
+
+  .reveal-scale {
+    --reveal-start: scale(0.94);
+  }
+
+  .reveal-delay-1 {
+    transition-delay: 0.18s;
+  }
+
+  .reveal-delay-2 {
+    transition-delay: 0.36s;
+  }
+
+  .reveal-delay-3 {
+    transition-delay: 0.54s;
+  }
+
+  .reveal-delay-4 {
+    transition-delay: 0.72s;
+  }
+
+  .reveal-delay-5 {
+    transition-delay: 0.9s;
+  }
+
+  .reveal-delay-6 {
+    transition-delay: 1.08s;
+  }
+
+  .reveal-late {
+    transition-delay: 1.2s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal.reveal-visible {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  .accent-bg {
+    background-color: var(--accent);
+    color: #EFE9DC;
+  }
+
+  .accent-border {
+    border-color: var(--accent);
+  }
+
+  .hero-title {
+    @apply font-black uppercase tracking-tight leading-[0.9] text-7xl md:text-8xl lg:text-9xl;
+  }
+  
+  .section-title {
+    @apply font-extrabold uppercase tracking-tight leading-tight text-3xl md:text-5xl;
+  }
+  
+  .serif-subtext {
+    @apply font-serif italic text-lg md:text-xl opacity-90;
+  }
+
+  .script-accent {
+    font-family: 'Valentine Delight Script', cursive;
+    font-size: clamp(1.7rem, 4.8vw, 3.25rem);
+    letter-spacing: 0.04em;
+    white-space: normal;
+    display: block;
+    color: var(--accent);
+  }
+
+  .hero-subtitle {
+    font-size: 9vw;
+    line-height: 1;
+    white-space: normal;
+    letter-spacing: 0.05em;
+    display: block;
+  }
+
+  @media (min-width: 640px) {
+    .script-accent {
+      font-size: clamp(1.15rem, 3.2vw, 2.35rem);
+      white-space: nowrap;
+      display: inline-block;
+    }
+
+    .hero-subtitle {
+      font-size: 3rem;
+      white-space: nowrap;
+    }
+  }
+}
