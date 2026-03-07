@@ -11,35 +11,48 @@ export interface CartItem {
   selectedColor?: string;
 }
 
+export interface CartLineIdentifier {
+  productId: string;
+  selectedSize?: string;
+  selectedColor?: string;
+}
+
 interface CartStore {
   items: CartItem[];
   addItem: (product: Product, size?: string, color?: string) => void;
-  removeItem: (productId: string) => void;
-  updateQuantity: (productId: string, quantity: number) => void;
+  removeItem: (identifier: CartLineIdentifier) => void;
+  updateQuantity: (identifier: CartLineIdentifier, quantity: number) => void;
   clearCart: () => void;
   getTotalItems: () => number;
   getTotalPrice: () => number;
 }
 
+const isSameCartLine = (
+  item: CartItem,
+  { productId, selectedSize, selectedColor }: CartLineIdentifier
+) =>
+  item.product.id === productId &&
+  item.selectedSize === selectedSize &&
+  item.selectedColor === selectedColor;
+
 export const useCart = create<CartStore>()(
   persist(
     (set, get) => ({
       items: [],
-      
+
       addItem: (product, size, color) => {
         const items = get().items;
-        const existingItem = items.find(
-          item => item.product.id === product.id && 
-                  item.selectedSize === size && 
-                  item.selectedColor === color
-        );
-        
+        const identifier = {
+          productId: product.id,
+          selectedSize: size,
+          selectedColor: color
+        };
+        const existingItem = items.find(item => isSameCartLine(item, identifier));
+
         if (existingItem) {
           set({
             items: items.map(item =>
-              item.product.id === product.id && 
-              item.selectedSize === size && 
-              item.selectedColor === color
+              isSameCartLine(item, identifier)
                 ? { ...item, quantity: item.quantity + 1 }
                 : item
             )
@@ -50,31 +63,31 @@ export const useCart = create<CartStore>()(
           });
         }
       },
-      
-      removeItem: (productId) => {
-        set({ items: get().items.filter(item => item.product.id !== productId) });
+
+      removeItem: (identifier) => {
+        set({ items: get().items.filter(item => !isSameCartLine(item, identifier)) });
       },
-      
-      updateQuantity: (productId, quantity) => {
+
+      updateQuantity: (identifier, quantity) => {
         if (quantity <= 0) {
-          get().removeItem(productId);
+          get().removeItem(identifier);
         } else {
           set({
             items: get().items.map(item =>
-              item.product.id === productId ? { ...item, quantity } : item
+              isSameCartLine(item, identifier) ? { ...item, quantity } : item
             )
           });
         }
       },
-      
+
       clearCart: () => set({ items: [] }),
-      
+
       getTotalItems: () => {
         return get().items.reduce((total, item) => total + item.quantity, 0);
       },
-      
+
       getTotalPrice: () => {
-        return get().items.reduce((total, item) => total + (item.product.price * item.quantity), 0);
+        return get().items.reduce((total, item) => total + item.product.price * item.quantity, 0);
       }
     }),
     {

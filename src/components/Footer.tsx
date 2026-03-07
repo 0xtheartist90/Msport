@@ -1,115 +1,180 @@
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Facebook, Instagram } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
-const footerNav = {
-  shop: [
-    { href: '/shop#trackman', label: 'TrackMan Sim Rooms' },
-    { href: '/shop#coaching', label: 'Pro Coaching' },
-    { href: '/shop#membership', label: 'Membership Card' },
-    { href: '/shop#events', label: 'Corporate Events' },
-    { href: '/shop#practice', label: 'Practice Bundles' },
-    { href: '/shop#gift', label: 'Gift Cards' }
-  ],
-  community: [
-    { href: '#membership', label: 'Membership' },
-    { href: '#coaching', label: 'Coaching Team' },
-    { href: '/shop#trackman', label: 'Book a Bay' }
-  ]
-};
+const footerCopy = {
+  EN: {
+    tagline: 'Structured practice. Open to all.',
+    contact: 'Contact',
+    experiences: 'Experiences',
+    community: 'Community',
+    copyrightLabel: 'Msport Driving Range',
+    quickLinks: ['About', 'Facilities', 'Locations'],
+    experiencesLinks: [
+      { href: '/driving-range', label: 'Driving Range' },
+      { href: '/simulators', label: 'Simulators' },
+      { href: '/academy', label: 'Academy' },
+      { href: '/facilities', label: 'Facilities' }
+    ],
+    communityLinks: [
+      { href: '/#membership', label: 'Membership' },
+      { href: '/news', label: 'News' },
+      { href: '/locations', label: 'Locations' },
+      { href: 'tel:+66874199199', label: 'Concierge' }
+    ]
+  },
+  TH: {
+    tagline: 'ซ้อมอย่างมีระบบ เปิดรับทุกคน',
+    contact: 'ติดต่อ',
+    experiences: 'ประสบการณ์',
+    community: 'คอมมูนิตี้',
+    copyrightLabel: 'Msport Driving Range',
+    quickLinks: ['เกี่ยวกับ', 'สิ่งอำนวยความสะดวก', 'สาขา'],
+    experiencesLinks: [
+      { href: '/driving-range', label: 'สนามไดร์ฟ' },
+      { href: '/simulators', label: 'ซิมูเลเตอร์' },
+      { href: '/academy', label: 'อะคาเดมี' },
+      { href: '/facilities', label: 'สิ่งอำนวยความสะดวก' }
+    ],
+    communityLinks: [
+      { href: '/#membership', label: 'สมาชิก' },
+      { href: '/news', label: 'ข่าวสาร' },
+      { href: '/locations', label: 'สาขา' },
+      { href: 'tel:+66874199199', label: 'คอนเซียร์จ' }
+    ]
+  },
+  KO: {
+    tagline: '체계적인 연습. 누구나 환영합니다.',
+    contact: '문의',
+    experiences: '경험',
+    community: '커뮤니티',
+    copyrightLabel: 'Msport Driving Range',
+    quickLinks: ['소개', '시설', '지점'],
+    experiencesLinks: [
+      { href: '/driving-range', label: '드라이빙 레인지' },
+      { href: '/simulators', label: '시뮬레이터' },
+      { href: '/academy', label: '아카데미' },
+      { href: '/facilities', label: '시설' }
+    ],
+    communityLinks: [
+      { href: '/#membership', label: '멤버십' },
+      { href: '/news', label: '뉴스' },
+      { href: '/locations', label: '지점' },
+      { href: 'tel:+66874199199', label: '컨시어지' }
+    ]
+  },
+  ZH: {
+    tagline: '系统化练习，欢迎每一位球手。',
+    contact: '联系',
+    experiences: '体验',
+    community: '社区',
+    copyrightLabel: 'Msport Driving Range',
+    quickLinks: ['关于', '设施', '地点'],
+    experiencesLinks: [
+      { href: '/driving-range', label: '练习场' },
+      { href: '/simulators', label: '模拟器' },
+      { href: '/academy', label: '学院' },
+      { href: '/facilities', label: '设施' }
+    ],
+    communityLinks: [
+      { href: '/#membership', label: '会员' },
+      { href: '/news', label: '新闻' },
+      { href: '/locations', label: '地点' },
+      { href: 'tel:+66874199199', label: '礼宾服务' }
+    ]
+  },
+  JA: {
+    tagline: '構造化された練習を、すべてのゴルファーへ。',
+    contact: 'お問い合わせ',
+    experiences: '体験',
+    community: 'コミュニティ',
+    copyrightLabel: 'Msport Driving Range',
+    quickLinks: ['概要', '施設', 'ロケーション'],
+    experiencesLinks: [
+      { href: '/driving-range', label: 'ドライビングレンジ' },
+      { href: '/simulators', label: 'シミュレーター' },
+      { href: '/academy', label: 'アカデミー' },
+      { href: '/facilities', label: '施設' }
+    ],
+    communityLinks: [
+      { href: '/#membership', label: 'メンバーシップ' },
+      { href: '/news', label: 'ニュース' },
+      { href: '/locations', label: 'ロケーション' },
+      { href: 'tel:+66874199199', label: 'コンシェルジュ' }
+    ]
+  }
+} as const;
 
 export default function Footer() {
+  const { language } = useLanguage();
+  const copy = footerCopy[language];
+
   return (
-    <footer className="bg-[#1B1B1A] text-[#EFE9DC] text-xs">
-      <div className="mx-auto max-w-7xl px-4 lg:px-6 py-7 space-y-4">
-        <div className="grid gap-y-5 lg:gap-y-0 lg:gap-x-24 grid-cols-1 lg:grid-cols-[auto_minmax(0,1fr)] items-start text-center lg:text-left">
-          <div className="flex flex-col lg:flex-row items-center lg:items-center gap-4 lg:gap-6 shrink-0 max-w-sm mx-auto lg:mx-0">
-            <Image src="/images/Msport%20logo.png" alt="Msport Driving Range logo" width={200} height={72} className="w-48 h-auto" />
-
-            <div className="space-y-2 text-center lg:text-left">
-              <div className="flex justify-center lg:justify-start gap-3">
-                <Link
-                  href="https://www.instagram.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="p-2.5 rounded-full border border-[var(--accent)] hover:bg-[var(--accent)]/10 transition-all"
-                  aria-label="Follow on Instagram"
-                >
-                  <Instagram className="h-6 w-6 text-white" />
-                </Link>
-                <Link
-                  href="https://www.facebook.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="p-2.5 rounded-full border border-[var(--accent)] hover:bg-[var(--accent)]/10 transition-all"
-                  aria-label="Follow on Facebook"
-                >
-                  <Facebook className="h-6 w-6 text-white" />
-                </Link>
-              </div>
-              <p className="text-xs font-semibold tracking-wide text-[#EFE9DC]">hello@msportdrivingrange.com</p>
+    <footer className="bg-[#1B1B1A] text-white">
+      <div className="mx-auto w-full max-w-6xl px-6 lg:px-8 py-14 space-y-8">
+        <div className="grid gap-8 lg:grid-cols-4">
+          <div className="space-y-5">
+            <Image src="/images/Msport%20logo.png" alt="Msport Driving Range logo" width={150} height={50} className="w-28 h-auto" />
+            <p className="text-sm text-white/75 max-w-xs">{copy.tagline}</p>
+            <div className="flex items-center gap-3">
+              <SocialIcon href="https://www.instagram.com/MSPORT_COMPLEX" label="Instagram">
+                <Instagram className="h-4 w-4" />
+              </SocialIcon>
+              <SocialIcon href="https://www.facebook.com/msportdrivingrange" label="Facebook">
+                <Facebook className="h-4 w-4" />
+              </SocialIcon>
+              <SocialIcon href="https://www.tiktok.com/@MSPORTCOMPLEX2023" label="TikTok">
+                <TikTokIcon className="h-4 w-4" />
+              </SocialIcon>
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-8 lg:gap-16 justify-center lg:justify-end">
-            <div className="min-w-[200px] w-full lg:w-auto">
-              <ShopColumn centerOnMobile />
-            </div>
-            <div className="min-w-[160px] w-full flex justify-center lg:justify-start">
-              <FooterColumn title="Community" links={footerNav.community} external compact centerOnMobile />
+          <div className="space-y-4 text-sm text-white/70">
+            <p className="text-[0.6rem] uppercase tracking-[0.45em] text-white/55">{copy.contact}</p>
+            <address className="not-italic space-y-1">
+              <p>Msport Driving Range</p>
+              <p>188 Moo 3, San Klang</p>
+              <p>San Kamphaeng, Chiang Mai 50130</p>
+            </address>
+            <div className="space-y-1">
+              <Link href="tel:+66874199199" className="block hover:text-white transition-colors">
+                +66 87 419 9199
+              </Link>
+              <Link href="mailto:msportcomplex@hotmail.com" className="block hover:text-white transition-colors">
+                msportcomplex@hotmail.com
+              </Link>
             </div>
           </div>
+
+          <FooterColumn title={copy.experiences} links={copy.experiencesLinks} />
+          <FooterColumn title={copy.community} links={copy.communityLinks} />
         </div>
 
-        <div className="flex flex-col items-center gap-2 border-t border-white/10 pt-3 text-center">
-          <p className="script-accent text-[var(--accent)] tracking-wide">
-            Practice harder. Have more fun.
-          </p>
-          <p className="text-[#EFE9DC]/60">&copy; {new Date().getFullYear()} Msport Driving Range</p>
+        <div className="border-t border-white/10 pt-3 flex flex-col gap-3 md:flex-row md:items-center md:justify-between text-sm text-white/55">
+          <p>© {new Date().getFullYear()} {copy.copyrightLabel}</p>
+          <div className="flex flex-wrap gap-4">
+            {[
+              { href: '/about', label: copy.quickLinks[0] },
+              { href: '/facilities', label: copy.quickLinks[1] },
+              { href: '/locations', label: copy.quickLinks[2] }
+            ].map(link => (
+              <Link key={link.label} href={link.href} className="hover:text-white transition-colors">
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
   );
 }
 
-type ShopColumnProps = {
-  centerOnMobile?: boolean;
-};
-
-const ShopColumn = ({ centerOnMobile }: ShopColumnProps) => {
-  const columns: typeof footerNav.shop[] = [];
-  for (let i = 0; i < footerNav.shop.length; i += 2) {
-    columns.push(footerNav.shop.slice(i, i + 2));
-  }
-
-  const alignmentClass = centerOnMobile ? 'text-center lg:text-left' : '';
-
-  return (
-    <div className={alignmentClass}>
-      <h3 className="font-semibold text-base mb-2">Shop</h3>
-      <div className="grid grid-cols-3 gap-3">
-        {columns.map((col, colIdx) => (
-          <ul key={colIdx} className="space-y-1">
-            {col.map(link => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-[#EFE9DC]/80 hover:text-white transition-colors"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        ))}
-      </div>
-    </div>
-  );
-};
-
 type FooterColumnProps = {
   title: string;
-  links: { href: string; label: string }[];
+  links: readonly { href: string; label: string }[];
   external?: boolean;
   compact?: boolean;
   centerOnMobile?: boolean;
@@ -119,14 +184,14 @@ const FooterColumn = ({ title, links, external, compact, centerOnMobile }: Foote
   const alignmentClass = centerOnMobile ? 'text-center lg:text-left' : '';
 
   return (
-    <div className={alignmentClass}>
-      <h3 className={`font-semibold ${compact ? 'text-base' : 'text-lg'} mb-2`}>{title}</h3>
-      <ul className={`space-y-1 ${compact ? 'text-xs' : 'text-sm'}`}>
+    <div className={`${alignmentClass} space-y-4`}>
+      <p className="text-[0.6rem] uppercase tracking-[0.45em] text-white/55">{title}</p>
+      <ul className="space-y-3 text-sm">
         {links.map(link => (
           <li key={link.label}>
             <Link
               href={link.href}
-              className="text-[#EFE9DC]/80 hover:text-white transition-colors"
+              className="text-white/70 hover:text-white transition-colors inline-flex items-center gap-1 after:block after:h-[1px] after:w-0 after:bg-white/60 after:transition-all after:duration-300 hover:after:w-full"
               target={external && link.href.startsWith('http') ? '_blank' : undefined}
               rel={external && link.href.startsWith('http') ? 'noreferrer' : undefined}
             >
@@ -138,3 +203,38 @@ const FooterColumn = ({ title, links, external, compact, centerOnMobile }: Foote
     </div>
   );
 };
+
+type SocialIconProps = {
+  href: string;
+  label: string;
+  children: React.ReactNode;
+};
+
+const SocialIcon = ({ href, label, children }: SocialIconProps) => (
+  <Link
+    href={href}
+    target="_blank"
+    rel="noreferrer"
+    className="text-white/70 hover:text-white transition-all"
+    aria-label={`Follow on ${label}`}
+  >
+    <span className="inline-flex items-center justify-center h-8 w-8 rounded-full border border-white/15 hover:border-white/40">
+      {children}
+    </span>
+  </Link>
+);
+
+const TikTokIcon = ({ className = '' }: { className?: string }) => (
+  <svg
+    viewBox="0 0 256 256"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+    aria-hidden="true"
+    role="img"
+  >
+    <path
+      d="M216 88.2c-18.7-4.3-33.4-16.9-38.9-32.8V164a64 64 0 1 1-64-64 64.8 64.8 0 0 1 16 2.1v35.6a28 28 0 1 0 16 25V12h35.1a56.2 56.2 0 0 0 2.9 16c5.8 18.4 22.1 32.7 39.9 35.4Z"
+      fill="currentColor"
+    />
+  </svg>
+);

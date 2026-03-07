@@ -93,6 +93,31 @@
     scroll-margin-top: 7rem;
   }
 
+  .overlay-veil {
+    @apply absolute inset-0 bg-black/45;
+  }
+
+  .overlay-deep {
+    @apply absolute inset-0 bg-gradient-to-b from-black/80 via-black/65 to-black/85;
+  }
+
+  .overlay-soft {
+    @apply absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent;
+  }
+
+  .overlay-fade {
+    @apply absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent;
+  }
+
+  .video-skeleton {
+    @apply absolute inset-0 h-full w-full bg-[#111111] animate-pulse;
+    border-radius: inherit;
+  }
+
+  .emoji {
+    font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
+  }
+
   .reveal {
     opacity: 0;
     transform: var(--reveal-start, translateY(48px));
@@ -161,7 +186,23 @@
   }
 
   .accent-pill {
-    @apply inline-flex items-center gap-2 rounded-full border border-[var(--accent)]/40 px-4 py-2 uppercase tracking-[0.35em] text-[0.55rem] text-[var(--accent)];
+    @apply inline-flex items-center gap-2 rounded-full border border-white/40 bg-white px-4 py-2 uppercase tracking-[0.35em] text-[0.55rem] text-[var(--accent)];
+  }
+
+  .label-accent {
+    @apply text-[0.65rem] font-semibold uppercase tracking-[0.45em] text-[var(--accent)];
+  }
+
+  .label-light {
+    @apply text-[0.65rem] font-semibold uppercase tracking-[0.45em] text-white/80;
+  }
+
+  .label-muted {
+    @apply text-[0.65rem] font-semibold uppercase tracking-[0.45em] text-[#5b554b];
+  }
+
+  .section-label {
+    @apply text-[0.65rem] font-semibold uppercase tracking-[0.45em] text-[var(--accent)];
   }
 
   .image-placeholder {
@@ -190,12 +231,71 @@
     color: #EFE9DC;
   }
 
+  @keyframes marquee-seamless-top {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  .animate-marquee-seamless-top {
+    animation: marquee-seamless-top 90s linear infinite;
+    will-change: transform;
+  }
+
+  .btn-primary-glass,
+  .btn-secondary-glass {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.95rem;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    transition: all 300ms ease;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .btn-primary-glass {
+    background-color: #b91c1c;
+    border: 1px solid rgba(248, 113, 113, 0.7);
+    box-shadow: 0 10px 30px rgba(185, 28, 28, 0.4);
+  }
+
+  .btn-primary-glass:hover {
+    background-color: #991b1b;
+    transform: translateY(-4px);
+    box-shadow: 0 15px 45px rgba(185, 28, 28, 0.55);
+  }
+
+  .btn-primary-glass:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 25px rgba(185, 28, 28, 0.35);
+  }
+
+  .btn-secondary-glass {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+  }
+
+  .btn-secondary-glass:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-4px);
+  }
+
+  .btn-secondary-glass:active {
+    transform: translateY(0);
+  }
   .accent-border {
     border-color: var(--accent);
   }
 
   .hero-title {
-    @apply font-black uppercase tracking-tight leading-[0.9] text-7xl md:text-8xl lg:text-9xl;
+    @apply font-black uppercase tracking-tight leading-[0.92] text-[clamp(3.2rem,8vw,5.75rem)];
   }
   
   .section-title {
@@ -218,7 +318,7 @@
   }
 
   .subtitle-accent {
-    @apply text-[0.625rem] md:text-[0.7rem] font-semibold uppercase tracking-[0.15em] text-[var(--accent)];
+    @apply font-semibold uppercase tracking-[0.15em] text-[var(--accent)];
   }
 
   .section-label {
