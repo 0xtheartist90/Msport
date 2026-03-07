@@ -136,31 +136,32 @@ export function USPSection({ metrics, campusLabel }: USPSectionProps) {
         {campusLabel && (
           <p className="mb-10 label-accent text-center lg:text-left">{campusLabel}</p>
         )}
-        <div ref={gridRef} className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+        <div ref={gridRef} className="grid grid-cols-6 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-5">
         {metrics.map((metric, index) => {
           const href = metricLinks[metric.value];
           const delayClass = revealDelayClasses[index % revealDelayClasses.length];
+          const mobileSpanClass = index < 2 ? 'col-span-3 sm:col-span-1' : 'col-span-2 sm:col-span-1';
 
           const card = (
             <article
-              className="relative overflow-hidden rounded-[30px] px-8 py-10 bg-gradient-to-b from-white/12 via-white/6 to-transparent border border-white/12 shadow-[0_35px_90px_rgba(0,0,0,0.45)] flex min-h-[240px] h-full flex-col gap-7 transition-all duration-500 ease-out transform-gpu group-hover:-translate-y-3 group-hover:rotate-1 group-hover:shadow-[0_45px_120px_rgba(0,0,0,0.55)]"
+              className="relative flex h-full min-h-[220px] flex-col gap-4 overflow-hidden rounded-[30px] border border-white/12 bg-gradient-to-b from-white/12 via-white/6 to-transparent px-5 py-7 shadow-[0_35px_90px_rgba(0,0,0,0.45)] transition-all duration-500 ease-out transform-gpu group-hover:-translate-y-3 group-hover:rotate-1 group-hover:shadow-[0_45px_120px_rgba(0,0,0,0.55)] sm:min-h-[240px] sm:gap-7 sm:px-8 sm:py-10"
             >
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.18)_0%,_transparent_55%)] animate-pulse" />
               </div>
               <div className="absolute inset-x-[-40%] top-[-120%] h-[260%] rotate-6 bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" aria-hidden="true" />
 
-              <div className="min-h-[4.75rem]">
-                <p className="text-[clamp(3.2rem,5.8vw,4.7rem)] font-black tracking-tight text-white leading-none transition-transform duration-500 group-hover:-translate-y-1">
+              <div className="min-h-[3.8rem] text-center sm:min-h-[4.75rem] sm:text-left">
+                <p className="text-[clamp(2.8rem,9vw,4.7rem)] font-black tracking-tight text-white leading-none transition-transform duration-500 group-hover:-translate-y-1">
                   {displayValues[index] ?? metric.value}
                 </p>
               </div>
-              <div className="mt-auto min-h-[7.5rem] space-y-4">
-                <p className="text-lg font-semibold text-white/90 uppercase tracking-[0.08em] transition-colors duration-300 group-hover:text-white">
+              <div className="mt-auto min-h-[6.6rem] space-y-3 text-center sm:min-h-[7.5rem] sm:space-y-4 sm:text-left">
+                <p className="text-base font-semibold text-white/90 uppercase tracking-[0.08em] transition-colors duration-300 group-hover:text-white sm:text-lg">
                   {metric.label}
                 </p>
-                <div className="h-[1px] w-16 bg-gradient-to-r from-[#b91c1c] via-[#ef4444] to-transparent transition-all duration-500 group-hover:w-20" />
-                <p className="text-sm text-white/70 transition-opacity duration-500 group-hover:text-white/85">{metric.detail}</p>
+                <div className="mx-auto h-[1px] w-12 bg-gradient-to-r from-[#b91c1c] via-[#ef4444] to-transparent transition-all duration-500 group-hover:w-16 sm:mx-0 sm:w-16 sm:group-hover:w-20" />
+                <p className="text-xs text-white/70 transition-opacity duration-500 group-hover:text-white/85 sm:text-sm">{metric.detail}</p>
               </div>
 
               <div className="absolute inset-0 border border-white/0 rounded-[30px] group-hover:border-white/15 transition-colors duration-500 pointer-events-none" aria-hidden="true" />
@@ -172,7 +173,7 @@ export function USPSection({ metrics, campusLabel }: USPSectionProps) {
               <Link
                 key={metric.label}
                 href={href}
-                className={`group block h-full rounded-[30px] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 reveal reveal-up ${delayClass}`}
+                className={`group block h-full rounded-[30px] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 reveal reveal-up ${delayClass} ${mobileSpanClass}`}
               >
                 {card}
               </Link>
@@ -180,7 +181,7 @@ export function USPSection({ metrics, campusLabel }: USPSectionProps) {
           }
 
           return (
-            <div key={metric.label} className={`group block h-full reveal reveal-up ${delayClass}`}>
+            <div key={metric.label} className={`group block h-full reveal reveal-up ${delayClass} ${mobileSpanClass}`}>
               {card}
             </div>
           );

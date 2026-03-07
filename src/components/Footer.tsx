@@ -2,109 +2,34 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Facebook, Instagram } from 'lucide-react';
+import { Facebook, Instagram, Mail, MapPin, Phone } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 const footerCopy = {
   EN: {
     tagline: 'Structured practice. Open to all.',
     contact: 'Contact',
-    experiences: 'Experiences',
-    community: 'Community',
-    copyrightLabel: 'Msport Driving Range',
-    quickLinks: { about: 'About', facilities: 'Facilities', contact: 'Contact' },
-    experiencesLinks: [
-      { href: '/contact', label: 'Contact' },
-      { href: '/simulators', label: 'Simulators' },
-      { href: '/academy', label: 'Academy' },
-      { href: '/locations/msport-plus', label: 'Msport+' }
-    ],
-    communityLinks: [
-      { href: '/#membership', label: 'Membership' },
-      { href: '/news', label: 'News' },
-      { href: '/locations/msport-plus', label: 'Msport+' },
-      { href: 'tel:+66874199199', label: 'Concierge' }
-    ]
+    copyrightLabel: 'Msport Driving Range'
   },
   TH: {
     tagline: 'ซ้อมอย่างมีระบบ เปิดรับทุกคน',
     contact: 'ติดต่อ',
-    experiences: 'ประสบการณ์',
-    community: 'คอมมูนิตี้',
-    copyrightLabel: 'Msport Driving Range',
-    quickLinks: { about: 'เกี่ยวกับ', facilities: 'สิ่งอำนวยความสะดวก', contact: 'ติดต่อ' },
-    experiencesLinks: [
-      { href: '/contact', label: 'ติดต่อ' },
-      { href: '/simulators', label: 'ซิมูเลเตอร์' },
-      { href: '/academy', label: 'อะคาเดมี' },
-      { href: '/locations/msport-plus', label: 'Msport+' }
-    ],
-    communityLinks: [
-      { href: '/#membership', label: 'สมาชิก' },
-      { href: '/news', label: 'ข่าวสาร' },
-      { href: '/locations/msport-plus', label: 'Msport+' },
-      { href: 'tel:+66874199199', label: 'คอนเซียร์จ' }
-    ]
+    copyrightLabel: 'Msport Driving Range'
   },
   KO: {
     tagline: '체계적인 연습. 누구나 환영합니다.',
     contact: '문의',
-    experiences: '경험',
-    community: '커뮤니티',
-    copyrightLabel: 'Msport Driving Range',
-    quickLinks: { about: '소개', facilities: '시설', contact: '문의' },
-    experiencesLinks: [
-      { href: '/contact', label: '문의' },
-      { href: '/simulators', label: '시뮬레이터' },
-      { href: '/academy', label: '아카데미' },
-      { href: '/locations/msport-plus', label: 'Msport+' }
-    ],
-    communityLinks: [
-      { href: '/#membership', label: '멤버십' },
-      { href: '/news', label: '뉴스' },
-      { href: '/locations/msport-plus', label: 'Msport+' },
-      { href: 'tel:+66874199199', label: '컨시어지' }
-    ]
+    copyrightLabel: 'Msport Driving Range'
   },
   ZH: {
     tagline: '系统化练习，欢迎每一位球手。',
     contact: '联系',
-    experiences: '体验',
-    community: '社区',
-    copyrightLabel: 'Msport Driving Range',
-    quickLinks: { about: '关于', facilities: '设施', contact: '联系' },
-    experiencesLinks: [
-      { href: '/contact', label: '联系' },
-      { href: '/simulators', label: '模拟器' },
-      { href: '/academy', label: '学院' },
-      { href: '/locations/msport-plus', label: 'Msport+' }
-    ],
-    communityLinks: [
-      { href: '/#membership', label: '会员' },
-      { href: '/news', label: '新闻' },
-      { href: '/locations/msport-plus', label: 'Msport+' },
-      { href: 'tel:+66874199199', label: '礼宾服务' }
-    ]
+    copyrightLabel: 'Msport Driving Range'
   },
   JA: {
     tagline: '構造化された練習を、すべてのゴルファーへ。',
     contact: 'お問い合わせ',
-    experiences: '体験',
-    community: 'コミュニティ',
-    copyrightLabel: 'Msport Driving Range',
-    quickLinks: { about: '概要', facilities: '施設', contact: 'お問い合わせ' },
-    experiencesLinks: [
-      { href: '/contact', label: 'お問い合わせ' },
-      { href: '/simulators', label: 'シミュレーター' },
-      { href: '/academy', label: 'アカデミー' },
-      { href: '/locations/msport-plus', label: 'Msport+' }
-    ],
-    communityLinks: [
-      { href: '/#membership', label: 'メンバーシップ' },
-      { href: '/news', label: 'ニュース' },
-      { href: '/locations/msport-plus', label: 'Msport+' },
-      { href: 'tel:+66874199199', label: 'コンシェルジュ' }
-    ]
+    copyrightLabel: 'Msport Driving Range'
   }
 } as const;
 
@@ -114,11 +39,14 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#1B1B1A] text-white">
-      <div className="mx-auto w-full max-w-6xl px-6 lg:px-8 py-14 space-y-8">
-        <div className="grid gap-8 lg:grid-cols-4">
-          <div className="space-y-5">
-            <Image src="/images/Msport%20logo.png" alt="Msport Driving Range logo" width={150} height={50} className="w-28 h-auto" />
-            <p className="text-sm text-white/75 max-w-xs">{copy.tagline}</p>
+      <div className="mx-auto w-full max-w-6xl px-6 lg:px-8 py-10 space-y-5 md:py-14 md:space-y-6">
+        <div className="grid gap-6 md:grid-cols-[auto_minmax(0,0.9fr)_minmax(0,1fr)_minmax(0,0.95fr)] md:items-start md:gap-8">
+          <div className="flex items-start">
+            <Image src="/images/Msport%20logo.png" alt="Msport Driving Range logo" width={150} height={50} className="w-24 h-auto md:w-28" />
+          </div>
+
+          <div className="space-y-4 lg:space-y-5">
+            <p className="max-w-xs text-[0.82rem] leading-relaxed text-white/75 md:text-sm">{copy.tagline}</p>
             <div className="flex items-center gap-3">
               <SocialIcon href="https://www.instagram.com/MSPORT_COMPLEX" label="Instagram">
                 <Instagram className="h-4 w-4" />
@@ -132,72 +60,42 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="space-y-4 text-sm text-white/70">
-            <p className="text-[0.6rem] uppercase tracking-[0.45em] text-white/55">{copy.contact}</p>
-            <address className="not-italic space-y-1">
-              <p>Msport Driving Range</p>
-              <p>188 Moo 3, San Klang</p>
-              <p>San Kamphaeng, Chiang Mai 50130</p>
+          <div className="space-y-3 text-[0.82rem] text-white/70 md:space-y-4 md:text-sm">
+            <p className="text-[0.6rem] uppercase tracking-[0.45em] text-white/55">Address</p>
+            <address className="not-italic">
+              <div className="flex items-start gap-3">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-white/45" aria-hidden="true" />
+                <div className="space-y-1">
+                  <p>Msport Driving Range</p>
+                  <p>188 Moo 3, San Klang</p>
+                  <p>San Kamphaeng, Chiang Mai 50130</p>
+                </div>
+              </div>
             </address>
-            <div className="space-y-1">
-              <Link href="tel:+66874199199" className="block hover:text-white transition-colors">
-                +66 87 419 9199
+          </div>
+
+          <div className="space-y-3 text-[0.82rem] text-white/70 md:space-y-4 md:text-sm">
+            <p className="text-[0.6rem] uppercase tracking-[0.45em] text-white/55">{copy.contact}</p>
+            <div className="space-y-2">
+              <Link href="tel:+66874199199" className="flex items-center gap-3 hover:text-white transition-colors">
+                <Phone className="h-4 w-4 shrink-0 text-white/45" aria-hidden="true" />
+                <span>+66 87 419 9199</span>
               </Link>
-              <Link href="mailto:msportcomplex@hotmail.com" className="block hover:text-white transition-colors">
-                msportcomplex@hotmail.com
+              <Link href="mailto:msportcomplex@hotmail.com" className="flex items-center gap-3 hover:text-white transition-colors">
+                <Mail className="h-4 w-4 shrink-0 text-white/45" aria-hidden="true" />
+                <span>msportcomplex@hotmail.com</span>
               </Link>
             </div>
           </div>
-
-          <FooterColumn title={copy.experiences} links={copy.experiencesLinks} />
-          <FooterColumn title={copy.community} links={copy.communityLinks} />
         </div>
 
-        <div className="border-t border-white/10 pt-3 flex flex-col gap-3 md:flex-row md:items-center md:justify-between text-sm text-white/55">
+        <div className="border-t border-white/10 pt-3 text-[0.78rem] text-white/55 md:pt-4 md:text-sm">
           <p>© {new Date().getFullYear()} {copy.copyrightLabel}</p>
-          <div className="flex flex-wrap gap-4">
-            {[
-              { href: '/about', label: copy.quickLinks.about },
-              { href: '/facilities', label: copy.quickLinks.facilities },
-              { href: '/contact', label: copy.quickLinks.contact }
-            ].map(link => (
-              <Link key={link.label} href={link.href} className="hover:text-white transition-colors">
-                {link.label}
-              </Link>
-            ))}
-          </div>
         </div>
       </div>
     </footer>
   );
 }
-
-type FooterColumnProps = {
-  title: string;
-  links: readonly { href: string; label: string }[];
-};
-
-const FooterColumn = ({ title, links }: FooterColumnProps) => {
-  return (
-    <div className="space-y-4">
-      <p className="text-[0.6rem] uppercase tracking-[0.45em] text-white/55">{title}</p>
-      <ul className="space-y-3 text-sm">
-        {links.map(link => (
-          <li key={link.label}>
-            <Link
-              href={link.href}
-              className="text-white/70 hover:text-white transition-colors inline-flex items-center gap-1 after:block after:h-[1px] after:w-0 after:bg-white/60 after:transition-all after:duration-300 hover:after:w-full"
-              target={link.href.startsWith('http') ? '_blank' : undefined}
-              rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
-            >
-              {link.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
 
 type SocialIconProps = {
   href: string;
@@ -213,7 +111,7 @@ const SocialIcon = ({ href, label, children }: SocialIconProps) => (
     className="text-white/70 hover:text-white transition-all"
     aria-label={`Follow on ${label}`}
   >
-    <span className="inline-flex items-center justify-center h-8 w-8 rounded-full border border-white/15 hover:border-white/40">
+    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/15 hover:border-white/40 md:h-8 md:w-8">
       {children}
     </span>
   </Link>

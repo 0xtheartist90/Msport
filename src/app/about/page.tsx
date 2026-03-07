@@ -248,26 +248,26 @@ export default function AboutPage() {
 
   return (
     <main className="min-h-screen">
-      <section className="relative h-[55vh] min-h-[420px] overflow-hidden bg-black">
+      <section className="relative h-[50vh] min-h-[360px] overflow-hidden bg-black md:h-[55vh] md:min-h-[420px]">
         <video autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover">
           <source src="/images/female driver.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/82 via-black/48 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
-        <div className="relative z-10 mx-auto flex h-full max-w-4xl flex-col items-center justify-center gap-4 px-6 text-center text-white lg:px-12">
+        <div className="relative z-10 mx-auto flex h-full max-w-4xl flex-col items-center justify-center gap-3 px-6 text-center text-white md:gap-4 lg:px-12">
           <p className="accent-pill reveal reveal-down">{copy.hero.label}</p>
           <h1 className="hero-title reveal reveal-up text-white">
             <span className="block">{copy.hero.title[0]}</span>
             <span className="block whitespace-nowrap">{copy.hero.title[1]}</span>
           </h1>
-          <p className="reveal reveal-up reveal-delay-1 max-w-2xl text-sm leading-relaxed text-white/78 sm:text-base">
+          <p className="reveal reveal-up reveal-delay-1 max-w-2xl text-[0.92rem] leading-relaxed text-white/78 sm:text-base">
             {copy.hero.description}
           </p>
         </div>
       </section>
 
-      <section className="section-cream py-24">
-        <div className="mx-auto w-full max-w-6xl px-6 lg:px-10 grid gap-10 lg:grid-cols-[1.05fr_0.95fr] items-center">
+      <section className="section-cream py-16 md:py-24">
+        <div className="mx-auto grid w-full max-w-6xl items-center gap-6 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:px-10">
           <div className="space-y-6 text-[#3A3A36]">
             <SectionHeader
               label={copy.origin.label}
@@ -275,13 +275,13 @@ export default function AboutPage() {
               subtitle={copy.origin.subtitle}
               align="left"
             />
-            <div className="space-y-4 text-lg leading-relaxed">
+            <div className="space-y-3 text-base leading-relaxed md:space-y-4 md:text-lg">
               {copy.origin.paragraphs.map(paragraph => (
                 <p key={paragraph} className="reveal reveal-up reveal-delay-3">{paragraph}</p>
               ))}
             </div>
           </div>
-          <div className="rounded-[32px] overflow-hidden border border-[#E3E3E0] shadow-[0_25px_65px_rgba(34,34,34,0.16)] reveal reveal-left reveal-delay-1">
+          <div className="overflow-hidden rounded-[28px] border border-[#E3E3E0] shadow-none reveal reveal-left reveal-delay-1 md:rounded-[32px] md:shadow-[0_25px_65px_rgba(34,34,34,0.16)]">
             <div className="relative w-full aspect-[4/3]">
               <Image src="/images/Msportheritagehome.png" alt="Msport range foundation" fill className="object-cover" />
             </div>
@@ -301,7 +301,7 @@ export default function AboutPage() {
                   width={640}
                   height={360}
                   loading="lazy"
-                  className="block h-56 w-auto flex-shrink-0 object-cover sm:h-64"
+                  className="block h-48 w-auto flex-shrink-0 object-cover sm:h-64"
                 />
               ))
             )}
@@ -327,7 +327,7 @@ export default function AboutPage() {
             }}
           />
         </div>
-        <div className="relative mx-auto w-full max-w-6xl px-6 lg:px-10 py-20 space-y-12">
+        <div className="relative mx-auto w-full max-w-6xl px-6 py-16 space-y-8 lg:px-10 md:py-20 md:space-y-12">
           <SectionHeader
             label={copy.standard.label}
             title={<span className="text-white">{copy.standard.title}</span>}
@@ -335,7 +335,7 @@ export default function AboutPage() {
             align="center"
             subtitleClassName="subtitle-accent text-white/80"
           />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-4">
             {[{
               title: copy.standard.pillars[0].title,
               icon: Target,
@@ -358,23 +358,23 @@ export default function AboutPage() {
               
               return (
                 <div key={pillar.title} className={`group block h-full reveal reveal-up ${delayClass}`}>
-                  <article className="relative min-h-[220px] h-full overflow-hidden rounded-[26px] border border-white/12 bg-gradient-to-b from-white/12 via-white/6 to-transparent px-6 py-8 shadow-[0_30px_85px_rgba(0,0,0,0.45)] backdrop-blur-md transition-all duration-500 ease-out transform-gpu group-hover:-translate-y-3 group-hover:rotate-1 group-hover:shadow-[0_40px_110px_rgba(0,0,0,0.55)]">
+                  <article className="relative h-full min-h-[200px] overflow-hidden rounded-[24px] border border-white/12 bg-gradient-to-b from-white/12 via-white/6 to-transparent px-5 py-6 shadow-none backdrop-blur-md transition-all duration-500 ease-out transform-gpu group-hover:-translate-y-3 group-hover:rotate-1 md:min-h-[220px] md:rounded-[26px] md:px-6 md:py-8 md:shadow-[0_30px_85px_rgba(0,0,0,0.45)] md:group-hover:shadow-[0_40px_110px_rgba(0,0,0,0.55)]">
                     <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" aria-hidden="true">
                       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.18)_0%,_transparent_60%)]" />
                     </div>
                     <div className="absolute inset-x-[-40%] top-[-120%] h-[260%] rotate-6 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" aria-hidden="true" />
 
-                    <div className="flex h-full flex-col gap-4">
+                    <div className="flex h-full flex-col gap-3 md:gap-4">
                       <div className="flex items-center justify-center">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/5">
-                          <Icon className="h-5 w-5 text-[var(--accent)]" aria-hidden="true" />
+                        <div className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/5 md:h-10 md:w-10">
+                          <Icon className="h-4.5 w-4.5 text-[var(--accent)] md:h-5 md:w-5" aria-hidden="true" />
                         </div>
                       </div>
-                      <div className="space-y-3 transition-transform duration-500 group-hover:-translate-y-1">
-                        <h3 className="text-center text-xl font-black text-white">{pillar.title}</h3>
+                      <div className="space-y-2 transition-transform duration-500 group-hover:-translate-y-1 md:space-y-3">
+                        <h3 className="min-h-[3.25rem] text-center text-[1.1rem] font-black leading-[1.15] text-white md:min-h-[3.5rem] md:text-xl">{pillar.title}</h3>
                         <div className="mx-auto h-[1px] w-16 bg-gradient-to-r from-[#b91c1c] via-[#ef4444] to-transparent opacity-80 transition-all duration-500 group-hover:w-20" />
                       </div>
-                      <div className="mt-auto space-y-1 text-center text-sm leading-tight text-white/80">
+                      <div className="mt-auto min-h-[4.6rem] space-y-1 text-center text-[0.82rem] leading-tight text-white/80 md:min-h-[5rem] md:text-sm">
                         {pillar.paragraphs.map(text => (
                           <p key={text}>{text}</p>
                         ))}
@@ -390,15 +390,15 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section-cream py-24">
-        <div className="mx-auto w-full max-w-6xl px-6 lg:px-10 space-y-6">
+      <section className="section-cream py-16 md:py-24">
+        <div className="mx-auto w-full max-w-6xl space-y-5 px-6 lg:px-10 md:space-y-6">
           <SectionHeader
             label={copy.roadAhead.label}
             title={<span className="text-[#1C1C1A]">{copy.roadAhead.title}</span>}
             subtitle={copy.roadAhead.subtitle}
             align="left"
           />
-          <p className="text-[#3A3A36]/85 text-lg leading-relaxed reveal reveal-up reveal-delay-3">
+          <p className="text-base leading-relaxed text-[#3A3A36]/85 reveal reveal-up reveal-delay-3 md:text-lg">
             {copy.roadAhead.description}
           </p>
         </div>

@@ -22,6 +22,7 @@ export default function Navbar() {
   const [languageOpen, setLanguageOpen] = useState(false);
   const pathname = usePathname();
   const languageMenuRef = useRef<HTMLDivElement>(null);
+  const mobileLanguageMenuRef = useRef<HTMLDivElement>(null);
   const { language, setLanguage, t } = useLanguage();
 
   type NavLink =
@@ -59,7 +60,9 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (!languageMenuRef.current?.contains(event.target as Node)) {
+      const target = event.target as Node;
+
+      if (!languageMenuRef.current?.contains(target) && !mobileLanguageMenuRef.current?.contains(target)) {
         setLanguageOpen(false);
       }
     };
@@ -147,14 +150,30 @@ export default function Navbar() {
     <>
       <nav className="sticky top-0 z-50 border-b border-[#3A3A36]/8 bg-[#F7F7F5]/88 text-[#3A3A36] backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-[72px] items-center justify-between">
-            <Link href="/" className="flex items-center" aria-label="Msport Driving Range Home">
+          <div className="relative flex h-[72px] items-center justify-between">
+            <Link href="/" className="hidden items-center md:flex" aria-label="Msport Driving Range Home">
               <Image
                 src="/images/logo topnav.png"
                 alt="Msport Driving Range logo"
                 width={160}
                 height={48}
                 className="h-9 w-auto sm:h-10"
+                style={{ width: 'auto' }}
+                priority
+              />
+            </Link>
+
+            <Link
+              href="/"
+              className="absolute left-1/2 flex -translate-x-1/2 items-center md:hidden"
+              aria-label="Msport Driving Range Home"
+            >
+              <Image
+                src="/images/logo topnav.png"
+                alt="Msport Driving Range logo"
+                width={160}
+                height={48}
+                className="h-8 w-auto"
                 style={{ width: 'auto' }}
                 priority
               />
@@ -189,7 +208,39 @@ export default function Navbar() {
               })}
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex w-full items-center justify-between gap-3 md:w-auto md:justify-start md:gap-3 md:ml-0">
+              <div className="relative md:hidden" ref={mobileLanguageMenuRef}>
+                <button
+                  type="button"
+                  onClick={() => setLanguageOpen(prev => !prev)}
+                  className="inline-flex h-10 min-w-10 items-center justify-center rounded-full border border-[#3A3A36]/12 bg-white/70 px-3 text-[#1C1C1A] shadow-[0_8px_24px_rgba(0,0,0,0.05)]"
+                  aria-haspopup="true"
+                  aria-expanded={languageOpen}
+                >
+                  <span className="emoji text-base leading-none">{LANGUAGE_FLAGS[language]}</span>
+                </button>
+                {languageOpen && (
+                  <div className="absolute left-0 mt-2 w-44 rounded-[20px] border border-[#3A3A36]/12 bg-white/96 p-2 shadow-[0_24px_50px_rgba(0,0,0,0.14)] backdrop-blur-xl space-y-1">
+                    {languageOptions.map(option => (
+                      <button
+                        key={option.code}
+                        type="button"
+                        onClick={() => {
+                          setLanguage(option.code);
+                          setLanguageOpen(false);
+                        }}
+                        className={`w-full rounded-xl px-3 py-2 text-left text-sm font-semibold transition-colors ${
+                          language === option.code ? 'bg-[#F7F7F5] text-[var(--accent)]' : 'hover:bg-[#F7F7F5]'
+                        }`}
+                      >
+                        <span className="emoji mr-2 text-base leading-none">{LANGUAGE_FLAGS[option.code]}</span>
+                        {option.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
               <div className="relative hidden md:block" ref={languageMenuRef}>
                 <button
                   type="button"
@@ -243,24 +294,6 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-[#EFE9DC] pt-20">
           <div className="flex flex-col items-center justify-center gap-8 p-8">
-            <div className="w-full max-w-sm text-center">
-              <p className="text-xs uppercase tracking-[0.35em] text-[#8a887f]">{t.nav.languageLabel}</p>
-              <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
-                {languageOptions.map(option => (
-                  <button
-                    key={option.code}
-                    type="button"
-                    onClick={() => setLanguage(option.code)}
-                    className={`rounded-full px-4 py-2 text-sm font-semibold tracking-[0.35em] uppercase ${
-                      language === option.code ? 'bg-[#1C1C1A] text-white' : 'border border-[#3A3A36]/20 text-[#1C1C1A]'
-                    }`}
-                  >
-                    <span className="emoji mr-2 text-base leading-none">{LANGUAGE_FLAGS[option.code]}</span>
-                    {option.code}
-                  </button>
-                ))}
-              </div>
-            </div>
             {navLinks.map(link => {
               const targetSection = link.sectionId;
               const isHome = pathname === '/';
