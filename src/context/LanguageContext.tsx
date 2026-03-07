@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { useRouter } from 'next/navigation';
 import { translations, type LanguageCode, type TranslationContent } from '@/lib/translations';
 import { LANGUAGE_COOKIE } from '@/lib/language';
 
@@ -21,6 +22,7 @@ export function LanguageProvider({
   children: ReactNode;
   initialLanguage?: LanguageCode;
 }) {
+  const router = useRouter();
   const [language, setLanguageState] = useState<LanguageCode>(initialLanguage);
 
   useEffect(() => {
@@ -38,7 +40,20 @@ export function LanguageProvider({
     document.cookie = `${LANGUAGE_COOKIE}=${language}; path=/; max-age=31536000; SameSite=Lax`;
   }, [language]);
 
-  const setLanguage = (code: LanguageCode) => setLanguageState(code);
+  const setLanguage = (code: LanguageCode) => {
+    if (code === language) {
+      return;
+    }
+
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem(STORAGE_KEY, code);
+      document.documentElement.lang = code.toLowerCase();
+      document.cookie = `${LANGUAGE_COOKIE}=${code}; path=/; max-age=31536000; SameSite=Lax`;
+    }
+
+    setLanguageState(code);
+    router.refresh();
+  };
 
   const value = useMemo<LanguageContextValue>(
     () => ({

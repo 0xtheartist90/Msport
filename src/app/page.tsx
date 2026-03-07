@@ -7,10 +7,10 @@ import VideoPlayer from '@/components/VideoPlayer';
 import { SectionHeader } from '@/components/SectionHeader';
 import { USPSection } from '@/components/USPSection';
 import { useLanguage } from '@/context/LanguageContext';
-import { rangeHighlights, ballRates, newsItems } from '@/lib/site-content';
+import { rangeHighlights, ballRates } from '@/lib/site-content';
 import { getLocalizedNewsItems } from '@/lib/localized-content';
 
-const [rangeLengthFeature, bayLayoutFeature, tourBallFeature, coachingFeature] = rangeHighlights;
+const [, bayLayoutFeature, tourBallFeature] = rangeHighlights;
 
 type RangeCardKey = 'theRange' | 'facilities' | 'simulators' | 'coaching';
 
@@ -18,7 +18,7 @@ const rangeOverviewCards = [
   {
     key: 'the-range',
     translationKey: 'theRange' as RangeCardKey,
-    href: '/locations#msport-driving-range',
+    href: '/contact',
     mediaType: 'video' as const,
     mediaSrc: '/images/female driver.mp4'
   },
@@ -237,7 +237,7 @@ export default function HomePage() {
           </h1>
           <div className="flex flex-col sm:flex-row gap-4 justify-center reveal reveal-up reveal-delay-2">
             <Link
-              href="/locations"
+              href="/locations/msport-plus"
               className="inline-flex items-center justify-center rounded-full bg-[var(--accent)] px-6 py-2.5 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#d90b0b]"
             >
               {t.hero.primaryCta}
@@ -569,7 +569,7 @@ return (
               </div>
               <p className="text-base leading-relaxed text-[#3A3A36] reveal reveal-up reveal-delay-4">{t.expansion.description}</p>
               <Link
-                href="/locations"
+                href="/locations/msport-plus"
                 className="group inline-flex items-center gap-2 text-sm font-semibold text-[#1C1C1A] transition-all duration-300 hover:translate-x-1 hover:text-[var(--accent)] reveal reveal-up reveal-delay-5 md:text-base"
               >
                 <span className="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full">

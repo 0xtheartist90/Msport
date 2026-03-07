@@ -19,33 +19,28 @@ const LANGUAGE_FLAGS: Record<LanguageCode, string> = {
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const [locationsOpen, setLocationsOpen] = useState(false);
   const [languageOpen, setLanguageOpen] = useState(false);
   const pathname = usePathname();
   const languageMenuRef = useRef<HTMLDivElement>(null);
   const { language, setLanguage, t } = useLanguage();
 
   type NavLink =
-    | {
-        type: 'link';
-        href: string;
-        label: string;
-        sectionId?: string;
-      }
-    | {
-        type: 'dropdown';
-        label: string;
-      };
+    {
+      href: string;
+      label: string;
+      sectionId?: string;
+    };
 
   const navLinks: NavLink[] = useMemo(
     () => [
-      { type: 'link', href: '/#home', label: t.nav.links.home, sectionId: 'home' },
-      { type: 'link', href: '/about', label: t.nav.links.about },
-      { type: 'link', href: '/facilities', label: t.nav.links.facilities },
-      { type: 'link', href: '/simulators', label: t.nav.links.simulators },
-      { type: 'link', href: '/academy', label: t.nav.links.academy },
-      { type: 'dropdown', label: t.nav.links.locations },
-      { type: 'link', href: '/news', label: t.nav.links.news }
+      { href: '/#home', label: t.nav.links.home, sectionId: 'home' },
+      { href: '/about', label: t.nav.links.about },
+      { href: '/facilities', label: t.nav.links.facilities },
+      { href: '/simulators', label: t.nav.links.simulators },
+      { href: '/academy', label: t.nav.links.academy },
+      { href: '/locations/msport-plus', label: t.nav.links.locations },
+      { href: '/news', label: t.nav.links.news },
+      { href: '/contact', label: t.nav.links.contact }
     ],
     [t.nav.links]
   );
@@ -53,18 +48,12 @@ export default function Navbar() {
   const sectionIds = ['home'];
   const MIN_ACTIVE_RATIO = 0.2;
 
-  const locationLinks = [
-    { href: '/driving-range', label: 'Msport Driving Range', status: 'flagship' as const },
-    { href: '/locations/msport-plus', label: 'Msport+', status: 'comingSoon' as const }
-  ];
-
   const languageOptions = languageCodes.map(code => ({
     code,
     label: t.nav.languageNames[code] ?? code
   }));
 
   useEffect(() => {
-    setLocationsOpen(false);
     setLanguageOpen(false);
   }, [pathname]);
 
@@ -76,8 +65,8 @@ export default function Navbar() {
     };
 
     document.addEventListener('mousedown', handleClickOutside);
-    
-return () => {
+
+    return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
@@ -173,57 +162,10 @@ return () => {
 
             <div className="hidden md:flex items-center gap-7">
               {navLinks.map(link => {
-                if (link.type === 'dropdown') {
-                  const isActiveDropdown = pathname.startsWith('/locations') || pathname === '/driving-range';
-                  
-return (
-                    <div key={link.label} className="relative">
-                      <button
-                        type="button"
-                        onClick={() => setLocationsOpen(prev => !prev)}
-                        className={`group inline-flex items-center gap-1 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] transition-all duration-300 ${
-                          isActiveDropdown
-                            ? 'text-[var(--accent)]'
-                            : 'text-[#3A3A36] hover:text-[#1C1C1A]'
-                        }`}
-                        aria-expanded={locationsOpen}
-                        aria-haspopup="true"
-                      >
-                        {link.label}
-                        <ChevronDown className={`h-3.5 w-3.5 transition-transform ${locationsOpen ? 'rotate-180' : ''}`} />
-                        <span
-                          className={`absolute left-0 -bottom-[1px] h-px transition-all duration-300 ${
-                            isActiveDropdown ? 'w-full bg-[var(--accent)] opacity-100' : 'w-0 bg-[#706C61] opacity-0 group-hover:w-full group-hover:opacity-100'
-                          }`}
-                        />
-                      </button>
-                      {locationsOpen && (
-                        <div
-                          className="absolute left-0 top-full mt-3 w-64 rounded-[24px] border border-[#3A3A36]/12 bg-[#F7F7F5]/96 p-4 shadow-[0_28px_60px_rgba(0,0,0,0.14)] backdrop-blur-xl space-y-3"
-                          onMouseLeave={() => setLocationsOpen(false)}
-                        >
-                          {locationLinks.map(loc => (
-                            <Link
-                              key={loc.href}
-                              href={loc.href}
-                              onClick={() => setLocationsOpen(false)}
-                              className="block rounded-[18px] border border-transparent px-4 py-3 transition-all duration-300 hover:border-[#3A3A36]/12 hover:bg-white/65"
-                            >
-                              <p className="text-sm font-semibold text-[#1C1C1A]">{loc.label}</p>
-                              <p className="text-[11px] uppercase tracking-[0.35em] text-[#8a887f]">
-                                {t.nav.locationStatuses[loc.status]}
-                              </p>
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  );
-                }
                 const targetSection = link.sectionId;
                 const isHome = pathname === '/';
                 const isActiveSection = isHome && targetSection ? activeSection === targetSection : false;
-                const isActive = isActiveSection || pathname === link.href;
+                const isActive = isActiveSection || pathname === link.href || (link.href === '/locations/msport-plus' && pathname.startsWith('/locations/msport-plus'));
 
                 return (
                   <Link
@@ -320,34 +262,10 @@ return (
               </div>
             </div>
             {navLinks.map(link => {
-              if (link.type === 'dropdown') {
-                return (
-                  <div key={link.label} className="w-full max-w-sm">
-                    <details className="group">
-                      <summary className="text-center text-2xl font-black uppercase tracking-tight cursor-pointer">
-                        {link.label}
-                      </summary>
-                      <div className="mt-4 space-y-3">
-                        {locationLinks.map(loc => (
-                          <Link
-                            key={loc.href}
-                            href={loc.href}
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="block rounded-2xl border border-[#3A3A36]/20 px-4 py-3 text-center"
-                          >
-                            <p className="text-lg font-semibold">{loc.label}</p>
-                            <p className="text-xs uppercase tracking-[0.35em] text-[#8a887f]">{t.nav.locationStatuses[loc.status]}</p>
-                          </Link>
-                        ))}
-                      </div>
-                    </details>
-                  </div>
-                );
-              }
               const targetSection = link.sectionId;
               const isHome = pathname === '/';
               const isActiveSection = isHome && targetSection ? activeSection === targetSection : false;
-              const isActive = isActiveSection || pathname === link.href;
+              const isActive = isActiveSection || pathname === link.href || (link.href === '/locations/msport-plus' && pathname.startsWith('/locations/msport-plus'));
 
               return (
                 <Link

@@ -12,7 +12,7 @@ export type TranslationContent = {
     links: {
       home: string;
       about: string;
-      drivingRange: string;
+      contact: string;
       facilities: string;
       simulators: string;
       academy: string;
@@ -25,10 +25,6 @@ export type TranslationContent = {
     };
     languageLabel: string;
     languageNames: Record<LanguageCode, string>;
-    locationStatuses: {
-      flagship: string;
-      comingSoon: string;
-    };
   };
   hero: {
     label: string;
@@ -91,12 +87,12 @@ export const translations: Record<LanguageCode, TranslationContent> = {
     nav: {
       links: {
         home: 'Home',
-        about: 'About',
-        drivingRange: 'Driving Range',
+        about: 'About Us',
+        contact: 'Contact',
         facilities: 'Facilities',
         simulators: 'Simulators',
         academy: 'Academy',
-        locations: 'Locations',
+        locations: 'Msport+',
         news: 'News'
       },
       actions: {
@@ -110,24 +106,20 @@ export const translations: Record<LanguageCode, TranslationContent> = {
         KO: '한국어',
         ZH: '中文',
         JA: '日本語'
-      },
-      locationStatuses: {
-        flagship: 'Flagship',
-        comingSoon: 'Coming Soon'
       }
     },
     hero: {
       label: 'The Msport Experience',
       titleLine1: 'MSPORT',
       titleLine2: 'Collective',
-      primaryCta: 'Explore Locations',
+      primaryCta: 'Explore Msport+',
       secondaryCta: 'View Membership'
     },
     usp: {
       campusLabel: '',
       metrics: [
         { value: '8', label: 'Years', detail: 'Built in 2018', href: '/about' },
-        { value: '68', label: 'Bays', detail: 'No waiting. Just swing.', href: '/driving-range' },
+        { value: '68', label: 'Bays', detail: 'No waiting. Just swing.', href: '/contact' },
         { value: '10+', label: 'Shops', detail: 'Food · Pro Shop · Services', href: '/facilities' },
         { value: '3', label: 'Suites', detail: 'TrackMan Indoor Simulators', href: '/simulators' },
         { value: '7', label: 'Trainers', detail: 'Certified PGA Coaching', href: '/academy' }
@@ -200,7 +192,7 @@ export const translations: Record<LanguageCode, TranslationContent> = {
       subtitle: 'The next chapter of Msport',
       description:
         'Msport+ is our next flagship campus. Expect a multi-level experience with chef-led dining, expanded TrackMan labs, and concierge-level service—minutes from the current range. Opening 2026.',
-      cta: 'View Locations',
+      cta: 'Explore Msport+',
       footageLabel: 'Expansion footage',
       footageTitle: 'Msport+ build preview',
       footageMeta: 'Captured on-site · February 2026'
@@ -219,12 +211,12 @@ export const translations: Record<LanguageCode, TranslationContent> = {
     nav: {
       links: {
         home: 'หน้าแรก',
-        about: 'เกี่ยวกับ',
-        drivingRange: 'สนามไดร์ฟ',
+        about: 'เกี่ยวกับเรา',
+        contact: 'ติดต่อ',
         facilities: 'สิ่งอำนวยความสะดวก',
         simulators: 'ซิมูเลเตอร์',
         academy: 'อะคาเดมี',
-        locations: 'สาขา',
+        locations: 'Msport+',
         news: 'ข่าวสาร'
       },
       actions: {
@@ -238,24 +230,20 @@ export const translations: Record<LanguageCode, TranslationContent> = {
         KO: '한국어',
         ZH: '中文',
         JA: '日本語'
-      },
-      locationStatuses: {
-        flagship: 'เรือธง',
-        comingSoon: 'เร็ว ๆ นี้'
       }
     },
     hero: {
       label: 'ประสบการณ์ Msport',
       titleLine1: 'MSPORT',
       titleLine2: 'คอลเลคทีฟ',
-      primaryCta: 'สำรวจทุกสาขา',
+      primaryCta: 'สำรวจ Msport+',
       secondaryCta: 'ดูสมาชิก'
     },
     usp: {
       campusLabel: '',
       metrics: [
         { value: '8', label: 'ปี', detail: 'เปิดให้บริการปี 2018', href: '/about' },
-        { value: '68', label: 'ช่องตี', detail: 'ไม่ต้องรอ แค่ออกรอบ', href: '/driving-range' },
+        { value: '68', label: 'ช่องตี', detail: 'ไม่ต้องรอ แค่ออกรอบ', href: '/contact' },
         { value: '10+', label: 'ร้านค้า', detail: 'อาหาร · โปรช็อป · บริการ', href: '/facilities' },
         { value: '3', label: 'ห้อง', detail: 'ห้อง TrackMan ในร่ม', href: '/simulators' },
         { value: '7', label: 'โค้ช', detail: 'โค้ช PGA รับรอง', href: '/academy' }
@@ -328,7 +316,7 @@ export const translations: Record<LanguageCode, TranslationContent> = {
       subtitle: 'บทต่อไปของ Msport',
       description:
         'Msport+ คือแคมปัสเรือธงแห่งใหม่ หลายชั้นพร้อมห้องอาหารโดยเชฟ TrackMan labs ที่ขยายขึ้น และบริการคอนเซียร์จ อยู่ห่างจากเรนจ์ปัจจุบันเพียงไม่กี่นาที เปิดปี 2026',
-      cta: 'ดูสาขา',
+      cta: 'สำรวจ Msport+',
       footageLabel: 'ภาพการก่อสร้าง',
       footageTitle: 'พรีวิว Msport+',
       footageMeta: 'ถ่ายทำ ณ สถานที่ · กุมภาพันธ์ 2026'
@@ -348,11 +336,11 @@ export const translations: Record<LanguageCode, TranslationContent> = {
       links: {
         home: '홈',
         about: '소개',
-        drivingRange: '드라이빙 레인지',
+        contact: '문의',
         facilities: '시설',
         simulators: '시뮬레이터',
         academy: '아카데미',
-        locations: '지점',
+        locations: 'Msport+',
         news: '뉴스'
       },
       actions: {
@@ -366,24 +354,20 @@ export const translations: Record<LanguageCode, TranslationContent> = {
         KO: '한국어',
         ZH: '中文',
         JA: '日本語'
-      },
-      locationStatuses: {
-        flagship: '대표 지점',
-        comingSoon: '곧 오픈'
       }
     },
     hero: {
       label: 'Msport 경험',
       titleLine1: 'MSPORT',
       titleLine2: '콜렉티브',
-      primaryCta: '전체 지점 보기',
+      primaryCta: 'Msport+ 살펴보기',
       secondaryCta: '멤버십 보기'
     },
     usp: {
       campusLabel: '',
       metrics: [
         { value: '8', label: '년', detail: '2018년 설립', href: '/about' },
-        { value: '68', label: '타석', detail: '대기 없이 바로 스윙', href: '/driving-range' },
+        { value: '68', label: '타석', detail: '대기 없이 바로 스윙', href: '/contact' },
         { value: '10+', label: '매장', detail: '푸드 · 프로샵 · 서비스', href: '/facilities' },
         { value: '3', label: '스위트', detail: 'TrackMan 실내 스튜디오', href: '/simulators' },
         { value: '7', label: '코치', detail: 'PGA 공인 코칭', href: '/academy' }
@@ -455,7 +439,7 @@ export const translations: Record<LanguageCode, TranslationContent> = {
       subtitle: 'Msport의 다음 장',
       description:
         'Msport+는 새로운 플래그십 캠퍼스로, 셰프가 이끄는 다이닝, 확장된 TrackMan 랩, 컨시어지 서비스를 제공하며 현 레인지에서 몇 분 거리입니다. 2026년 오픈.',
-      cta: '지점 보기',
+      cta: 'Msport+ 보기',
       footageLabel: '확장 영상',
       footageTitle: 'Msport+ 빌드 프리뷰',
       footageMeta: '현장 촬영 · 2026년 2월'
@@ -475,11 +459,11 @@ export const translations: Record<LanguageCode, TranslationContent> = {
       links: {
         home: '首页',
         about: '关于我们',
-        drivingRange: '练习场',
+        contact: '联系',
         facilities: '设施',
         simulators: '模拟器',
         academy: '学院',
-        locations: '场馆',
+        locations: 'Msport+',
         news: '新闻'
       },
       actions: {
@@ -493,24 +477,20 @@ export const translations: Record<LanguageCode, TranslationContent> = {
         KO: '한국어',
         ZH: '中文',
         JA: '日本語'
-      },
-      locationStatuses: {
-        flagship: '旗舰店',
-        comingSoon: '即将推出'
       }
     },
     hero: {
       label: 'Msport 体验',
       titleLine1: 'MSPORT',
       titleLine2: '集体',
-      primaryCta: '查看全部场馆',
+      primaryCta: '探索 Msport+',
       secondaryCta: '查看会员'
     },
     usp: {
       campusLabel: '山甘烹园区',
       metrics: [
         { value: '8', label: '年', detail: '2018 年启用', href: '/about' },
-        { value: '68', label: '打位', detail: '无需等待，上场开球', href: '/driving-range' },
+        { value: '68', label: '打位', detail: '无需等待，上场开球', href: '/contact' },
         { value: '10+', label: '商铺', detail: '餐饮 · 专卖店 · 服务', href: '/facilities' },
         { value: '3', label: '套房', detail: 'TrackMan 室内模拟', href: '/simulators' },
         { value: '7', label: '教练', detail: 'PGA 认证教学', href: '/academy' }
@@ -581,7 +561,7 @@ export const translations: Record<LanguageCode, TranslationContent> = {
       title: '正在扩张',
       subtitle: 'Msport 下一章',
       description: 'Msport+ 将成为全新旗舰园区，提供主厨餐饮、扩容 TrackMan 实验室以及礼宾式服务，距离现有练习场仅数分钟。2026 年开业。',
-      cta: '查看场馆',
+      cta: '探索 Msport+',
       footageLabel: '施工影像',
       footageTitle: 'Msport+ 建设预览',
       footageMeta: '现场拍摄 · 2026 年 2 月'
@@ -600,12 +580,12 @@ export const translations: Record<LanguageCode, TranslationContent> = {
     nav: {
       links: {
         home: 'ホーム',
-        about: 'Msportについて',
-        drivingRange: 'ドライビングレンジ',
+        about: '会社概要',
+        contact: 'お問い合わせ',
         facilities: '施設',
         simulators: 'シミュレーター',
         academy: 'アカデミー',
-        locations: '拠点',
+        locations: 'Msport+',
         news: 'ニュース'
       },
       actions: {
@@ -619,24 +599,20 @@ export const translations: Record<LanguageCode, TranslationContent> = {
         KO: '한국어',
         ZH: '中文',
         JA: '日本語'
-      },
-      locationStatuses: {
-        flagship: 'フラッグシップ',
-        comingSoon: '近日公開'
       }
     },
     hero: {
       label: 'Msport エクスペリエンス',
       titleLine1: 'MSPORT',
       titleLine2: 'コレクティブ',
-      primaryCta: '全拠点を見る',
+      primaryCta: 'Msport+を見る',
       secondaryCta: 'メンバーシップを見る'
     },
     usp: {
       campusLabel: 'サンカムペーングキャンパス',
       metrics: [
         { value: '8', label: '年', detail: '2018年開業', href: '/about' },
-        { value: '68', label: '打席', detail: '待ち時間なしでスイング', href: '/driving-range' },
+        { value: '68', label: '打席', detail: '待ち時間なしでスイング', href: '/contact' },
         { value: '10+', label: 'ショップ', detail: 'フード · プロショップ · サービス', href: '/facilities' },
         { value: '3', label: 'スイート', detail: 'TrackMan 室内スタジオ', href: '/simulators' },
         { value: '7', label: 'コーチ', detail: 'PGA 認定コーチング', href: '/academy' }
@@ -707,7 +683,7 @@ export const translations: Record<LanguageCode, TranslationContent> = {
       title: '拡張中',
       subtitle: 'Msport の次章',
       description: 'Msport+ は新たなフラッグシップキャンパス。シェフ監修ダイニング、拡張 TrackMan ラボ、コンシェルジュサービスを備え、現レンジから数分の距離。2026年オープン。',
-      cta: '拠点を見る',
+      cta: 'Msport+を見る',
       footageLabel: '建設映像',
       footageTitle: 'Msport+ プレビュー',
       footageMeta: '現地収録 · 2026年2月'

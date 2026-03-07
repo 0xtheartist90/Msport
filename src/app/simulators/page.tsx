@@ -134,19 +134,19 @@ const simulatorsCopy = {
             }
         }
     },
-  TH: {
+    TH: {
         hero: {
             label: 'ห้อง TrackMan',
-            title: 'SIM ROOMS',
+            title: 'ห้องซิมูเลเตอร์',
             description: 'ห้อง TrackMan ส่วนตัวสำหรับซ้อมแบบดูข้อมูล เล่นรอบสนุก ๆ และฝึกอย่างจริงจังได้ตลอดปี'
         },
         performance: {
             label: 'ห้องพรีเมียม',
-            title: 'Performance Bay',
+            title: 'เพอร์ฟอร์แมนซ์ เบย์',
             subtitle: 'สร้างมาสำหรับผู้เล่นที่ต้องการข้อมูลลึกและการเข้าถึง TrackMan แบบเต็มระบบ',
             description:
-                'ใช้งาน TrackMan Performance Center, Test Center, ข้อมูล attack angle และ club delivery ได้ครบภายใน Performance Bay',
-            cta: 'จอง Performance Bay'
+                'ใช้งาน TrackMan ศูนย์วิเคราะห์, ศูนย์ทดสอบ, ข้อมูลมุมปะทะ และข้อมูลการส่งหัวไม้ได้ครบภายในเพอร์ฟอร์แมนซ์ เบย์',
+            cta: 'จองเพอร์ฟอร์แมนซ์ เบย์'
         },
         pricing: {
             label: 'แพ็กเกจ',
@@ -157,7 +157,7 @@ const simulatorsCopy = {
             prepaidHours: 'ชั่วโมงซิมูเลเตอร์แบบเติมล่วงหน้า',
             packages: [
                 {
-                    title: 'Room 1 & 2',
+                    title: 'ห้อง 1 และ 2',
                     hourly: '500 บาท / ชั่วโมง',
                     capacity: '1–4 คน',
                     instantAccess: 'เข้าใช้งานได้ทันที',
@@ -168,7 +168,7 @@ const simulatorsCopy = {
                     ]
                 },
                 {
-                    title: 'Room 3 – Performance Bay',
+                    title: 'ห้อง 3 – เพอร์ฟอร์แมนซ์ เบย์',
                     hourly: '700 บาท / ชั่วโมง',
                     capacity: '1–6 คน',
                     instantAccess: 'เข้าใช้งานได้ทันที',
@@ -194,18 +194,18 @@ const simulatorsCopy = {
             { title: 'สนามจากทั่วโลก', copy: 'เล่นสนามระดับโลกกว่า 300 สนามในระบบเดียว' }
         ],
         features: {
-            label: 'Inside Every Session',
-            title: 'Features',
+            label: 'ภายในทุกเซสชัน',
+            title: 'ฟีเจอร์',
             subtitle: '8 เครื่องมือหลักที่ได้ในทุกเซสชัน',
             cards: [
-                { title: 'Range', description: 'เห็นไฟลต์บอลทันทีในทุกห้อง', icon: Target },
-                { title: 'Performance Center', description: 'วิเคราะห์ TrackMan แบบเต็มระบบพร้อมบันทึกเซสชัน', icon: LineChart },
-                { title: '300+ Courses', description: 'สนามระดับโลกกว่า 300 สนามในภาพ 4K', icon: Globe2 },
-                { title: 'Map My Bag', description: 'จัดระยะของทุกไม้ในถุงให้แม่นยำขึ้น', icon: Ruler },
-                { title: 'Test Center', description: 'ลิสต์ช็อตแบบมีโครงสร้างสำหรับเทียบ dispersion', icon: ClipboardList },
-                { title: 'Target Practice', description: 'ตั้งเป้าซ้อมได้ละเอียดสำหรับเวดจ์และการคุมระยะ', icon: Crosshair },
-                { title: '9 Game Modes', description: 'เล่นเกม แข่ง Long Drive และ Accuracy ได้ในระบบเดียว', icon: Gamepad2 },
-                { title: 'Competitions', description: 'สร้างลีดเดอร์บอร์ดพร้อมคะแนนบนหน้าจอได้', icon: Trophy }
+                { title: 'สนามฝึกซ้อม', description: 'เห็นไฟลต์บอลทันทีในทุกห้อง', icon: Target },
+                { title: 'ศูนย์วิเคราะห์', description: 'วิเคราะห์ TrackMan แบบเต็มระบบพร้อมบันทึกเซสชัน', icon: LineChart },
+                { title: '300+ สนาม', description: 'สนามระดับโลกกว่า 300 สนามในภาพ 4K', icon: Globe2 },
+                { title: 'จัดระยะทั้งถุง', description: 'จัดระยะของทุกไม้ในถุงให้แม่นยำขึ้น', icon: Ruler },
+                { title: 'ศูนย์ทดสอบ', description: 'ลิสต์ช็อตแบบมีโครงสร้างสำหรับเทียบ dispersion', icon: ClipboardList },
+                { title: 'ฝึกเป้าหมาย', description: 'ตั้งเป้าซ้อมได้ละเอียดสำหรับเวดจ์และการคุมระยะ', icon: Crosshair },
+                { title: '9 โหมดเกม', description: 'เล่นเกม แข่ง Long Drive และ Accuracy ได้ในระบบเดียว', icon: Gamepad2 },
+                { title: 'การแข่งขัน', description: 'สร้างลีดเดอร์บอร์ดพร้อมคะแนนบนหน้าจอได้', icon: Trophy }
             ]
         },
         booking: {
@@ -214,13 +214,13 @@ const simulatorsCopy = {
             subtitle: 'ห้องส่วนตัว ข้อมูลระดับลึก และการเข้าใช้งานทุกวันพร้อมทีมดูแลในพื้นที่',
             contacts: [
                 {
-                    label: 'Hours',
-                    value: 'เปิดทุกวัน 10:00 AM – 10:00 PM',
-                    helper: 'หลัง 8:00 PM ต้องจองล่วงหน้าอย่างน้อย 1 วัน',
+                    label: 'เวลาเปิดบริการ',
+                    value: 'เปิดทุกวัน 10:00 น. – 22:00 น.',
+                    helper: 'หลัง 20:00 น. ต้องจองล่วงหน้าอย่างน้อย 1 วัน',
                     icon: Clock4
                 },
                 {
-                    label: 'Email',
+                    label: 'อีเมล',
                     value: 'msport.golfsimulator@gmail.com',
                     helper: 'เหมาะสำหรับการจองล่วงหน้าและกลุ่มส่วนตัว',
                     icon: Mail,
@@ -229,7 +229,7 @@ const simulatorsCopy = {
                 {
                     label: 'Instagram',
                     value: '@msport_golfsimulator',
-                    helper: 'DM สำหรับคอนเฟิร์มเร็วและการจองวันเดียวกัน',
+                    helper: 'ส่งข้อความเพื่อคอนเฟิร์มเร็วและเช็กคิววันเดียวกัน',
                     icon: Instagram,
                     href: 'https://www.instagram.com/msport_golfsimulator'
                 }
@@ -247,16 +247,16 @@ const simulatorsCopy = {
     KO: {
         hero: {
             label: 'TrackMan 스위트',
-            title: 'SIM ROOMS',
+            title: '시뮬레이터 룸',
             description: '데이터 세션, 캐주얼 라운드, 연중 집중 연습을 위한 프라이빗 TrackMan 룸.'
         },
         performance: {
             label: '프리미엄 스위트',
-            title: 'Performance Bay',
+            title: '퍼포먼스 베이',
             subtitle: '실제 데이터와 완전한 TrackMan 접근을 원하는 플레이어를 위한 공간.',
             description:
-                'Performance Center, Test Center, attack angle, club delivery 데이터까지 하나의 퍼포먼스 베이 안에서 모두 확인할 수 있습니다.',
-            cta: 'Performance Bay 예약'
+                'TrackMan 퍼포먼스 센터, 테스트 센터, 어택 앵글, 클럽 딜리버리 데이터까지 하나의 퍼포먼스 베이 안에서 모두 확인할 수 있습니다.',
+            cta: '퍼포먼스 베이 예약'
         },
         pricing: {
             label: '패키지',
@@ -266,8 +266,8 @@ const simulatorsCopy = {
             priceLabel: '가격',
             prepaidHours: '선결제 시뮬레이터 이용 시간',
             packages: [
-                { title: 'Room 1 & 2', hourly: '500 THB / hour', capacity: '1–4명', instantAccess: '즉시 이용 가능', tiers: [{ label: '10 Hours', price: '4,800 THB' }, { label: '30 Hours', price: '14,100 THB' }, { label: '50 Hours', price: '22,500 THB' }] },
-                { title: 'Room 3 – Performance Bay', hourly: '700 THB / hour', capacity: '1–6명', instantAccess: '즉시 이용 가능', premium: '프리미엄', tiers: [{ label: '10 Hours', price: '6,800 THB' }, { label: '30 Hours', price: '20,100 THB' }, { label: '50 Hours', price: '32,500 THB' }] }
+                { title: '룸 1 & 2', hourly: '500 THB / 시간', capacity: '1–4명', instantAccess: '즉시 이용 가능', tiers: [{ label: '10시간', price: '4,800 THB' }, { label: '30시간', price: '14,100 THB' }, { label: '50시간', price: '22,500 THB' }] },
+                { title: '룸 3 – 퍼포먼스 베이', hourly: '700 THB / 시간', capacity: '1–6명', instantAccess: '즉시 이용 가능', premium: '프리미엄', tiers: [{ label: '10시간', price: '6,800 THB' }, { label: '30시간', price: '20,100 THB' }, { label: '50시간', price: '32,500 THB' }] }
             ],
             coachingFeeLabel: '코칭 비용',
             perHour: '시간당',
@@ -283,18 +283,18 @@ const simulatorsCopy = {
             { title: '글로벌 코스', copy: '하나의 시스템에서 300개 이상의 코스 플레이.' }
         ],
         features: {
-            label: 'Inside Every Session',
-            title: 'Features',
+            label: '모든 세션 안에서',
+            title: '기능',
             subtitle: '모든 시뮬레이터 세션에 포함되는 8가지 핵심 툴.',
             cards: [
-                { title: 'Range', description: '모든 스위트에서 즉시 볼 플라이트 피드백.', icon: Target },
-                { title: 'Performance Center', description: '세션 저장이 가능한 풀 TrackMan 진단.', icon: LineChart },
-                { title: '300+ Courses', description: '4K로 구현된 세계적인 코스들.', icon: Globe2 },
-                { title: 'Map My Bag', description: '가방 안 모든 클럽의 거리 간격을 정리.', icon: Ruler },
-                { title: 'Test Center', description: '분산 비교를 위한 구조화된 샷 리스트.', icon: ClipboardList },
-                { title: 'Target Practice', description: '웨지 거리 훈련을 위한 가변 타깃.', icon: Crosshair },
-                { title: '9 Game Modes', description: '콤바인, 롱드라이브, 정확도 게임까지.', icon: Gamepad2 },
-                { title: 'Competitions', description: '화면 내 리더보드 경기 생성.', icon: Trophy }
+                { title: '레인지', description: '모든 스위트에서 즉시 볼 플라이트 피드백.', icon: Target },
+                { title: '퍼포먼스 센터', description: '세션 저장이 가능한 풀 TrackMan 진단.', icon: LineChart },
+                { title: '300개 이상 코스', description: '4K로 구현된 세계적인 코스들.', icon: Globe2 },
+                { title: '클럽 거리 맵', description: '가방 안 모든 클럽의 거리 간격을 정리.', icon: Ruler },
+                { title: '테스트 센터', description: '분산 비교를 위한 구조화된 샷 리스트.', icon: ClipboardList },
+                { title: '타깃 연습', description: '웨지 거리 훈련을 위한 가변 타깃.', icon: Crosshair },
+                { title: '9가지 게임 모드', description: '콤바인, 롱드라이브, 정확도 게임까지.', icon: Gamepad2 },
+                { title: '대회 모드', description: '화면 내 리더보드 경기 생성.', icon: Trophy }
             ]
         },
         booking: {
@@ -302,9 +302,9 @@ const simulatorsCopy = {
             title: 'TrackMan 시간을 확보하세요',
             subtitle: '프라이빗 스위트, 깊이 있는 데이터, 현장 지원까지.',
             contacts: [
-                { label: 'Hours', value: '매일 10:00 AM – 10:00 PM 운영', helper: '오후 8시 이후는 하루 전 사전 예약 필요.', icon: Clock4 },
-                { label: 'Email', value: 'msport.golfsimulator@gmail.com', helper: '사전 예약과 프라이빗 그룹 문의에 적합.', icon: Mail, href: 'mailto:msport.golfsimulator@gmail.com' },
-                { label: 'Instagram', value: '@msport_golfsimulator', helper: '빠른 확인과 당일 슬롯 문의는 DM.', icon: Instagram, href: 'https://www.instagram.com/msport_golfsimulator' }
+                { label: '운영 시간', value: '매일 10:00 – 22:00 운영', helper: '20:00 이후는 하루 전 사전 예약 필요.', icon: Clock4 },
+                { label: '이메일', value: 'msport.golfsimulator@gmail.com', helper: '사전 예약과 프라이빗 그룹 문의에 적합.', icon: Mail, href: 'mailto:msport.golfsimulator@gmail.com' },
+                { label: '인스타그램', value: '@msport_golfsimulator', helper: '빠른 확인과 당일 슬롯 문의는 메시지로 문의.', icon: Instagram, href: 'https://www.instagram.com/msport_golfsimulator' }
             ],
             flow: {
                 label: '추천 흐름',
@@ -318,16 +318,16 @@ const simulatorsCopy = {
     ZH: {
         hero: {
             label: 'TrackMan 套房',
-            title: 'SIM ROOMS',
+            title: '模拟器房间',
             description: '适用于数据训练、休闲回合与全年专注练习的私密 TrackMan 房间。'
         },
         performance: {
             label: '高级套房',
-            title: 'Performance Bay',
+            title: '性能包厢',
             subtitle: '为希望获得真实数据与完整 TrackMan 体验的球手打造。',
             description:
-                '在 Performance Bay 内即可使用 Performance Center、Test Center、attack angle 与完整 club delivery 数据。',
-            cta: '预订 Performance Bay'
+                '在性能包厢内即可使用 TrackMan 表现中心、测试中心、进攻角度与完整杆头传递数据。',
+            cta: '预订性能包厢'
         },
         pricing: {
             label: '套餐',
@@ -337,8 +337,8 @@ const simulatorsCopy = {
             priceLabel: '价格',
             prepaidHours: '预付模拟器小时数',
             packages: [
-                { title: 'Room 1 & 2', hourly: '500 THB / hour', capacity: '1–4人', instantAccess: '立即使用', tiers: [{ label: '10 Hours', price: '4,800 THB' }, { label: '30 Hours', price: '14,100 THB' }, { label: '50 Hours', price: '22,500 THB' }] },
-                { title: 'Room 3 – Performance Bay', hourly: '700 THB / hour', capacity: '1–6人', instantAccess: '立即使用', premium: '高级', tiers: [{ label: '10 Hours', price: '6,800 THB' }, { label: '30 Hours', price: '20,100 THB' }, { label: '50 Hours', price: '32,500 THB' }] }
+                { title: '房间 1 与 2', hourly: '500 THB / 小时', capacity: '1–4人', instantAccess: '立即使用', tiers: [{ label: '10 小时', price: '4,800 THB' }, { label: '30 小时', price: '14,100 THB' }, { label: '50 小时', price: '22,500 THB' }] },
+                { title: '房间 3 – 性能包厢', hourly: '700 THB / 小时', capacity: '1–6人', instantAccess: '立即使用', premium: '高级', tiers: [{ label: '10 小时', price: '6,800 THB' }, { label: '30 小时', price: '20,100 THB' }, { label: '50 小时', price: '32,500 THB' }] }
             ],
             coachingFeeLabel: '教学费用',
             perHour: '每小时',
@@ -354,18 +354,18 @@ const simulatorsCopy = {
             { title: '全球球场', copy: '一个系统即可畅玩 300 多座球场。' }
         ],
         features: {
-            label: 'Inside Every Session',
-            title: 'Features',
+            label: '每次训练中',
+            title: '功能',
             subtitle: '每次模拟器训练都包含的 8 个核心工具。',
             cards: [
-                { title: 'Range', description: '每个房间内即时获得球路反馈。', icon: Target },
-                { title: 'Performance Center', description: '可保存训练记录的完整 TrackMan 诊断。', icon: LineChart },
-                { title: '300+ Courses', description: '4K 呈现的全球经典球场。', icon: Globe2 },
-                { title: 'Map My Bag', description: '梳理整套球杆的距离间隔。', icon: Ruler },
-                { title: 'Test Center', description: '通过结构化击球列表测试 dispersion。', icon: ClipboardList },
-                { title: 'Target Practice', description: '可调目标的短杆距离训练。', icon: Crosshair },
-                { title: '9 Game Modes', description: '包含 combine、长打与精准度等模式。', icon: Gamepad2 },
-                { title: 'Competitions', description: '创建带排行榜的屏幕比赛。', icon: Trophy }
+                { title: '练习场', description: '每个房间内即时获得球路反馈。', icon: Target },
+                { title: '表现中心', description: '可保存训练记录的完整 TrackMan 诊断。', icon: LineChart },
+                { title: '300+ 球场', description: '4K 呈现的全球经典球场。', icon: Globe2 },
+                { title: '球包距离图', description: '梳理整套球杆的距离间隔。', icon: Ruler },
+                { title: '测试中心', description: '通过结构化击球列表测试 dispersion。', icon: ClipboardList },
+                { title: '目标练习', description: '可调目标的短杆距离训练。', icon: Crosshair },
+                { title: '9 种游戏模式', description: '包含 combine、长打与精准度等模式。', icon: Gamepad2 },
+                { title: '竞赛模式', description: '创建带排行榜的屏幕比赛。', icon: Trophy }
             ]
         },
         booking: {
@@ -373,9 +373,9 @@ const simulatorsCopy = {
             title: '锁定你的 TrackMan 时间',
             subtitle: '私密套房、专业数据与现场支持，一次到位。',
             contacts: [
-                { label: 'Hours', value: '每日 10:00 AM – 10:00 PM 开放', helper: '晚上 8 点后需提前一天预约。', icon: Clock4 },
-                { label: 'Email', value: 'msport.golfsimulator@gmail.com', helper: '适合提前预约与私密团体。', icon: Mail, href: 'mailto:msport.golfsimulator@gmail.com' },
-                { label: 'Instagram', value: '@msport_golfsimulator', helper: '如需快速确认与当天时段，请发 DM。', icon: Instagram, href: 'https://www.instagram.com/msport_golfsimulator' }
+                { label: '营业时间', value: '每日 10:00 – 22:00 开放', helper: '20:00 后需至少提前一天预约。', icon: Clock4 },
+                { label: '邮箱', value: 'msport.golfsimulator@gmail.com', helper: '适合提前预约与私密团体。', icon: Mail, href: 'mailto:msport.golfsimulator@gmail.com' },
+                { label: 'Instagram', value: '@msport_golfsimulator', helper: '如需快速确认与当天时段，请直接发消息。', icon: Instagram, href: 'https://www.instagram.com/msport_golfsimulator' }
             ],
             flow: {
                 label: '推荐流程',
@@ -389,16 +389,16 @@ const simulatorsCopy = {
     JA: {
         hero: {
             label: 'TrackMan スイート',
-            title: 'SIM ROOMS',
+            title: 'シミュレータールーム',
             description: 'データセッション、カジュアルラウンド、年間を通した集中練習のためのプライベート TrackMan ルーム。'
         },
         performance: {
             label: 'プレミアムスイート',
-            title: 'Performance Bay',
+            title: 'パフォーマンスベイ',
             subtitle: '本格的なデータとフル TrackMan 機能を求めるプレーヤー向け。',
             description:
-                'Performance Center、Test Center、attack angle、club delivery データまで、すべて Performance Bay で確認できます。',
-            cta: 'Performance Bay を予約'
+                'TrackMan パフォーマンスセンター、テストセンター、アタックアングル、クラブデリバリーのデータまで、すべてパフォーマンスベイで確認できます。',
+            cta: 'パフォーマンスベイを予約'
         },
         pricing: {
             label: 'パッケージ',
@@ -408,8 +408,8 @@ const simulatorsCopy = {
             priceLabel: '価格',
             prepaidHours: '前払いシミュレーター時間',
             packages: [
-                { title: 'Room 1 & 2', hourly: '500 THB / hour', capacity: '1–4名', instantAccess: 'すぐ利用可能', tiers: [{ label: '10 Hours', price: '4,800 THB' }, { label: '30 Hours', price: '14,100 THB' }, { label: '50 Hours', price: '22,500 THB' }] },
-                { title: 'Room 3 – Performance Bay', hourly: '700 THB / hour', capacity: '1–6名', instantAccess: 'すぐ利用可能', premium: 'プレミアム', tiers: [{ label: '10 Hours', price: '6,800 THB' }, { label: '30 Hours', price: '20,100 THB' }, { label: '50 Hours', price: '32,500 THB' }] }
+                { title: 'ルーム 1 & 2', hourly: '500 THB / 時間', capacity: '1–4名', instantAccess: 'すぐ利用可能', tiers: [{ label: '10時間', price: '4,800 THB' }, { label: '30時間', price: '14,100 THB' }, { label: '50時間', price: '22,500 THB' }] },
+                { title: 'ルーム 3 – パフォーマンスベイ', hourly: '700 THB / 時間', capacity: '1–6名', instantAccess: 'すぐ利用可能', premium: 'プレミアム', tiers: [{ label: '10時間', price: '6,800 THB' }, { label: '30時間', price: '20,100 THB' }, { label: '50時間', price: '32,500 THB' }] }
             ],
             coachingFeeLabel: 'コーチ料金',
             perHour: '1時間あたり',
@@ -425,18 +425,18 @@ const simulatorsCopy = {
             { title: '世界のコース', copy: '300以上のコースを一つのシステムでプレー。' }
         ],
         features: {
-            label: 'Inside Every Session',
-            title: 'Features',
+            label: 'すべてのセッション内で',
+            title: '機能',
             subtitle: 'すべてのセッションに含まれる 8 つの主要機能。',
             cards: [
-                { title: 'Range', description: '各スイートで即時にボールフライトを確認。', icon: Target },
-                { title: 'Performance Center', description: 'セッション保存付きのフル TrackMan 診断。', icon: LineChart },
-                { title: '300+ Courses', description: '4K で再現された世界の名門コース。', icon: Globe2 },
-                { title: 'Map My Bag', description: 'バッグ内すべてのクラブの距離差を整理。', icon: Ruler },
-                { title: 'Test Center', description: '分散を比較する構造化ショットリスト。', icon: ClipboardList },
-                { title: 'Target Practice', description: '距離感を整える可変ターゲット練習。', icon: Crosshair },
-                { title: '9 Game Modes', description: 'コンバイン、ロングドライブ、精度ゲームまで。', icon: Gamepad2 },
-                { title: 'Competitions', description: 'スクリーン上でリーダーボード付き競技を作成。', icon: Trophy }
+                { title: 'レンジ', description: '各スイートで即時にボールフライトを確認。', icon: Target },
+                { title: 'パフォーマンスセンター', description: 'セッション保存付きのフル TrackMan 診断。', icon: LineChart },
+                { title: '300以上のコース', description: '4K で再現された世界の名門コース。', icon: Globe2 },
+                { title: 'バッグ距離マップ', description: 'バッグ内すべてのクラブの距離差を整理。', icon: Ruler },
+                { title: 'テストセンター', description: '分散を比較する構造化ショットリスト。', icon: ClipboardList },
+                { title: 'ターゲット練習', description: '距離感を整える可変ターゲット練習。', icon: Crosshair },
+                { title: '9つのゲームモード', description: 'コンバイン、ロングドライブ、精度ゲームまで。', icon: Gamepad2 },
+                { title: '競技モード', description: 'スクリーン上でリーダーボード付き競技を作成。', icon: Trophy }
             ]
         },
         booking: {
@@ -444,9 +444,9 @@ const simulatorsCopy = {
             title: 'TrackMan の時間を確保する',
             subtitle: 'プライベートスイート、深いデータ、現地サポートまで一体で。',
             contacts: [
-                { label: 'Hours', value: '毎日 10:00 AM – 10:00 PM', helper: '午後 8 時以降は前日までの事前予約が必要です。', icon: Clock4 },
-                { label: 'Email', value: 'msport.golfsimulator@gmail.com', helper: '事前予約やプライベートグループに最適。', icon: Mail, href: 'mailto:msport.golfsimulator@gmail.com' },
-                { label: 'Instagram', value: '@msport_golfsimulator', helper: '当日枠や早い確認は DM で。', icon: Instagram, href: 'https://www.instagram.com/msport_golfsimulator' }
+                { label: '営業時間', value: '毎日 10:00 – 22:00', helper: '20:00 以降は前日までの事前予約が必要です。', icon: Clock4 },
+                { label: 'メール', value: 'msport.golfsimulator@gmail.com', helper: '事前予約やプライベートグループに最適。', icon: Mail, href: 'mailto:msport.golfsimulator@gmail.com' },
+                { label: 'Instagram', value: '@msport_golfsimulator', helper: '当日枠や早い確認はメッセージで。', icon: Instagram, href: 'https://www.instagram.com/msport_golfsimulator' }
             ],
             flow: {
                 label: 'おすすめの流れ',
@@ -493,20 +493,19 @@ export default async function SimulatorsPage() {
                             title={<span className='text-white'>{copy.performance.title}</span>}
                             subtitle={copy.performance.subtitle}
                             align='left'
-                            animated={false}
                             subtitleClassName='subtitle-accent text-white/80'
                         />
-                        <p className='text-white/80'>{copy.performance.description}</p>
+                        <p className='text-white/80 reveal reveal-up reveal-delay-3'>{copy.performance.description}</p>
                         <Link
                             href='/checkout'
-                            className='accent-bg inline-flex rounded-xl px-6 py-3 text-sm font-semibold'>
+                            className='accent-bg inline-flex rounded-xl px-6 py-3 text-sm font-semibold reveal reveal-up reveal-delay-4'>
                             {copy.performance.cta}
                         </Link>
                     </div>
-                    <div className='relative overflow-hidden rounded-[32px] border-2 border-[var(--accent)] shadow-[0_35px_90px_rgba(0,0,0,0.5)]'>
+                    <div className='relative overflow-hidden rounded-[32px] border-2 border-[var(--accent)] shadow-[0_35px_90px_rgba(0,0,0,0.5)] reveal reveal-right reveal-delay-2'>
                         <Image
                             src='/images/SIM/room3.png'
-                            alt='Performance Bay'
+                            alt={copy.performance.title}
                             width={1200}
                             height={1400}
                             className='h-full w-full object-cover'
@@ -523,30 +522,32 @@ export default async function SimulatorsPage() {
                         title={<span className='text-[#1B1B1A]'>{copy.pricing.title}</span>}
                         subtitle={copy.pricing.subtitle}
                         align='center'
-                        animated={false}
                     />
                     <div className='grid gap-5 lg:grid-cols-2'>
-                        {packages.map((pkg) => {
-                            const isPerformance = pkg.title.includes('Performance Bay');
+                        {packages.map((pkg, index) => {
+                            const isPerformance = index === 1;
 
                             return (
-                                <article
+                                <div
                                     key={pkg.title}
-                                    className={`group relative overflow-hidden rounded-[30px] px-5 py-5 shadow-[0_24px_65px_rgba(0,0,0,0.1)] sm:px-6 sm:py-6 ${
-                                        isPerformance
-                                            ? 'border border-[var(--accent)]/25 bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(247,245,240,0.92))]'
-                                            : 'border border-[#E4DDD0] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(247,245,240,0.88))]'
-                                    }`}
+                                    className={`reveal reveal-up reveal-delay-${Math.min(index + 1, 2)}`}
                                 >
-                                    <div
-                                        className={`pointer-events-none absolute inset-0 opacity-90 ${
+                                    <article
+                                        className={`group relative transform-gpu overflow-hidden rounded-[30px] px-5 py-5 shadow-[0_24px_65px_rgba(0,0,0,0.1)] transition-transform duration-700 ease-out hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(0,0,0,0.14)] sm:px-6 sm:py-6 ${
                                             isPerformance
-                                                ? 'bg-[radial-gradient(circle_at_top_right,rgba(214,201,184,0.28),transparent_42%)]'
-                                                : 'bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.55),transparent_38%)]'
+                                                ? 'border border-[var(--accent)]/25 bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(247,245,240,0.92))]'
+                                                : 'border border-[#E4DDD0] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(247,245,240,0.88))]'
                                         }`}
-                                        aria-hidden='true'
-                                    />
-                                    <div className='relative z-10 space-y-5'>
+                                    >
+                                        <div
+                                            className={`pointer-events-none absolute inset-0 opacity-90 ${
+                                                isPerformance
+                                                    ? 'bg-[radial-gradient(circle_at_top_right,rgba(214,201,184,0.28),transparent_42%)]'
+                                                    : 'bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.55),transparent_38%)]'
+                                            }`}
+                                            aria-hidden='true'
+                                        />
+                                        <div className='relative z-10 space-y-5'>
                                         <div className='flex items-start justify-between gap-4'>
                                             <div className='space-y-2'>
                                                 <p className='text-[0.58rem] tracking-[0.45em] text-[var(--accent)] uppercase'>
@@ -596,12 +597,13 @@ export default async function SimulatorsPage() {
                                                 </div>
                                             ))}
                                         </div>
-                                    </div>
-                                </article>
+                                        </div>
+                                    </article>
+                                </div>
                             );
                         })}
                     </div>
-                    <div className='grid gap-5 rounded-[28px] border border-[#E3DED3] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(247,245,240,0.9))] p-5 shadow-[0_20px_55px_rgba(0,0,0,0.1)] sm:p-6 lg:grid-cols-[auto_1fr] lg:items-center'>
+                    <div className='grid gap-5 rounded-[28px] border border-[#E3DED3] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(247,245,240,0.9))] p-5 shadow-[0_20px_55px_rgba(0,0,0,0.1)] reveal reveal-up reveal-delay-3 sm:p-6 lg:grid-cols-[auto_1fr] lg:items-center'>
                         <div className='rounded-[22px] border border-[#E5DED2] bg-[#F7F5F0] px-5 py-4 text-left'>
                             <p className='text-[0.58rem] tracking-[0.35em] text-[#7A7468] uppercase'>{copy.pricing.coachingFeeLabel}</p>
                             <p className='mt-2 text-3xl font-black text-[#161513]'>+200 THB</p>
@@ -621,7 +623,7 @@ export default async function SimulatorsPage() {
             <section className='overflow-hidden bg-[#FAF2E5]'>
                 <div className='relative'>
                     <div className='flex w-max flex-nowrap animate-marquee-seamless-top' style={{ gap: 0 }}>
-                        {[0, 1, 2].map(setIndex =>
+                        {[0, 1].map(setIndex =>
                             simLoopImages.map(image => (
                                 <Image
                                     key={`${image}-${setIndex}`}
@@ -642,30 +644,38 @@ export default async function SimulatorsPage() {
                 <div className='mx-auto grid max-w-6xl gap-8 px-6 md:grid-cols-2 lg:px-10 xl:grid-cols-4'>
                     {[
                         ...copy.highlights
-                    ].map((card) => (
-                        <article
+                    ].map((card, index) => (
+                        <div
                             key={card.title}
-                            className='group relative flex min-h-[220px] transform-gpu flex-col gap-6 overflow-hidden rounded-[30px] border border-white/12 bg-gradient-to-b from-white/12 via-white/6 to-transparent px-8 py-10 shadow-[0_35px_90px_rgba(0,0,0,0.45)] transition-all duration-500 ease-out hover:-translate-y-3 hover:rotate-1 hover:shadow-[0_45px_120px_rgba(0,0,0,0.55)]'>
-                            <div
-                                className='absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100'
-                                aria-hidden='true'>
-                                <div className='absolute inset-0 animate-pulse bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.18)_0%,_transparent_55%)]' />
-                            </div>
-                            <div
-                                className='absolute inset-x-[-40%] top-[-120%] h-[260%] rotate-6 bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100'
-                                aria-hidden='true'
-                            />
-                            <h4 className='text-[clamp(1.6rem,2.6vw,2rem)] leading-tight font-black tracking-tight text-white transition-transform duration-500 group-hover:-translate-y-1'>
-                                {card.title}
-                            </h4>
-                            <div className='space-y-4 text-sm text-white/80'>
-                                <div className='h-[1px] w-16 bg-gradient-to-r from-[#b91c1c] via-[#ef4444] to-transparent transition-all duration-500 group-hover:w-20' />
-                                <p className='text-base text-white/85 transition-colors duration-300 group-hover:text-white'>
-                                    {card.copy}
-                                </p>
-                            </div>
-                            <div className='pointer-events-none absolute inset-0 rounded-[30px] border border-white/0 transition-colors duration-500 group-hover:border-white/15' />
-                        </article>
+                            className={`reveal reveal-up reveal-delay-${Math.min(index + 1, 4)}`}>
+                            <article className='group relative flex min-h-[200px] transform-gpu flex-col overflow-hidden rounded-[30px] border border-white/12 bg-gradient-to-b from-white/12 via-white/6 to-transparent px-8 py-8 shadow-[0_35px_90px_rgba(0,0,0,0.45)] transition-transform duration-700 ease-out hover:-translate-y-3 hover:rotate-1 hover:shadow-[0_45px_120px_rgba(0,0,0,0.55)]'>
+                                <div
+                                    className='absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100'
+                                    aria-hidden='true'>
+                                    <div className='absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.18)_0%,_transparent_55%)]' />
+                                </div>
+                                <div
+                                    className='absolute inset-x-[-40%] top-[-120%] h-[260%] rotate-6 bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100'
+                                    aria-hidden='true'
+                                />
+                                <div className='flex h-full flex-col'>
+                                    <div className='flex min-h-[7rem] items-start'>
+                                        <h4 className='text-[clamp(1.6rem,2.6vw,2rem)] leading-tight font-black tracking-tight text-white transition-transform duration-500 group-hover:-translate-y-1'>
+                                            {card.title}
+                                        </h4>
+                                    </div>
+                                    <div className='mt-1 space-y-3 text-sm text-white/80'>
+                                        <div className='h-[1px] w-16 bg-gradient-to-r from-[#b91c1c] via-[#ef4444] to-transparent transition-all duration-500 group-hover:w-20' />
+                                        <div className='flex min-h-[5.5rem] items-start'>
+                                            <p className='text-base text-white/85 transition-colors duration-300 group-hover:text-white'>
+                                                {card.copy}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='pointer-events-none absolute inset-0 rounded-[30px] border border-white/0 transition-colors duration-500 group-hover:border-white/15' />
+                            </article>
+                        </div>
                     ))}
                 </div>
             </section>
@@ -677,38 +687,43 @@ export default async function SimulatorsPage() {
                         title={<span className='text-[#1B1B1A]'>{copy.features.title}</span>}
                         subtitle={copy.features.subtitle}
                         align='center'
-                        animated={false}
                     />
                     <div className='grid gap-4 sm:grid-cols-2 xl:grid-cols-4 lg:gap-5'>
-                        {performanceFeatures.map(feature => (
-                            <article
+                        {performanceFeatures.map((feature, index) => (
+                            <div
                                 key={feature.title}
-                                className='group relative flex h-full flex-col overflow-hidden rounded-[24px] border border-[#E4DDD0] bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(247,245,240,0.86))] px-4 py-5 text-center text-[#1B1B1A] shadow-[0_14px_34px_rgba(0,0,0,0.07)] transition-all duration-500 hover:-translate-y-1 hover:border-[#d7c8ba] hover:shadow-[0_22px_50px_rgba(0,0,0,0.1)] sm:px-5 sm:py-6'>
-                                <div
-                                    className='pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.68),transparent_42%)]'
-                                    aria-hidden='true'
-                                />
-                                <div className='relative z-10 flex h-full flex-col'>
-                                    <div className='mb-5 flex justify-center'>
-                                        {(() => {
-                                            const Icon = feature.icon;
+                                className={`reveal reveal-up reveal-delay-${Math.min(index + 1, 4)}`}>
+                                <article className='group relative flex h-full transform-gpu flex-col overflow-hidden rounded-[24px] border border-[#E4DDD0] bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(247,245,240,0.86))] px-4 py-5 text-center text-[#1B1B1A] shadow-[0_14px_34px_rgba(0,0,0,0.07)] transition-transform duration-700 ease-out hover:-translate-y-1.5 hover:shadow-[0_22px_50px_rgba(0,0,0,0.1)] sm:px-5 sm:py-6'>
+                                    <div
+                                        className='pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.68),transparent_42%)]'
+                                        aria-hidden='true'
+                                    />
+                                    <div className='relative z-10 flex h-full flex-col'>
+                                        <div className='mb-5 flex justify-center'>
+                                            {(() => {
+                                                const Icon = feature.icon;
 
-                                            return (
-                                                <Icon className='h-8 w-8 text-[var(--accent)]' aria-hidden='true' />
-                                            );
-                                        })()}
+                                                return (
+                                                    <Icon className='h-8 w-8 text-[var(--accent)]' aria-hidden='true' />
+                                                );
+                                            })()}
+                                        </div>
+                                        <div className='flex h-full flex-col items-center'>
+                                            <div className='flex min-h-[3.5rem] items-center'>
+                                                <h3 className='text-[1.05rem] font-black tracking-tight text-[#161513] sm:text-[1.18rem]'>
+                                                    {feature.title}
+                                                </h3>
+                                            </div>
+                                            <div className='mt-3 h-[1px] w-14 bg-gradient-to-r from-[#C9BBA7] to-transparent transition-all duration-500 group-hover:w-20' />
+                                            <div className='mt-3 flex min-h-[4.75rem] items-start'>
+                                                <p className='text-sm leading-relaxed text-[#4A473F]'>
+                                                    {feature.description}
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className='flex h-full flex-col items-center space-y-3'>
-                                        <h3 className='text-[1.05rem] font-black tracking-tight text-[#161513] sm:text-[1.18rem]'>
-                                            {feature.title}
-                                        </h3>
-                                        <div className='h-[1px] w-14 bg-gradient-to-r from-[#C9BBA7] to-transparent transition-all duration-500 group-hover:w-20' />
-                                        <p className='text-sm leading-relaxed text-[#4A473F]'>
-                                            {feature.description}
-                                        </p>
-                                    </div>
-                                </div>
-                            </article>
+                                </article>
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -736,7 +751,6 @@ export default async function SimulatorsPage() {
                                     title={<span className='text-white'>{copy.booking.title}</span>}
                                     subtitle={copy.booking.subtitle}
                                     align='center'
-                                    animated={false}
                                     subtitleClassName='subtitle-accent text-[var(--accent)]'
                                 />
                             </div>
@@ -744,60 +758,68 @@ export default async function SimulatorsPage() {
                             <div className='relative'>
                                 <div className='grid gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-5'>
                                     {bookingContacts.map((contact, index) => (
-                                        <article
+                                        <div
                                             key={contact.label}
-                                            className={`group relative overflow-hidden rounded-[28px] border px-5 py-5 text-left shadow-[0_20px_50px_rgba(0,0,0,0.25)] transition-all duration-500 sm:px-6 sm:py-6 ${
-                                                index === 0
-                                                    ? 'border-[var(--accent)]/30 bg-[linear-gradient(180deg,rgba(239,68,68,0.12),rgba(255,255,255,0.04))]'
-                                                    : 'border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] hover:-translate-y-1 hover:border-white/20'
-                                            }`}
-                                        >
-                                            <div
-                                                className='pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100'
-                                                aria-hidden='true'>
-                                                <div className='absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.12),transparent_55%)]' />
-                                            </div>
-                                            <div className='relative z-10 flex h-full flex-col gap-5'>
-                                                {(() => {
-                                                    const Icon = contact.icon;
-
-                                                    return (
-                                                        <div className='flex justify-center'>
-                                                            <div className='flex h-12 w-12 items-center justify-center rounded-2xl border border-white/15 bg-black/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]'>
-                                                                <Icon className='h-5 w-5 text-[var(--accent)]' aria-hidden='true' />
-                                                            </div>
-                                                        </div>
-                                                    );
-                                                })()}
-
-                                                <div className='space-y-3 text-center'>
-                                                    <p className='text-[0.62rem] tracking-[0.45em] text-white/45 uppercase'>
-                                                        {contact.label}
-                                                    </p>
-                                                    {'href' in contact && contact.href ? (
-                                                        <Link
-                                                            href={contact.href}
-                                                            target={contact.href.startsWith('http') ? '_blank' : undefined}
-                                                            rel={contact.href.startsWith('http') ? 'noreferrer' : undefined}
-                                                            className='block break-words text-lg leading-tight font-black text-white transition-colors hover:text-[var(--accent)] sm:text-[1.35rem]'>
-                                                            {contact.value}
-                                                        </Link>
-                                                    ) : (
-                                                        <p className='text-lg leading-tight font-black text-white sm:text-[1.35rem]'>
-                                                            {contact.value}
-                                                        </p>
-                                                    )}
-                                                    <p className='mx-auto max-w-xs text-sm leading-relaxed text-white/65'>
-                                                        {contact.helper}
-                                                    </p>
+                                            className={`reveal reveal-up reveal-delay-${Math.min(index + 1, 3)}`}>
+                                            <article
+                                                className={`group relative transform-gpu overflow-hidden rounded-[28px] border px-5 py-5 text-left shadow-[0_20px_50px_rgba(0,0,0,0.25)] transition-transform duration-700 ease-out sm:px-6 sm:py-6 ${
+                                                    index === 0
+                                                        ? 'border-[var(--accent)]/30 bg-[linear-gradient(180deg,rgba(239,68,68,0.12),rgba(255,255,255,0.04))] hover:-translate-y-1'
+                                                        : 'border-white/12 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] hover:-translate-y-1 hover:border-white/20'
+                                                }`}
+                                            >
+                                                <div
+                                                    className='pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100'
+                                                    aria-hidden='true'>
+                                                    <div className='absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.12),transparent_55%)]' />
                                                 </div>
-                                            </div>
-                                        </article>
+                                                <div className='relative z-10 flex h-full flex-col gap-5'>
+                                                    {(() => {
+                                                        const Icon = contact.icon;
+
+                                                        return (
+                                                            <div className='flex justify-center'>
+                                                                <div className='flex h-12 w-12 items-center justify-center rounded-2xl border border-white/15 bg-black/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]'>
+                                                                    <Icon className='h-5 w-5 text-[var(--accent)]' aria-hidden='true' />
+                                                                </div>
+                                                            </div>
+                                                        );
+                                                    })()}
+
+                                                    <div className='text-center'>
+                                                        <p className='text-[0.62rem] tracking-[0.45em] text-white/45 uppercase'>
+                                                            {contact.label}
+                                                        </p>
+                                                        <div className='mt-3 flex min-h-[3.25rem] items-center justify-center'>
+                                                            {'href' in contact && contact.href ? (
+                                                                <Link
+                                                                    href={contact.href}
+                                                                    target={contact.href.startsWith('http') ? '_blank' : undefined}
+                                                                    rel={contact.href.startsWith('http') ? 'noreferrer' : undefined}
+                                                                    className='block break-words text-lg leading-tight font-black text-white transition-colors hover:text-[var(--accent)] sm:text-[1.35rem]'
+                                                                    style={{ overflowWrap: 'anywhere' }}>
+                                                                    {contact.value}
+                                                                </Link>
+                                                            ) : (
+                                                                <p className='text-lg leading-tight font-black text-white sm:text-[1.35rem]'>
+                                                                    {contact.value}
+                                                                </p>
+                                                            )}
+                                                        </div>
+                                                        <div className='mt-3 flex min-h-[4.5rem] items-start justify-center'>
+                                                            <p className='mx-auto max-w-xs text-sm leading-relaxed text-white/65'>
+                                                                {contact.helper}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
                                     ))}
                                 </div>
                             </div>
 
-                            <div className='grid gap-4 rounded-[28px] border border-white/10 bg-black/20 p-4 backdrop-blur-sm sm:p-5 lg:grid-cols-[1.1fr_auto] lg:items-center lg:gap-6'>
+                            <div className='grid gap-4 rounded-[28px] border border-white/10 bg-black/20 p-4 backdrop-blur-sm reveal reveal-up reveal-delay-4 sm:p-5 lg:grid-cols-[1.1fr_auto] lg:items-center lg:gap-6'>
                                 <div className='space-y-2 text-left'>
                                     <p className='text-[0.62rem] tracking-[0.45em] text-white/40 uppercase'>{copy.booking.flow.label}</p>
                                     <p className='text-lg font-black text-white sm:text-2xl'>{copy.booking.flow.title}</p>

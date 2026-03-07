@@ -12,17 +12,17 @@ const footerCopy = {
     experiences: 'Experiences',
     community: 'Community',
     copyrightLabel: 'Msport Driving Range',
-    quickLinks: ['About', 'Facilities', 'Locations'],
+    quickLinks: { about: 'About', facilities: 'Facilities', contact: 'Contact' },
     experiencesLinks: [
-      { href: '/driving-range', label: 'Driving Range' },
+      { href: '/contact', label: 'Contact' },
       { href: '/simulators', label: 'Simulators' },
       { href: '/academy', label: 'Academy' },
-      { href: '/facilities', label: 'Facilities' }
+      { href: '/locations/msport-plus', label: 'Msport+' }
     ],
     communityLinks: [
       { href: '/#membership', label: 'Membership' },
       { href: '/news', label: 'News' },
-      { href: '/locations', label: 'Locations' },
+      { href: '/locations/msport-plus', label: 'Msport+' },
       { href: 'tel:+66874199199', label: 'Concierge' }
     ]
   },
@@ -32,17 +32,17 @@ const footerCopy = {
     experiences: 'ประสบการณ์',
     community: 'คอมมูนิตี้',
     copyrightLabel: 'Msport Driving Range',
-    quickLinks: ['เกี่ยวกับ', 'สิ่งอำนวยความสะดวก', 'สาขา'],
+    quickLinks: { about: 'เกี่ยวกับ', facilities: 'สิ่งอำนวยความสะดวก', contact: 'ติดต่อ' },
     experiencesLinks: [
-      { href: '/driving-range', label: 'สนามไดร์ฟ' },
+      { href: '/contact', label: 'ติดต่อ' },
       { href: '/simulators', label: 'ซิมูเลเตอร์' },
       { href: '/academy', label: 'อะคาเดมี' },
-      { href: '/facilities', label: 'สิ่งอำนวยความสะดวก' }
+      { href: '/locations/msport-plus', label: 'Msport+' }
     ],
     communityLinks: [
       { href: '/#membership', label: 'สมาชิก' },
       { href: '/news', label: 'ข่าวสาร' },
-      { href: '/locations', label: 'สาขา' },
+      { href: '/locations/msport-plus', label: 'Msport+' },
       { href: 'tel:+66874199199', label: 'คอนเซียร์จ' }
     ]
   },
@@ -52,17 +52,17 @@ const footerCopy = {
     experiences: '경험',
     community: '커뮤니티',
     copyrightLabel: 'Msport Driving Range',
-    quickLinks: ['소개', '시설', '지점'],
+    quickLinks: { about: '소개', facilities: '시설', contact: '문의' },
     experiencesLinks: [
-      { href: '/driving-range', label: '드라이빙 레인지' },
+      { href: '/contact', label: '문의' },
       { href: '/simulators', label: '시뮬레이터' },
       { href: '/academy', label: '아카데미' },
-      { href: '/facilities', label: '시설' }
+      { href: '/locations/msport-plus', label: 'Msport+' }
     ],
     communityLinks: [
       { href: '/#membership', label: '멤버십' },
       { href: '/news', label: '뉴스' },
-      { href: '/locations', label: '지점' },
+      { href: '/locations/msport-plus', label: 'Msport+' },
       { href: 'tel:+66874199199', label: '컨시어지' }
     ]
   },
@@ -72,17 +72,17 @@ const footerCopy = {
     experiences: '体验',
     community: '社区',
     copyrightLabel: 'Msport Driving Range',
-    quickLinks: ['关于', '设施', '地点'],
+    quickLinks: { about: '关于', facilities: '设施', contact: '联系' },
     experiencesLinks: [
-      { href: '/driving-range', label: '练习场' },
+      { href: '/contact', label: '联系' },
       { href: '/simulators', label: '模拟器' },
       { href: '/academy', label: '学院' },
-      { href: '/facilities', label: '设施' }
+      { href: '/locations/msport-plus', label: 'Msport+' }
     ],
     communityLinks: [
       { href: '/#membership', label: '会员' },
       { href: '/news', label: '新闻' },
-      { href: '/locations', label: '地点' },
+      { href: '/locations/msport-plus', label: 'Msport+' },
       { href: 'tel:+66874199199', label: '礼宾服务' }
     ]
   },
@@ -92,17 +92,17 @@ const footerCopy = {
     experiences: '体験',
     community: 'コミュニティ',
     copyrightLabel: 'Msport Driving Range',
-    quickLinks: ['概要', '施設', 'ロケーション'],
+    quickLinks: { about: '概要', facilities: '施設', contact: 'お問い合わせ' },
     experiencesLinks: [
-      { href: '/driving-range', label: 'ドライビングレンジ' },
+      { href: '/contact', label: 'お問い合わせ' },
       { href: '/simulators', label: 'シミュレーター' },
       { href: '/academy', label: 'アカデミー' },
-      { href: '/facilities', label: '施設' }
+      { href: '/locations/msport-plus', label: 'Msport+' }
     ],
     communityLinks: [
       { href: '/#membership', label: 'メンバーシップ' },
       { href: '/news', label: 'ニュース' },
-      { href: '/locations', label: 'ロケーション' },
+      { href: '/locations/msport-plus', label: 'Msport+' },
       { href: 'tel:+66874199199', label: 'コンシェルジュ' }
     ]
   }
@@ -157,9 +157,9 @@ export default function Footer() {
           <p>© {new Date().getFullYear()} {copy.copyrightLabel}</p>
           <div className="flex flex-wrap gap-4">
             {[
-              { href: '/about', label: copy.quickLinks[0] },
-              { href: '/facilities', label: copy.quickLinks[1] },
-              { href: '/locations', label: copy.quickLinks[2] }
+              { href: '/about', label: copy.quickLinks.about },
+              { href: '/facilities', label: copy.quickLinks.facilities },
+              { href: '/contact', label: copy.quickLinks.contact }
             ].map(link => (
               <Link key={link.label} href={link.href} className="hover:text-white transition-colors">
                 {link.label}
@@ -175,16 +175,11 @@ export default function Footer() {
 type FooterColumnProps = {
   title: string;
   links: readonly { href: string; label: string }[];
-  external?: boolean;
-  compact?: boolean;
-  centerOnMobile?: boolean;
 };
 
-const FooterColumn = ({ title, links, external, compact, centerOnMobile }: FooterColumnProps) => {
-  const alignmentClass = centerOnMobile ? 'text-center lg:text-left' : '';
-
+const FooterColumn = ({ title, links }: FooterColumnProps) => {
   return (
-    <div className={`${alignmentClass} space-y-4`}>
+    <div className="space-y-4">
       <p className="text-[0.6rem] uppercase tracking-[0.45em] text-white/55">{title}</p>
       <ul className="space-y-3 text-sm">
         {links.map(link => (
@@ -192,8 +187,8 @@ const FooterColumn = ({ title, links, external, compact, centerOnMobile }: Foote
             <Link
               href={link.href}
               className="text-white/70 hover:text-white transition-colors inline-flex items-center gap-1 after:block after:h-[1px] after:w-0 after:bg-white/60 after:transition-all after:duration-300 hover:after:w-full"
-              target={external && link.href.startsWith('http') ? '_blank' : undefined}
-              rel={external && link.href.startsWith('http') ? 'noreferrer' : undefined}
+              target={link.href.startsWith('http') ? '_blank' : undefined}
+              rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
             >
               {link.label}
             </Link>

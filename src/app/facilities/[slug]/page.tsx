@@ -16,7 +16,6 @@ const infoLabelClasses = 'text-xs uppercase tracking-[0.35em] text-[var(--accent
 
 const facilityDetailCopy = {
   EN: {
-    heroLabel: 'Facilities',
     back: 'Back to Facilities',
     aboutLabel: 'About',
     aboutTitlePrefix: 'Inside',
@@ -33,7 +32,6 @@ const facilityDetailCopy = {
     otherFacilities: 'Other Facilities'
   },
   TH: {
-    heroLabel: 'สิ่งอำนวยความสะดวก',
     back: 'กลับไปหน้าสิ่งอำนวยความสะดวก',
     aboutLabel: 'เกี่ยวกับ',
     aboutTitlePrefix: 'ภายใน',
@@ -50,7 +48,6 @@ const facilityDetailCopy = {
     otherFacilities: 'สิ่งอำนวยความสะดวกอื่น ๆ'
   },
   KO: {
-    heroLabel: '시설',
     back: '시설로 돌아가기',
     aboutLabel: '소개',
     aboutTitlePrefix: '',
@@ -67,7 +64,6 @@ const facilityDetailCopy = {
     otherFacilities: '다른 시설'
   },
   ZH: {
-    heroLabel: '设施',
     back: '返回设施页',
     aboutLabel: '关于',
     aboutTitlePrefix: '',
@@ -84,7 +80,6 @@ const facilityDetailCopy = {
     otherFacilities: '其他设施'
   },
   JA: {
-    heroLabel: '施設',
     back: '施設一覧へ戻る',
     aboutLabel: '概要',
     aboutTitlePrefix: '',
@@ -120,8 +115,8 @@ export default async function FacilityDetailPage({ params }: FacilityPageProps) 
       if (aSame === bSame) {
         return a.name.localeCompare(b.name);
       }
-      
-return aSame ? -1 : 1;
+
+      return aSame ? -1 : 1;
     })
     .slice(0, 3);
 
@@ -129,15 +124,6 @@ return aSame ? -1 : 1;
     <main className="bg-[#F7F5F0] text-[#1F1D19] min-h-screen">
       <section className="relative h-[55vh] min-h-[420px] overflow-hidden">
         <Image src={facility.heroImage} alt={facility.name} fill className="object-cover" priority />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/82 via-black/30 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/58 via-transparent to-transparent" />
-        <div className="relative z-10 mx-auto flex h-full max-w-5xl flex-col items-center justify-center gap-4 px-6 text-center text-white lg:px-12">
-          <p className="accent-pill reveal reveal-down text-[#1B1B1A]">{copy.heroLabel}</p>
-          <h1 className="hero-title reveal reveal-up text-white">
-            <span className="block">{facility.name}</span>
-          </h1>
-          <p className="reveal reveal-up reveal-delay-1 max-w-2xl text-sm leading-relaxed text-white/78 sm:text-base">{facility.description}</p>
-        </div>
       </section>
 
       <div className="mx-auto max-w-6xl px-6 pt-6">
@@ -160,76 +146,79 @@ return aSame ? -1 : 1;
       <section className="px-6 lg:px-16 py-16">
         <div className="mx-auto w-full max-w-6xl grid gap-10 lg:grid-cols-[2fr_1fr]">
           <div className="space-y-6">
-            <div className="rounded-[30px] border border-[#E2D9CC] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(246,242,235,0.94))] p-6 shadow-[0_22px_60px_rgba(0,0,0,0.08)] sm:p-7">
-              <p className="text-[0.62rem] uppercase tracking-[0.42em] text-[var(--accent)]">{copy.aboutLabel}</p>
-              <h2 className="mt-3 text-3xl font-black text-[#1F1D19] sm:text-4xl">{copy.aboutTitlePrefix ? `${copy.aboutTitlePrefix} ${facility.name}` : facility.name}</h2>
-              <p className="mt-4 max-w-3xl text-base leading-relaxed text-[#4C4A44]">{facility.summary}</p>
+            <div className="overflow-hidden rounded-[34px] border border-[#E2D9CC] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(246,242,235,0.94))] shadow-[0_22px_60px_rgba(0,0,0,0.08)]">
+              <div className="grid gap-0 lg:grid-cols-[1.1fr_0.9fr]">
+                <div className="p-6 sm:p-7">
+                  <p className="text-[0.62rem] uppercase tracking-[0.42em] text-[var(--accent)]">{copy.aboutLabel}</p>
+                  <h2 className="mt-3 text-3xl font-black text-[#1F1D19] sm:text-4xl">{copy.aboutTitlePrefix ? `${copy.aboutTitlePrefix} ${facility.name}` : facility.name}</h2>
+                  <p className="mt-4 max-w-3xl text-base leading-relaxed text-[#4C4A44]">{facility.summary}</p>
+                </div>
+                {facility.services?.length ? (
+                  <div className="border-t border-[#E7DFD3] bg-[#FCFAF6] p-6 sm:p-7 lg:border-l lg:border-t-0">
+                    <p className={infoLabelClasses}>{copy.services}</p>
+                    <ul className="mt-4 flex flex-wrap gap-3">
+                      {facility.services.map(service => (
+                        <li
+                          key={service}
+                          className="rounded-full border border-[#E6DED2] bg-white px-4 py-2.5 text-sm font-semibold leading-relaxed text-[#312E29] shadow-[0_8px_20px_rgba(0,0,0,0.04)]"
+                        >
+                          {service}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+              </div>
             </div>
 
-            {facility.services?.length ? (
-              <div className="rounded-[28px] border border-[#E2D9CC] bg-white p-6 shadow-[0_18px_48px_rgba(0,0,0,0.06)] sm:p-7">
-                <p className={infoLabelClasses}>{copy.services}</p>
-                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-                  {facility.services.map(service => (
-                    <li
-                      key={service}
-                      className="rounded-[20px] border border-[#ECE4D7] bg-[#FAF7F1] px-4 py-4 text-sm font-semibold leading-relaxed text-[#312E29] shadow-[0_10px_24px_rgba(0,0,0,0.04)]"
-                    >
-                      {service}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-
-            <div className="rounded-[30px] border border-[#E1DED6] bg-[#1B1B1A] p-6 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] sm:p-7">
-              <div className="space-y-1">
-                <p className="text-[0.62rem] uppercase tracking-[0.42em] text-[var(--accent)]">{copy.visitLabel}</p>
-                <h3 className="text-2xl font-black text-white">{copy.visitTitle}</h3>
-              </div>
-
-              <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                <div className="rounded-[22px] border border-white/10 bg-white/6 px-4 py-4">
-                  <p className="text-[0.58rem] uppercase tracking-[0.34em] text-white/45">{copy.location}</p>
-                  <p className="mt-2 text-sm font-semibold leading-relaxed text-white/86">{facility.location}</p>
+            <div className="rounded-[32px] border border-[#E1DED6] bg-[#1B1B1A] p-6 text-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] sm:p-7">
+              <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+                <div className="space-y-2">
+                  <p className="text-[0.62rem] uppercase tracking-[0.42em] text-[var(--accent)]">{copy.visitLabel}</p>
+                  <h3 className="text-2xl font-black text-white">{copy.visitTitle}</h3>
                 </div>
-                <div className="rounded-[22px] border border-white/10 bg-white/6 px-4 py-4">
-                  <p className="text-[0.58rem] uppercase tracking-[0.34em] text-white/45">{copy.hours}</p>
-                  <p className="mt-2 text-sm font-semibold leading-relaxed text-white/86">{facility.hours}</p>
-                </div>
-                {facility.phone ? (
+                <div className="grid gap-3 sm:grid-cols-2">
                   <div className="rounded-[22px] border border-white/10 bg-white/6 px-4 py-4">
-                    <p className="text-[0.58rem] uppercase tracking-[0.34em] text-white/45">{copy.phone}</p>
-                    <p className="mt-2 text-sm font-semibold leading-relaxed text-white/86">{facility.phone}</p>
+                    <p className="text-[0.58rem] uppercase tracking-[0.34em] text-white/45">{copy.location}</p>
+                    <p className="mt-2 text-sm font-semibold leading-relaxed text-white/86">{facility.location}</p>
                   </div>
-                ) : null}
-                {facility.email ? (
                   <div className="rounded-[22px] border border-white/10 bg-white/6 px-4 py-4">
-                    <p className="text-[0.58rem] uppercase tracking-[0.34em] text-white/45">{copy.email}</p>
-                    <p className="mt-2 break-words text-sm font-semibold leading-relaxed text-white/86">{facility.email}</p>
+                    <p className="text-[0.58rem] uppercase tracking-[0.34em] text-white/45">{copy.hours}</p>
+                    <p className="mt-2 text-sm font-semibold leading-relaxed text-white/86">{facility.hours}</p>
                   </div>
-                ) : null}
-                {!facility.phone && !facility.email && facility.contact ? (
-                  <div className="rounded-[22px] border border-white/10 bg-white/6 px-4 py-4 sm:col-span-2">
-                    <p className="text-[0.58rem] uppercase tracking-[0.34em] text-white/45">{copy.contact}</p>
-                    <p className="mt-2 text-sm font-semibold leading-relaxed text-white/86">{facility.contact}</p>
-                  </div>
-                ) : null}
-              </div>
-
-              {facility.facebook ? (
-                <div className="mt-5 rounded-[22px] border border-white/10 bg-black/16 px-4 py-4">
-                  <p className="text-[0.58rem] uppercase tracking-[0.34em] text-white/45">{copy.facebook}</p>
-                  <Link
-                    href={facility.facebook}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)]"
-                  >
-                    {copy.visitPage} <span aria-hidden="true">→</span>
-                  </Link>
+                  {facility.phone ? (
+                    <div className="rounded-[22px] border border-white/10 bg-white/6 px-4 py-4">
+                      <p className="text-[0.58rem] uppercase tracking-[0.34em] text-white/45">{copy.phone}</p>
+                      <p className="mt-2 text-sm font-semibold leading-relaxed text-white/86">{facility.phone}</p>
+                    </div>
+                  ) : null}
+                  {facility.email ? (
+                    <div className="rounded-[22px] border border-white/10 bg-white/6 px-4 py-4">
+                      <p className="text-[0.58rem] uppercase tracking-[0.34em] text-white/45">{copy.email}</p>
+                      <p className="mt-2 break-words text-sm font-semibold leading-relaxed text-white/86">{facility.email}</p>
+                    </div>
+                  ) : null}
+                  {!facility.phone && !facility.email && facility.contact ? (
+                    <div className="rounded-[22px] border border-white/10 bg-white/6 px-4 py-4 sm:col-span-2">
+                      <p className="text-[0.58rem] uppercase tracking-[0.34em] text-white/45">{copy.contact}</p>
+                      <p className="mt-2 text-sm font-semibold leading-relaxed text-white/86">{facility.contact}</p>
+                    </div>
+                  ) : null}
+                  {facility.facebook ? (
+                    <div className="rounded-[22px] border border-white/10 bg-black/16 px-4 py-4 sm:col-span-2">
+                      <p className="text-[0.58rem] uppercase tracking-[0.34em] text-white/45">{copy.facebook}</p>
+                      <Link
+                        href={facility.facebook}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)]"
+                      >
+                        {copy.visitPage} <span aria-hidden="true">→</span>
+                      </Link>
+                    </div>
+                  ) : null}
                 </div>
-              ) : null}
+              </div>
             </div>
           </div>
 
@@ -250,7 +239,10 @@ return aSame ? -1 : 1;
                     <div className="relative mb-4 h-32 w-full overflow-hidden rounded-[18px] border border-[#e7e2d8] bg-gradient-to-b from-[#f6f6f3] to-white">
                       <Image src={other.heroImage} alt={other.name} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
                     </div>
-                    <span className="sr-only">{other.name}</span>
+                    <div className="space-y-2">
+                      <p className="text-lg font-black tracking-tight text-[#1F1D19]">{other.name}</p>
+                      <div className="h-px w-14 bg-gradient-to-r from-[var(--accent)] via-[#1F1D19]/30 to-transparent transition-all duration-500 group-hover:w-20" />
+                    </div>
                   </Link>
                 ))}
               </aside>

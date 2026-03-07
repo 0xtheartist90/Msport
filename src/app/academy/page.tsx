@@ -13,7 +13,7 @@ const academyCopy = {
   EN: {
     hero: {
       label: 'Msport Academy',
-      title: ['ACADEMY', 'AT MSPORT'],
+      title: ['THE', 'ACADEMY'],
       description: 'Thailand PGA-certified coaching built for juniors, first-timers, and players chasing long-term progress.'
     },
     whyTrain: {
@@ -134,12 +134,12 @@ const academyCopy = {
   TH: {
     hero: {
       label: 'Msport Academy',
-      title: ['ACADEMY', 'AT MSPORT'],
+      title: ['อะคาเดมี', 'ของเรา'],
       description: 'โค้ช Thailand PGA สำหรับเยาวชน มือใหม่ และผู้เล่นที่ต้องการพัฒนาอย่างต่อเนื่อง'
     },
     whyTrain: {
       label: 'Msport Golf Academy',
-      title: 'Why Train Here',
+      title: 'ทำไมต้องที่นี่',
       subtitle: 'สรุปสั้น ๆ ว่าอะคาเดมีนี้ช่วยผู้เล่นได้อย่างไร',
       paragraphs: [
         'โค้ชของอะคาเดมีผสานพื้นฐาน Short Game และการรีวิววงสวิงด้วย TrackMan เข้าด้วยกัน ทำให้การเรียนมีโครงสร้างแต่ไม่ซับซ้อนเกินไป',
@@ -147,21 +147,21 @@ const academyCopy = {
       ],
       highlights: [
         { title: 'โค้ช Thailand PGA', description: 'มีผู้ฝึกสอนรับรองพร้อมทุกวัน', icon: Award },
-        { title: 'TrackMan Feedback', description: 'ข้อมูลที่ช่วยให้การซ้อมมีทิศทาง', icon: Crosshair },
+        { title: 'ข้อมูล TrackMan', description: 'ข้อมูลที่ช่วยให้การซ้อมมีทิศทาง', icon: Crosshair },
         { title: 'จากสนามซ้อมสู่สนามจริง', description: 'การฝึกที่ต่อยอดไปสู่การเล่นจริง', icon: Flag }
       ]
     },
     loopAlt: 'บรรยากาศการฝึกซ้อมของ Msport Golf Academy',
     programs: {
       label: 'รูปแบบการสอน',
-      title: 'Programs',
+      title: 'โปรแกรม',
       subtitle: '4 ตัวเลือกหลักสำหรับการฝึกอย่างต่อเนื่อง',
       bestForLabel: 'เหมาะสำหรับ',
       cards: [
-        { label: 'แพ็กเรียน', title: '1 Hour', bestFor: 'เหมาะสำหรับลองเรียนครั้งแรกหรือแก้หนึ่งเรื่องแบบเฉพาะจุด' },
-        { label: 'แพ็กเรียน', title: '12 Hours', bestFor: 'เหมาะกับผู้เล่นที่ต้องการแผนพัฒนาแบบต่อเนื่องหลายครั้ง' },
-        { label: 'แพ็กเรียน', title: '20 Hours', bestFor: 'เหมาะกับผู้เล่นที่ต้องการความต่อเนื่องระยะยาวมากขึ้น' },
-        { label: 'รายเดือน', title: 'Unlimited', bestFor: 'เหมาะกับผู้เล่นที่ต้องการซ้อมบ่อยภายใต้การดูแลของโค้ช' }
+        { label: 'แพ็กเรียน', title: '1 ชั่วโมง', bestFor: 'เหมาะสำหรับลองเรียนครั้งแรกหรือแก้หนึ่งเรื่องแบบเฉพาะจุด' },
+        { label: 'แพ็กเรียน', title: '12 ชั่วโมง', bestFor: 'เหมาะกับผู้เล่นที่ต้องการแผนพัฒนาแบบต่อเนื่องหลายครั้ง' },
+        { label: 'แพ็กเรียน', title: '20 ชั่วโมง', bestFor: 'เหมาะกับผู้เล่นที่ต้องการความต่อเนื่องระยะยาวมากขึ้น' },
+        { label: 'รายเดือน', title: 'ไม่จำกัด', bestFor: 'เหมาะกับผู้เล่นที่ต้องการซ้อมบ่อยภายใต้การดูแลของโค้ช' }
       ],
       custom: {
         label: 'โปรแกรมเฉพาะบุคคล',
@@ -172,7 +172,7 @@ const academyCopy = {
     },
     onCourse: {
       tag: 'บริการในสนามจริง',
-      title: 'On-Course Immersion',
+      title: 'ฝึกในสนามจริง',
       description: 'ก้าวออกจากเบย์ซ้อมไปฝึกการตัดสินใจ การวางแผน และสถานการณ์เล่นจริง โดยมีโค้ชอะคาเดมีดูแลข้างสนาม',
       scheduleLabel: 'ตารางเวลา',
       schedule: 'นัดหมายได้ตามคำขอ',
@@ -186,7 +186,7 @@ const academyCopy = {
     },
     putting: {
       label: 'ห้องซ้อม',
-      title: 'Putting Room',
+      title: 'ห้องพัตต์',
       subtitle: 'พื้นที่ในร่มสำหรับนักเรียนอะคาเดมีที่ต้องการฝึกสัมผัสและเกมสั้นอย่างจริงจัง',
       cardTitle: 'ซ้อมในร่มแบบมีสมาธิ',
       cardDescription:
@@ -195,7 +195,7 @@ const academyCopy = {
     },
     coaches: {
       label: 'โค้ช',
-      title: 'Meet The Team',
+      title: 'ทีมโค้ช',
       subtitle: 'โค้ช 3 ท่านที่ปรากฏในสื่อของอะคาเดมี',
       cards: [
         {
@@ -222,19 +222,19 @@ const academyCopy = {
       ]
     },
     booking: {
-      label: 'Booking',
-      title: 'Book Academy Time',
+      label: 'การจอง',
+      title: 'จองเวลาอะคาเดมี',
       subtitle: '3 ช่องทางตรงในการติดต่อทีมอะคาเดมี',
       channels: [
         {
-          label: 'Email',
+          label: 'อีเมล',
           value: 'msportgolfacademy@gmail.com',
           helper: 'เหมาะสำหรับวางแผนบทเรียนและสอบถามรายละเอียด',
           href: 'mailto:msportgolfacademy@gmail.com',
           icon: Mail
         },
         {
-          label: 'Phone',
+          label: 'โทรศัพท์',
           value: '065 134 7777',
           helper: 'เหมาะสำหรับคำถามสั้น ๆ และการนัดหมายด่วน',
           href: 'tel:+66651347777',
@@ -242,7 +242,7 @@ const academyCopy = {
         },
         {
           label: 'LINE',
-          value: 'Add on LINE',
+          value: 'เพิ่มเพื่อนบน LINE',
           helper: 'เหมาะสำหรับแชต จองเวลา และติดตามต่อได้ง่าย',
           href: 'https://lin.ee/k2I9b1a',
           icon: MessageCircleMore
@@ -253,12 +253,12 @@ const academyCopy = {
   KO: {
     hero: {
       label: 'Msport Academy',
-      title: ['ACADEMY', 'AT MSPORT'],
+      title: ['우리', '아카데미'],
       description: '주니어, 입문자, 장기적인 성장을 원하는 플레이어를 위한 Thailand PGA 인증 코칭.'
     },
     whyTrain: {
       label: 'Msport Golf Academy',
-      title: 'Why Train Here',
+      title: '왜 여기서 훈련할까',
       subtitle: '아카데미가 실제로 도움이 되는 이유를 간단히 정리했습니다.',
       paragraphs: [
         '아카데미 코치들은 기본기, 쇼트게임 구조, TrackMan 기반 스윙 리뷰를 결합해 기술적이면서도 부담스럽지 않은 훈련을 만듭니다.',
@@ -273,14 +273,14 @@ const academyCopy = {
     loopAlt: 'Msport Golf Academy 트레이닝 몽타주',
     programs: {
       label: '코칭 포맷',
-      title: 'Programs',
+      title: '프로그램',
       subtitle: '정기적인 훈련을 위한 4가지 아카데미 옵션.',
       bestForLabel: '추천 대상',
       cards: [
-        { label: '시간제 패키지', title: '1 Hour', bestFor: '아카데미를 처음 경험하거나 한 가지 이슈를 집중적으로 다듬고 싶은 플레이어.' },
-        { label: '시간제 패키지', title: '12 Hours', bestFor: '여러 세션에 걸쳐 구조적인 발전을 원하는 플레이어.' },
-        { label: '시간제 패키지', title: '20 Hours', bestFor: '더 긴 기간 동안 코칭의 연속성을 원하는 진지한 플레이어.' },
-        { label: '월간', title: 'Unlimited', bestFor: '주중에 자주 반복 훈련을 받고 싶은 플레이어.' }
+        { label: '시간제 패키지', title: '1시간', bestFor: '아카데미를 처음 경험하거나 한 가지 이슈를 집중적으로 다듬고 싶은 플레이어.' },
+        { label: '시간제 패키지', title: '12시간', bestFor: '여러 세션에 걸쳐 구조적인 발전을 원하는 플레이어.' },
+        { label: '시간제 패키지', title: '20시간', bestFor: '더 긴 기간 동안 코칭의 연속성을 원하는 진지한 플레이어.' },
+        { label: '월간', title: '무제한', bestFor: '주중에 자주 반복 훈련을 받고 싶은 플레이어.' }
       ],
       custom: {
         label: '맞춤 프로그램',
@@ -291,7 +291,7 @@ const academyCopy = {
     },
     onCourse: {
       tag: '온코스 서비스',
-      title: 'On-Course Immersion',
+      title: '온코스 몰입 훈련',
       description: '실제 의사결정과 코스 매니지먼트를 코치와 함께 현장에서 훈련하세요.',
       scheduleLabel: '일정',
       schedule: '요청 시 예약 가능',
@@ -305,7 +305,7 @@ const academyCopy = {
     },
     putting: {
       label: '연습 룸',
-      title: 'Putting Room',
+      title: '퍼팅룸',
       subtitle: '터치와 쇼트게임 감각을 다듬기 위한 전용 실내 공간.',
       cardTitle: '집중할 수 있는 실내 반복 훈련',
       cardDescription: '냉방이 되는 퍼팅룸에서 스트로크, 거리감, 쇼트게임 반복 훈련을 더 집중해서 진행할 수 있습니다.',
@@ -313,7 +313,7 @@ const academyCopy = {
     },
     coaches: {
       label: '코치',
-      title: 'Meet The Team',
+      title: '코치 소개',
       subtitle: '아카데미 자료에 소개된 3명의 코치.',
       cards: [
         { name: 'Pro Lip', role: 'Tournament Player', credential: 'TP 1060', image: '/images/Academy/lip.png', description: '경기 경험을 바탕으로 날카로운 퍼포먼스를 원하는 학생을 지도합니다.' },
@@ -323,24 +323,24 @@ const academyCopy = {
     },
     booking: {
       label: '예약',
-      title: 'Book Academy Time',
+      title: '아카데미 예약',
       subtitle: '아카데미 팀과 연결되는 3가지 직접 채널.',
       channels: [
-        { label: 'Email', value: 'msportgolfacademy@gmail.com', helper: '레슨 계획과 상세 문의에 적합합니다.', href: 'mailto:msportgolfacademy@gmail.com', icon: Mail },
-        { label: 'Phone', value: '065 134 7777', helper: '빠른 질문과 당일 문의에 적합합니다.', href: 'tel:+66651347777', icon: PhoneCall },
-        { label: 'LINE', value: 'Add on LINE', helper: '채팅 기반 예약과 후속 소통에 적합합니다.', href: 'https://lin.ee/k2I9b1a', icon: MessageCircleMore }
+        { label: '이메일', value: 'msportgolfacademy@gmail.com', helper: '레슨 계획과 상세 문의에 적합합니다.', href: 'mailto:msportgolfacademy@gmail.com', icon: Mail },
+        { label: '전화', value: '065 134 7777', helper: '빠른 질문과 당일 문의에 적합합니다.', href: 'tel:+66651347777', icon: PhoneCall },
+        { label: 'LINE', value: 'LINE으로 추가', helper: '채팅 기반 예약과 후속 소통에 적합합니다.', href: 'https://lin.ee/k2I9b1a', icon: MessageCircleMore }
       ]
     }
   },
   ZH: {
     hero: {
       label: 'Msport Academy',
-      title: ['ACADEMY', 'AT MSPORT'],
+      title: ['我们的', '学院'],
       description: '为青少年、初学者以及追求长期进步的球手打造的 Thailand PGA 认证教学。'
     },
     whyTrain: {
       label: 'Msport Golf Academy',
-      title: 'Why Train Here',
+      title: '为什么在这里训练',
       subtitle: '更清楚地说明学院真正有价值的地方。',
       paragraphs: [
         '学院教练将基础动作、短杆结构与 TrackMan 挥杆反馈结合起来，让训练既专业又不过度复杂。',
@@ -355,14 +355,14 @@ const academyCopy = {
     loopAlt: 'Msport Golf Academy 训练影像',
     programs: {
       label: '教学形式',
-      title: 'Programs',
+      title: '课程',
       subtitle: '4 种清晰的学院训练选择。',
       bestForLabel: '适合',
       cards: [
-        { label: '小时套餐', title: '1 Hour', bestFor: '适合初次体验学院或想集中解决一个问题的球手。' },
-        { label: '小时套餐', title: '12 Hours', bestFor: '适合希望通过多个课程循序进步的球手。' },
-        { label: '小时套餐', title: '20 Hours', bestFor: '适合希望获得更长期连续指导的认真球手。' },
-        { label: '月度', title: 'Unlimited', bestFor: '适合希望每周频繁练习并接受监督的球手。' }
+        { label: '小时套餐', title: '1 小时', bestFor: '适合初次体验学院或想集中解决一个问题的球手。' },
+        { label: '小时套餐', title: '12 小时', bestFor: '适合希望通过多个课程循序进步的球手。' },
+        { label: '小时套餐', title: '20 小时', bestFor: '适合希望获得更长期连续指导的认真球手。' },
+        { label: '月度', title: '不限量', bestFor: '适合希望每周频繁练习并接受监督的球手。' }
       ],
       custom: {
         label: '定制项目',
@@ -373,7 +373,7 @@ const academyCopy = {
     },
     onCourse: {
       tag: '下场服务',
-      title: 'On-Course Immersion',
+      title: '下场沉浸训练',
       description: '走出打位，在真实决策、球场管理与实战情境中与教练一起训练。',
       scheduleLabel: '时间',
       schedule: '可按需求预约',
@@ -387,7 +387,7 @@ const academyCopy = {
     },
     putting: {
       label: '练习室',
-      title: 'Putting Room',
+      title: '推杆练习室',
       subtitle: '专为学员提升触感与短杆手感而设的室内空间。',
       cardTitle: '专注的室内重复训练',
       cardDescription: '带空调的推杆房可用于杆头路径、速度控制与短杆重复训练，让练习更专注。',
@@ -395,7 +395,7 @@ const academyCopy = {
     },
     coaches: {
       label: '教练',
-      title: 'Meet The Team',
+      title: '教练团队',
       subtitle: '学院素材中介绍的 3 位教练。',
       cards: [
         { name: 'Pro Lip', role: 'Tournament Player', credential: 'TP 1060', image: '/images/Academy/lip.png', description: '以比赛经验帮助球手打造更锐利的实战表现。' },
@@ -405,24 +405,24 @@ const academyCopy = {
     },
     booking: {
       label: '预约',
-      title: 'Book Academy Time',
+      title: '预约学院时间',
       subtitle: '3 种直接联系学院团队的方式。',
       channels: [
-        { label: 'Email', value: 'msportgolfacademy@gmail.com', helper: '适合课程规划与详细咨询。', href: 'mailto:msportgolfacademy@gmail.com', icon: Mail },
-        { label: 'Phone', value: '065 134 7777', helper: '适合快速提问与当天咨询。', href: 'tel:+66651347777', icon: PhoneCall },
-        { label: 'LINE', value: 'Add on LINE', helper: '适合通过聊天完成预约与跟进。', href: 'https://lin.ee/k2I9b1a', icon: MessageCircleMore }
+        { label: '邮箱', value: 'msportgolfacademy@gmail.com', helper: '适合课程规划与详细咨询。', href: 'mailto:msportgolfacademy@gmail.com', icon: Mail },
+        { label: '电话', value: '065 134 7777', helper: '适合快速提问与当天咨询。', href: 'tel:+66651347777', icon: PhoneCall },
+        { label: 'LINE', value: '添加 LINE', helper: '适合通过聊天完成预约与跟进。', href: 'https://lin.ee/k2I9b1a', icon: MessageCircleMore }
       ]
     }
   },
   JA: {
     hero: {
       label: 'Msport Academy',
-      title: ['ACADEMY', 'AT MSPORT'],
+      title: ['私たちの', 'アカデミー'],
       description: 'ジュニア、初心者、長期的な成長を目指すプレーヤーのための Thailand PGA 認定コーチング。'
     },
     whyTrain: {
       label: 'Msport Golf Academy',
-      title: 'Why Train Here',
+      title: 'ここで学ぶ理由',
       subtitle: 'このアカデミーが役立つ理由を、より分かりやすく整理しました。',
       paragraphs: [
         'アカデミーのコーチは、基礎、ショートゲーム、TrackMan によるスイングレビューを組み合わせ、専門的でありながら過度に複雑ではない練習を構築します。',
@@ -437,14 +437,14 @@ const academyCopy = {
     loopAlt: 'Msport Golf Academy トレーニングモンタージュ',
     programs: {
       label: 'コーチング形式',
-      title: 'Programs',
+      title: 'プログラム',
       subtitle: '継続的なトレーニングのための 4 つのアカデミーオプション。',
       bestForLabel: 'おすすめ対象',
       cards: [
-        { label: '時間パック', title: '1 Hour', bestFor: 'まず試してみたい人、または一つの課題に集中したい人向け。' },
-        { label: '時間パック', title: '12 Hours', bestFor: '複数回のセッションを通して計画的に上達したい人向け。' },
-        { label: '時間パック', title: '20 Hours', bestFor: 'より長期的に継続したコーチングを受けたい本格派向け。' },
-        { label: '月額', title: 'Unlimited', bestFor: '毎週頻繁に管理された反復練習をしたい人向け。' }
+        { label: '時間パック', title: '1時間', bestFor: 'まず試してみたい人、または一つの課題に集中したい人向け。' },
+        { label: '時間パック', title: '12時間', bestFor: '複数回のセッションを通して計画的に上達したい人向け。' },
+        { label: '時間パック', title: '20時間', bestFor: 'より長期的に継続したコーチングを受けたい本格派向け。' },
+        { label: '月額', title: '無制限', bestFor: '毎週頻繁に管理された反復練習をしたい人向け。' }
       ],
       custom: {
         label: 'カスタムプログラム',
@@ -455,7 +455,7 @@ const academyCopy = {
     },
     onCourse: {
       tag: 'オンコースサービス',
-      title: 'On-Course Immersion',
+      title: 'オンコース実践',
       description: '打席を離れ、実際の判断やコースマネジメントをコーチと一緒に現場で学びます。',
       scheduleLabel: 'スケジュール',
       schedule: 'リクエスト予約可',
@@ -469,7 +469,7 @@ const academyCopy = {
     },
     putting: {
       label: '練習ルーム',
-      title: 'Putting Room',
+      title: 'パッティングルーム',
       subtitle: 'タッチとショートゲーム感覚を磨くための専用インドア空間。',
       cardTitle: '集中できる屋内反復練習',
       cardDescription: '空調の効いたパッティングルームで、ストローク、距離感、ショートゲームの反復練習をより集中して行えます。',
@@ -477,7 +477,7 @@ const academyCopy = {
     },
     coaches: {
       label: 'コーチ',
-      title: 'Meet The Team',
+      title: 'コーチ紹介',
       subtitle: 'アカデミー資料で紹介している 3 名のコーチ。',
       cards: [
         { name: 'Pro Lip', role: 'Tournament Player', credential: 'TP 1060', image: '/images/Academy/lip.png', description: '試合経験を生かし、鋭い実戦力を目指すプレーヤーを支えます。' },
@@ -487,12 +487,12 @@ const academyCopy = {
     },
     booking: {
       label: '予約',
-      title: 'Book Academy Time',
+      title: 'アカデミー予約',
       subtitle: 'アカデミーチームへ直接つながる 3 つの連絡方法。',
       channels: [
-        { label: 'Email', value: 'msportgolfacademy@gmail.com', helper: 'レッスンプランや詳細相談に適しています。', href: 'mailto:msportgolfacademy@gmail.com', icon: Mail },
-        { label: 'Phone', value: '065 134 7777', helper: '簡単な質問や当日の問い合わせに適しています。', href: 'tel:+66651347777', icon: PhoneCall },
-        { label: 'LINE', value: 'Add on LINE', helper: 'チャットでの予約やフォローに適しています。', href: 'https://lin.ee/k2I9b1a', icon: MessageCircleMore }
+        { label: 'メール', value: 'msportgolfacademy@gmail.com', helper: 'レッスンプランや詳細相談に適しています。', href: 'mailto:msportgolfacademy@gmail.com', icon: Mail },
+        { label: '電話', value: '065 134 7777', helper: '簡単な質問や当日の問い合わせに適しています。', href: 'tel:+66651347777', icon: PhoneCall },
+        { label: 'LINE', value: 'LINEで追加', helper: 'チャットでの予約やフォローに適しています。', href: 'https://lin.ee/k2I9b1a', icon: MessageCircleMore }
       ]
     }
   }
@@ -540,36 +540,37 @@ export default async function AcademyPage() {
               title={<span className="text-[#1B1B1A]">{copy.whyTrain.title}</span>}
               subtitle={copy.whyTrain.subtitle}
               align="left"
-              animated={false}
               subtitleClassName="subtitle-accent text-[#4A473F]"
             />
             <div className="space-y-4 text-[#4A473F]">
-              {copy.whyTrain.paragraphs.map(paragraph => (
-                <p key={paragraph}>{paragraph}</p>
+              {copy.whyTrain.paragraphs.map((paragraph, index) => (
+                <p key={paragraph} className={`reveal reveal-up reveal-delay-${Math.min(index + 3, 5)}`}>{paragraph}</p>
               ))}
             </div>
           </div>
 
           <div className="space-y-4">
-            {coachingHighlights.map(highlight => {
+            {coachingHighlights.map((highlight, index) => {
               const Icon = highlight.icon;
 
               return (
-                <article
+                <div
                   key={highlight.title}
-                  className="group relative overflow-hidden rounded-[28px] border border-[#E3DED3] bg-white px-5 py-5 shadow-[0_18px_45px_rgba(0,0,0,0.08)] transition-transform duration-500 hover:-translate-y-1"
+                  className={`group reveal reveal-up reveal-delay-${Math.min(index + 1, 4)}`}
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl border border-[#E6DED2] bg-[#F7F5F0]">
-                      <Icon className="h-5 w-5 text-[var(--accent)]" aria-hidden="true" />
+                  <article className="relative transform-gpu overflow-hidden rounded-[28px] border border-[#E3DED3] bg-white px-5 py-5 shadow-[0_18px_45px_rgba(0,0,0,0.08)] transition-transform duration-700 ease-out group-hover:-translate-y-2 group-hover:shadow-[0_24px_58px_rgba(0,0,0,0.12)]">
+                    <div className="flex items-start gap-4">
+                      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl border border-[#E6DED2] bg-[#F7F5F0]">
+                        <Icon className="h-5 w-5 text-[var(--accent)]" aria-hidden="true" />
+                      </div>
+                      <div className="space-y-2">
+                        <h3 className="text-lg font-black text-[#1B1B1A]">{highlight.title}</h3>
+                        <div className="h-px w-12 bg-gradient-to-r from-[var(--accent)]/80 to-transparent transition-all duration-500 group-hover:w-16" />
+                        <p className="text-sm leading-relaxed text-[#4A473F]">{highlight.description}</p>
+                      </div>
                     </div>
-                    <div className="space-y-2">
-                      <h3 className="text-lg font-black text-[#1B1B1A]">{highlight.title}</h3>
-                      <div className="h-px w-12 bg-gradient-to-r from-[var(--accent)]/80 to-transparent transition-all duration-500 group-hover:w-16" />
-                      <p className="text-sm leading-relaxed text-[#4A473F]">{highlight.description}</p>
-                    </div>
-                  </div>
-                </article>
+                  </article>
+                </div>
               );
             })}
           </div>
@@ -579,7 +580,7 @@ export default async function AcademyPage() {
       <section className="overflow-hidden bg-[#F7F5F0]">
         <div className="relative">
           <div className="flex w-max flex-nowrap animate-marquee-seamless-top" style={{ gap: 0 }}>
-            {[0, 1, 2].map(setIndex =>
+            {[0, 1].map(setIndex =>
               academyLoopImages.map(image => (
                 <Image
                   key={`${image}-${setIndex}`}
@@ -603,53 +604,55 @@ export default async function AcademyPage() {
             title={<span className="text-white">{copy.programs.title}</span>}
             subtitle={copy.programs.subtitle}
             align="left"
-            animated={false}
             subtitleClassName="subtitle-accent text-white/70"
           />
 
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {academyPackCards.map(program => {
+            {academyPackCards.map((program, index) => {
               const featured = program.title === 'Unlimited';
 
               return (
-                <article
+                <div
                   key={program.title}
-                  className={`relative overflow-hidden rounded-[26px] border px-5 py-5 shadow-[0_18px_45px_rgba(0,0,0,0.12)] ${
+                  className={`group reveal reveal-up reveal-delay-${Math.min(index + 1, 4)}`}
+                >
+                  <article
+                    className={`relative transform-gpu overflow-hidden rounded-[26px] border px-5 py-5 shadow-[0_18px_45px_rgba(0,0,0,0.12)] transition-transform duration-700 ease-out group-hover:-translate-y-2 group-hover:shadow-[0_24px_58px_rgba(0,0,0,0.18)] ${
                     featured
                       ? 'border-[var(--accent)]/22 bg-[linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.04))]'
                       : 'border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))]'
-                  }`}
-                >
-                  <div
-                    className={`pointer-events-none absolute inset-0 ${
-                      featured
-                        ? 'bg-[radial-gradient(circle_at_top_right,rgba(239,68,68,0.16),transparent_42%)]'
-                        : 'bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.08),transparent_38%)]'
                     }`}
-                    aria-hidden="true"
-                  />
+                  >
+                    <div
+                      className={`pointer-events-none absolute inset-0 ${
+                        featured
+                          ? 'bg-[radial-gradient(circle_at_top_right,rgba(239,68,68,0.16),transparent_42%)]'
+                          : 'bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.08),transparent_38%)]'
+                      }`}
+                      aria-hidden="true"
+                    />
 
-                  <div className="relative z-10 space-y-4">
-                    <div className="space-y-2">
-                      <div className="flex items-start justify-between gap-4">
-                        <p className="text-[0.58rem] uppercase tracking-[0.42em] text-[var(--accent)]">{program.label}</p>
+                    <div className="relative z-10 space-y-4">
+                      <div className="space-y-2">
+                        <div className="flex items-start justify-between gap-4">
+                          <p className="text-[0.58rem] uppercase tracking-[0.42em] text-[var(--accent)]">{program.label}</p>
+                        </div>
+                        <h3 className="text-[clamp(1.35rem,2.4vw,1.8rem)] font-black text-white">{program.title}</h3>
                       </div>
-                      <h3 className="text-[clamp(1.35rem,2.4vw,1.8rem)] font-black text-white">{program.title}</h3>
-                    </div>
 
-                    <div className="rounded-[22px] border border-white/10 bg-white/6 px-4 py-4">
-                      <p className="text-[0.55rem] uppercase tracking-[0.35em] text-white/45">{copy.programs.bestForLabel}</p>
-                      <p className="mt-2 text-sm font-semibold leading-relaxed text-white/85">{program.bestFor}</p>
+                      <div className="rounded-[22px] border border-white/10 bg-white/6 px-4 py-4">
+                        <p className="text-[0.55rem] uppercase tracking-[0.35em] text-white/45">{copy.programs.bestForLabel}</p>
+                        <p className="mt-2 text-sm font-semibold leading-relaxed text-white/85">{program.bestFor}</p>
+                      </div>
                     </div>
-
-                  </div>
-                </article>
+                  </article>
+                </div>
               );
             })}
           </div>
 
           {onCourseProgram ? (
-            <article className="overflow-hidden rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.03))] shadow-[0_24px_65px_rgba(0,0,0,0.22)]">
+            <article className="overflow-hidden rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),rgba(255,255,255,0.03))] shadow-[0_24px_65px_rgba(0,0,0,0.22)] reveal reveal-up reveal-delay-3">
               <div className="grid lg:grid-cols-[1.02fr_0.98fr] lg:items-stretch">
                 <div className="relative min-h-[280px] overflow-hidden border-b border-white/10 lg:min-h-[420px] lg:border-b-0 lg:border-r">
                   <Image
@@ -701,7 +704,7 @@ export default async function AcademyPage() {
             </article>
           ) : null}
 
-          <div className="grid gap-4 rounded-[30px] border border-white/10 bg-white/5 p-5 shadow-[0_22px_60px_rgba(0,0,0,0.18)] sm:p-6 lg:grid-cols-[auto_1fr_auto] lg:items-center">
+          <div className="grid gap-4 rounded-[30px] border border-white/10 bg-white/5 p-5 shadow-[0_22px_60px_rgba(0,0,0,0.18)] reveal reveal-up reveal-delay-4 sm:p-6 lg:grid-cols-[auto_1fr_auto] lg:items-center">
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/12 bg-black/20">
               <Sparkles className="h-5 w-5 text-[var(--accent)]" aria-hidden="true" />
             </div>
@@ -732,12 +735,11 @@ export default async function AcademyPage() {
             title={<span className="text-[#1B1B1A]">{copy.putting.title}</span>}
             subtitle={copy.putting.subtitle}
             align="left"
-            animated={false}
           />
 
           <div className="grid gap-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
             <div className="space-y-5">
-              <div className="rounded-[28px] border border-[#E3DED3] bg-white p-6 shadow-[0_20px_55px_rgba(0,0,0,0.08)]">
+              <div className="rounded-[28px] border border-[#E3DED3] bg-white p-6 shadow-[0_20px_55px_rgba(0,0,0,0.08)] reveal reveal-up reveal-delay-3">
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-[#E6DED2] bg-[#F7F5F0]">
                   <Wind className="h-5 w-5 text-[var(--accent)]" aria-hidden="true" />
                 </div>
@@ -747,10 +749,10 @@ export default async function AcademyPage() {
                 </p>
               </div>
               <ul className="grid gap-3 sm:grid-cols-2">
-                {academyBenefits.map(item => (
+                {academyBenefits.map((item, index) => (
                   <li
                     key={item}
-                    className="rounded-[22px] border border-[#E6DED2] bg-white px-4 py-4 text-sm font-semibold text-[#2B2823] shadow-[0_14px_34px_rgba(0,0,0,0.06)]"
+                    className={`rounded-[22px] border border-[#E6DED2] bg-white px-4 py-4 text-sm font-semibold text-[#2B2823] shadow-[0_14px_34px_rgba(0,0,0,0.06)] reveal reveal-up reveal-delay-${Math.min(index + 2, 5)}`}
                   >
                     {item}
                   </li>
@@ -758,7 +760,7 @@ export default async function AcademyPage() {
               </ul>
             </div>
 
-            <div className="overflow-hidden rounded-[30px] border border-[#E3DED3] bg-white shadow-[0_24px_65px_rgba(0,0,0,0.1)]">
+            <div className="overflow-hidden rounded-[30px] border border-[#E3DED3] bg-white shadow-[0_24px_65px_rgba(0,0,0,0.1)] reveal reveal-right reveal-delay-2">
               <div className="relative aspect-[4/3] w-full">
                 <Image
                   src="/images/Academy/puttingroom.jpg"
@@ -779,36 +781,41 @@ export default async function AcademyPage() {
             title={<span className="text-white">{copy.coaches.title}</span>}
             subtitle={copy.coaches.subtitle}
             align="left"
-            animated={false}
             subtitleClassName="subtitle-accent text-white/70"
           />
 
           <div className="grid gap-5 md:grid-cols-3">
             {academyCoaches.map((coach, index) => (
-              <article
+              <div
                 key={coach.name}
-                className={`rounded-[30px] border px-5 py-6 shadow-[0_24px_65px_rgba(0,0,0,0.22)] transition-transform duration-500 hover:-translate-y-1 ${
+                className={`group reveal reveal-up reveal-delay-${Math.min(index + 1, 3)}`}
+              >
+                <article
+                  className={`transform-gpu rounded-[30px] border px-5 py-6 shadow-[0_24px_65px_rgba(0,0,0,0.22)] transition-transform duration-700 ease-out group-hover:-translate-y-2 group-hover:shadow-[0_30px_82px_rgba(0,0,0,0.28)] ${
                   index === 1
                     ? 'border-[var(--accent)]/22 bg-[linear-gradient(180deg,rgba(239,68,68,0.12),rgba(255,255,255,0.04))]'
                     : 'border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))]'
-                }`}
-              >
-                <div className="mb-5 overflow-hidden rounded-[24px] border border-white/10 bg-white/5">
-                  <div className="relative aspect-[4/4.4] w-full">
-                    <Image
-                      src={coach.image}
-                      alt={coach.name}
-                      fill
-                      className="object-cover"
-                    />
+                  }`}
+                >
+                  <div className="mb-5 overflow-hidden rounded-[24px] border border-white/10 bg-white/5">
+                    <div className="relative aspect-[4/4.4] w-full">
+                      <Image
+                        src={coach.image}
+                        alt={coach.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
                   </div>
-                </div>
-                <p className="text-[0.58rem] uppercase tracking-[0.4em] text-[var(--accent)]">{coach.credential}</p>
-                <h3 className="mt-3 text-3xl font-black text-white">{coach.name}</h3>
-                <p className="mt-2 text-lg font-semibold text-white/80">{coach.role}</p>
-                <div className="mt-4 h-px w-14 bg-gradient-to-r from-[var(--accent)]/80 to-transparent" />
-                <p className="mt-4 text-sm leading-relaxed text-white/65">{coach.description}</p>
-              </article>
+                  <div className="min-h-[6.5rem]">
+                    <p className="text-[0.58rem] uppercase tracking-[0.4em] text-[var(--accent)]">{coach.credential}</p>
+                    <h3 className="mt-3 text-3xl font-black text-white">{coach.name}</h3>
+                    <p className="mt-2 text-lg font-semibold text-white/80">{coach.role}</p>
+                  </div>
+                  <div className="mt-4 h-px w-14 bg-gradient-to-r from-[var(--accent)]/80 to-transparent" />
+                  <p className="mt-4 min-h-[4.5rem] text-sm leading-relaxed text-white/65">{coach.description}</p>
+                </article>
+              </div>
             ))}
           </div>
         </div>
@@ -837,47 +844,50 @@ export default async function AcademyPage() {
                   title={<span className="text-[#1B1B1A]">{copy.booking.title}</span>}
                   subtitle={copy.booking.subtitle}
                   align="center"
-                  animated={false}
                   subtitleClassName="subtitle-accent text-[var(--accent)]"
                 />
               </div>
 
               <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-5">
-                {bookingChannels.map(channel => {
+                {bookingChannels.map((channel, index) => {
                   const Icon = channel.icon;
 
                   return (
-                    <article
+                    <div
                       key={channel.label}
-                      className="group relative overflow-hidden rounded-[28px] border border-[#E3DED3] bg-white px-5 py-5 text-center shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-1 hover:border-[#d7c8ba] sm:px-6 sm:py-6"
+                      className={`group reveal reveal-up reveal-delay-${Math.min(index + 1, 3)}`}
                     >
-                      <div
-                        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                        aria-hidden="true"
-                      >
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.12),transparent_55%)]" />
-                      </div>
-                      <div className="relative z-10 flex h-full flex-col gap-4">
-                        <div className="flex justify-center">
-                          <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#E6DED2] bg-[#F7F5F0] shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
-                            <Icon className="h-5 w-5 text-[var(--accent)]" aria-hidden="true" />
+                      <article className="relative transform-gpu overflow-hidden rounded-[28px] border border-[#E3DED3] bg-white px-5 py-5 text-center shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-transform duration-700 ease-out group-hover:-translate-y-2 group-hover:border-[#d7c8ba] group-hover:shadow-[0_26px_62px_rgba(0,0,0,0.12)] sm:px-6 sm:py-6">
+                        <div
+                          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                          aria-hidden="true"
+                        >
+                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.12),transparent_55%)]" />
+                        </div>
+                        <div className="relative z-10 flex h-full flex-col gap-4">
+                          <div className="flex justify-center">
+                            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#E6DED2] bg-[#F7F5F0] shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
+                              <Icon className="h-5 w-5 text-[var(--accent)]" aria-hidden="true" />
+                            </div>
+                          </div>
+
+                          <div className="space-y-3">
+                            <p className="text-[0.62rem] uppercase tracking-[0.45em] text-[#7A7468]">{channel.label}</p>
+                            <div className="min-h-[3.5rem]">
+                              <Link
+                                href={channel.href}
+                                target={channel.href.startsWith('http') ? '_blank' : undefined}
+                                rel={channel.href.startsWith('http') ? 'noreferrer' : undefined}
+                                className="block break-words text-lg leading-tight font-black text-[#1B1B1A] transition-colors hover:text-[var(--accent)] sm:text-[1.35rem]"
+                              >
+                                {channel.value}
+                              </Link>
+                            </div>
+                            <p className="mx-auto min-h-[4.5rem] max-w-xs text-sm leading-relaxed text-[#4A473F]">{channel.helper}</p>
                           </div>
                         </div>
-
-                        <div className="space-y-3">
-                          <p className="text-[0.62rem] uppercase tracking-[0.45em] text-[#7A7468]">{channel.label}</p>
-                          <Link
-                            href={channel.href}
-                            target={channel.href.startsWith('http') ? '_blank' : undefined}
-                            rel={channel.href.startsWith('http') ? 'noreferrer' : undefined}
-                            className="block break-words text-lg leading-tight font-black text-[#1B1B1A] transition-colors hover:text-[var(--accent)] sm:text-[1.35rem]"
-                          >
-                            {channel.value}
-                          </Link>
-                          <p className="mx-auto max-w-xs text-sm leading-relaxed text-[#4A473F]">{channel.helper}</p>
-                        </div>
-                      </div>
-                    </article>
+                      </article>
+                    </div>
                   );
                 })}
               </div>

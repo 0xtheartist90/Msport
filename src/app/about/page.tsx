@@ -15,7 +15,7 @@ const aboutCopy = {
   EN: {
     hero: {
       label: 'ABOUT MSPORT',
-      title: ['Built', 'for Golfers.'],
+      title: ['ABOUT', 'US'],
       description: 'The standards, discipline, and environment that shaped Msport from day one.'
     },
     origin: {
@@ -64,7 +64,7 @@ const aboutCopy = {
   TH: {
     hero: {
       label: 'เกี่ยวกับ MSPORT',
-      title: ['สร้างขึ้น', 'เพื่อคนรักกอล์ฟ'],
+      title: ['เกี่ยวกับ', 'เรา'],
       description: 'มาตรฐาน วินัย และบรรยากาศที่หล่อหลอม Msport มาตั้งแต่วันแรก'
     },
     origin: {
@@ -113,7 +113,7 @@ const aboutCopy = {
   KO: {
     hero: {
       label: 'ABOUT MSPORT',
-      title: ['골퍼를 위해', '만들었습니다'],
+      title: ['회사', '소개'],
       description: '첫날부터 Msport를 만든 기준과 규율, 그리고 환경을 소개합니다.'
     },
     origin: {
@@ -150,7 +150,7 @@ const aboutCopy = {
   ZH: {
     hero: {
       label: '关于 MSPORT',
-      title: ['为高尔夫球手', '而打造'],
+      title: ['关于', '我们'],
       description: '从第一天起塑造 Msport 的标准、纪律与环境。'
     },
     origin: {
@@ -187,7 +187,7 @@ const aboutCopy = {
   JA: {
     hero: {
       label: 'ABOUT MSPORT',
-      title: ['ゴルファーのために', '作られた場所'],
+      title: ['私たち', 'について'],
       description: 'Msport を形づくった基準、規律、そして環境を紹介します。'
     },
     origin: {
@@ -274,15 +274,14 @@ export default function AboutPage() {
               title={<span className="text-[#1C1C1A]">{copy.origin.title}</span>}
               subtitle={copy.origin.subtitle}
               align="left"
-              animated={false}
             />
             <div className="space-y-4 text-lg leading-relaxed">
               {copy.origin.paragraphs.map(paragraph => (
-                <p key={paragraph}>{paragraph}</p>
+                <p key={paragraph} className="reveal reveal-up reveal-delay-3">{paragraph}</p>
               ))}
             </div>
           </div>
-          <div className="rounded-[32px] overflow-hidden border border-[#E3E3E0] shadow-[0_25px_65px_rgba(34,34,34,0.16)]">
+          <div className="rounded-[32px] overflow-hidden border border-[#E3E3E0] shadow-[0_25px_65px_rgba(34,34,34,0.16)] reveal reveal-left reveal-delay-1">
             <div className="relative w-full aspect-[4/3]">
               <Image src="/images/Msportheritagehome.png" alt="Msport range foundation" fill className="object-cover" />
             </div>
@@ -293,7 +292,7 @@ export default function AboutPage() {
       <section className="overflow-hidden bg-[#FAF2E5]">
         <div className="relative">
           <div className="flex w-max flex-nowrap animate-marquee-seamless-top" style={{ gap: 0 }}>
-            {[0, 1, 2].map(setIndex =>
+            {[0, 1].map(setIndex =>
               aboutLoopImages.map(image => (
                 <Image
                   key={`${image}-${setIndex}`}
@@ -334,7 +333,6 @@ export default function AboutPage() {
             title={<span className="text-white">{copy.standard.title}</span>}
             subtitle={copy.standard.subtitle}
             align="center"
-            animated={false}
             subtitleClassName="subtitle-accent text-white/80"
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -354,34 +352,38 @@ export default function AboutPage() {
               title: copy.standard.pillars[3].title,
               icon: ShieldCheck,
               paragraphs: copy.standard.pillars[3].paragraphs
-            }].map(pillar => {
+            }].map((pillar, index) => {
               const Icon = pillar.icon;
+              const delayClass = `reveal-delay-${Math.min(index + 1, 4)}`;
               
-return (
-                <article
-                  key={pillar.title}
-                  className="group relative overflow-hidden rounded-[26px] px-6 py-8 bg-gradient-to-b from-white/12 via-white/6 to-transparent border border-white/12 shadow-[0_30px_85px_rgba(0,0,0,0.45)] flex flex-col gap-4 min-h-[220px] backdrop-blur-md transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_40px_110px_rgba(0,0,0,0.55)]"
-                >
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.18)_0%,_transparent_60%)]" />
-                  </div>
-                  <div className="absolute inset-x-[-40%] top-[-120%] h-[260%] rotate-6 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" aria-hidden="true" />
-
-                  <div className="flex items-center justify-center">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/5">
-                      <Icon className="h-5 w-5 text-[var(--accent)]" aria-hidden="true" />
+              return (
+                <div key={pillar.title} className={`group block h-full reveal reveal-up ${delayClass}`}>
+                  <article className="relative min-h-[220px] h-full overflow-hidden rounded-[26px] border border-white/12 bg-gradient-to-b from-white/12 via-white/6 to-transparent px-6 py-8 shadow-[0_30px_85px_rgba(0,0,0,0.45)] backdrop-blur-md transition-all duration-500 ease-out transform-gpu group-hover:-translate-y-3 group-hover:rotate-1 group-hover:shadow-[0_40px_110px_rgba(0,0,0,0.55)]">
+                    <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" aria-hidden="true">
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.18)_0%,_transparent_60%)]" />
                     </div>
-                  </div>
-                  <h3 className="text-xl font-black text-white text-center">{pillar.title}</h3>
-                  <div className="h-[1px] w-16 mx-auto bg-gradient-to-r from-[#b91c1c] via-[#ef4444] to-transparent opacity-80 group-hover:w-20 transition-all duration-500" />
-                  <div className="space-y-1 text-white/80 text-sm leading-tight">
-                    {pillar.paragraphs.map(text => (
-                      <p key={text} className="text-center">{text}</p>
-                    ))}
-                  </div>
-                  <div className="mt-auto" />
-                  <div className="absolute inset-0 border border-transparent rounded-[26px] group-hover:border-white/30 transition-colors duration-500 pointer-events-none" aria-hidden="true" />
-                </article>
+                    <div className="absolute inset-x-[-40%] top-[-120%] h-[260%] rotate-6 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" aria-hidden="true" />
+
+                    <div className="flex h-full flex-col gap-4">
+                      <div className="flex items-center justify-center">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/5">
+                          <Icon className="h-5 w-5 text-[var(--accent)]" aria-hidden="true" />
+                        </div>
+                      </div>
+                      <div className="space-y-3 transition-transform duration-500 group-hover:-translate-y-1">
+                        <h3 className="text-center text-xl font-black text-white">{pillar.title}</h3>
+                        <div className="mx-auto h-[1px] w-16 bg-gradient-to-r from-[#b91c1c] via-[#ef4444] to-transparent opacity-80 transition-all duration-500 group-hover:w-20" />
+                      </div>
+                      <div className="mt-auto space-y-1 text-center text-sm leading-tight text-white/80">
+                        {pillar.paragraphs.map(text => (
+                          <p key={text}>{text}</p>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="pointer-events-none absolute inset-0 rounded-[26px] border border-transparent transition-colors duration-500 group-hover:border-white/30" aria-hidden="true" />
+                  </article>
+                </div>
               );
             })}
           </div>
@@ -395,9 +397,8 @@ return (
             title={<span className="text-[#1C1C1A]">{copy.roadAhead.title}</span>}
             subtitle={copy.roadAhead.subtitle}
             align="left"
-            animated={false}
           />
-          <p className="text-[#3A3A36]/85 text-lg leading-relaxed">
+          <p className="text-[#3A3A36]/85 text-lg leading-relaxed reveal reveal-up reveal-delay-3">
             {copy.roadAhead.description}
           </p>
         </div>

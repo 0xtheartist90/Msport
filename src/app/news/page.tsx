@@ -9,10 +9,8 @@ const newsPageCopy = {
   EN: {
     hero: {
       label: 'Msport Dispatch',
-      title: ['WHAT’S HAPPENING', 'AT MSPORT'],
-      description: 'News, events, launches, and community updates from across the Msport complex.',
-      primaryCta: 'Read the latest',
-      secondaryCta: 'Submit an event'
+      title: ['News'],
+      description: 'News, events, launches, and community updates from across the Msport complex.'
     },
     section: {
       label: 'News & Events',
@@ -24,10 +22,8 @@ const newsPageCopy = {
   TH: {
     hero: {
       label: 'ข่าวสารจาก Msport',
-      title: ['WHAT’S HAPPENING', 'AT MSPORT'],
-      description: 'ข่าวสาร กิจกรรม การเปิดตัว และอัปเดตจากคอมมูนิตี้ของ Msport',
-      primaryCta: 'อ่านข่าวล่าสุด',
-      secondaryCta: 'ส่งข่าวกิจกรรม'
+      title: ['ข่าวสาร'],
+      description: 'ข่าวสาร กิจกรรม การเปิดตัว และอัปเดตจากคอมมูนิตี้ของ Msport'
     },
     section: {
       label: 'ข่าวสารและกิจกรรม',
@@ -39,10 +35,8 @@ const newsPageCopy = {
   KO: {
     hero: {
       label: 'Msport 소식',
-      title: ['WHAT’S HAPPENING', 'AT MSPORT'],
-      description: 'Msport 콤플렉스 전역의 뉴스, 이벤트, 오픈 소식, 커뮤니티 업데이트를 확인하세요.',
-      primaryCta: '최신 소식 보기',
-      secondaryCta: '이벤트 제보'
+      title: ['뉴스'],
+      description: 'Msport 콤플렉스 전역의 뉴스, 이벤트, 오픈 소식, 커뮤니티 업데이트를 확인하세요.'
     },
     section: {
       label: '뉴스 & 이벤트',
@@ -54,10 +48,8 @@ const newsPageCopy = {
   ZH: {
     hero: {
       label: 'Msport 动态',
-      title: ['WHAT’S HAPPENING', 'AT MSPORT'],
-      description: '来自 Msport 综合体的新闻、活动、发布与社区更新。',
-      primaryCta: '查看最新内容',
-      secondaryCta: '提交活动'
+      title: ['新闻'],
+      description: '来自 Msport 综合体的新闻、活动、发布与社区更新。'
     },
     section: {
       label: '新闻与活动',
@@ -69,10 +61,8 @@ const newsPageCopy = {
   JA: {
     hero: {
       label: 'Msport ニュース',
-      title: ['WHAT’S HAPPENING', 'AT MSPORT'],
-      description: 'Msport コンプレックス全体のニュース、イベント、ローンチ、コミュニティ情報をお届けします。',
-      primaryCta: '最新情報を見る',
-      secondaryCta: 'イベントを送る'
+      title: ['ニュース'],
+      description: 'Msport コンプレックス全体のニュース、イベント、ローンチ、コミュニティ情報をお届けします。'
     },
     section: {
       label: 'ニュース & イベント',
@@ -86,11 +76,11 @@ const newsPageCopy = {
 export default async function NewsPage() {
   const language = await getServerLanguage();
   const copy = newsPageCopy[language];
-  const sortedNews = [...getLocalizedNewsItems(language)].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const sortedNews = getLocalizedNewsItems(language);
 
   return (
     <main className="section-cream min-h-screen">
-      <section className="relative h-[58vh] min-h-[440px] overflow-hidden bg-black">
+      <section className="relative h-[55vh] min-h-[420px] overflow-hidden bg-black">
         <video autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover">
           <source src="/images/drivingrangeMSPORT.mp4" type="video/mp4" />
         </video>
@@ -100,19 +90,10 @@ export default async function NewsPage() {
           <p className="accent-pill reveal reveal-down text-[#1B1B1A]">{copy.hero.label}</p>
           <h1 className="hero-title reveal reveal-up text-white">
             <span className="block">{copy.hero.title[0]}</span>
-            <span className="block whitespace-nowrap">{copy.hero.title[1]}</span>
           </h1>
           <p className="reveal reveal-up reveal-delay-1 max-w-2xl text-sm leading-relaxed text-white/78 sm:text-base">
             {copy.hero.description}
           </p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <a href="#news-content" className="accent-bg px-8 py-3 rounded-xl font-semibold text-sm">
-              {copy.hero.primaryCta}
-            </a>
-            <Link href="mailto:msportcomplex@hotmail.com" className="border border-white/60 px-8 py-3 rounded-xl font-semibold text-sm text-white">
-              {copy.hero.secondaryCta}
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -125,27 +106,37 @@ export default async function NewsPage() {
         />
 
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-          {sortedNews.map(item => (
+          {sortedNews.map((item, index) => (
             <Link
               key={item.slug}
               href={`/news/${item.slug}`}
-              className="group rounded-[12px] overflow-hidden border border-[#DCD8CF] bg-white shadow-[0_12px_35px_rgba(0,0,0,0.08)] flex flex-col transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(0,0,0,0.12)]"
+              className={`group block h-full rounded-[12px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1C1C1A]/20 reveal reveal-up reveal-delay-${Math.min(index + 1, 3)}`}
             >
-              <div className="relative h-56 overflow-hidden">
-                <Image src={item.image} alt={item.title} fill className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]" />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/40" aria-hidden="true" />
-              </div>
-              <div className="p-6 flex flex-col gap-4 text-left flex-1">
-                <div className="flex items-center justify-between text-[0.58rem] uppercase tracking-[0.4em]">
-                  <span className="text-[var(--accent)]">{item.badge}</span>
-                  <span className="text-[var(--accent)]">{item.date}</span>
+              <article className="flex h-full transform-gpu flex-col overflow-hidden rounded-[12px] border border-[#DCD8CF] bg-white shadow-[0_12px_35px_rgba(0,0,0,0.08)] transition-all duration-500 ease-out group-hover:-translate-y-3 group-hover:rotate-1 group-hover:shadow-[0_24px_58px_rgba(0,0,0,0.14)]">
+                <div className="relative h-56 overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/40" aria-hidden="true" />
                 </div>
-                <h3 className="text-[1.35rem] leading-[1.2] font-black text-[#151515]">{item.title}</h3>
-                <p className="text-sm leading-relaxed text-[#6b6b6b]">{item.description}</p>
-                <span className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[#2d2d2d] relative after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full">
-                  → {copy.cardCta}
-                </span>
-              </div>
+                <div className="flex flex-1 flex-col gap-4 p-6 text-left transition-transform duration-500 group-hover:-translate-y-1">
+                  <div className="flex items-center justify-between text-[0.58rem] uppercase tracking-[0.4em]">
+                    <span className="text-[#8f8f8f]">{item.badge}</span>
+                    <span className="text-[var(--accent)]">{item.date}</span>
+                  </div>
+                  <h3 className="text-[1.35rem] font-black leading-[1.2] text-[#151515]">{item.title}</h3>
+                  <p className="text-sm leading-relaxed text-[#6b6b6b]">{item.description}</p>
+                  <span className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[#2d2d2d] transition-colors duration-300 group-hover:text-[var(--accent)]">
+                    <span aria-hidden="true">→</span>
+                    <span className="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full">
+                      {copy.cardCta}
+                    </span>
+                  </span>
+                </div>
+              </article>
             </Link>
           ))}
         </div>

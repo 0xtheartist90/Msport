@@ -10,9 +10,9 @@ import { getLocalizedFacilityDirectory } from '@/lib/localized-content';
 
 const sectionSpacing = 'py-16 px-6 lg:px-10';
 const cardClasses =
-  'group relative overflow-hidden rounded-[28px] border border-[#DED6C9] shadow-[0_24px_62px_rgba(0,0,0,0.18)] min-h-[270px] flex flex-col justify-end p-6 text-white transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_78px_rgba(0,0,0,0.24)] sm:p-7';
+  'group relative transform-gpu overflow-hidden rounded-[28px] border border-[#DED6C9] shadow-[0_24px_62px_rgba(0,0,0,0.18)] min-h-[270px] flex flex-col justify-end p-6 text-white transition-transform duration-700 ease-out hover:-translate-y-2 hover:shadow-[0_30px_78px_rgba(0,0,0,0.24)] sm:p-7';
 const golfCardClasses =
-  'group relative overflow-hidden rounded-[30px] border border-[#D8D0C3] bg-[#1F1D19] min-h-[280px] md:min-h-[320px] flex flex-col justify-end p-6 text-white shadow-[0_24px_70px_rgba(0,0,0,0.2)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_85px_rgba(0,0,0,0.28)] sm:p-7';
+  'group relative transform-gpu overflow-hidden rounded-[30px] border border-[#D8D0C3] bg-[#1F1D19] min-h-[280px] md:min-h-[320px] flex flex-col justify-end p-6 text-white shadow-[0_24px_70px_rgba(0,0,0,0.2)] transition-transform duration-700 ease-out hover:-translate-y-2 hover:shadow-[0_30px_85px_rgba(0,0,0,0.28)] sm:p-7';
 const golfSpanClasses = ['lg:col-span-2', 'lg:col-span-1', 'lg:col-span-1', 'lg:col-span-2'];
 const wellnessSpanClasses = ['lg:col-span-2', 'lg:col-span-1'];
 const diningSpanClasses = ['lg:col-span-2', 'lg:col-span-1', 'lg:col-span-1', 'lg:col-span-1', 'lg:col-span-1'];
@@ -406,7 +406,7 @@ return (
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-6 lg:px-12 text-white space-y-6">
           <p className="accent-pill reveal reveal-down">{copy.hero.label}</p>
           <h1 className="hero-title text-white reveal reveal-up">{copy.hero.title}</h1>
-          <p className="max-w-2xl text-sm leading-relaxed text-white/78 sm:text-base">
+          <p className="max-w-2xl text-sm leading-relaxed text-white/78 reveal reveal-up reveal-delay-1 sm:text-base">
             {copy.hero.description}
           </p>
         </div>
@@ -414,7 +414,7 @@ return (
 
       <section className="sticky top-[88px] z-20 bg-transparent px-6 py-3 lg:px-10">
         <div className="mx-auto max-w-6xl">
-          <div className="flex w-full items-center gap-2 overflow-x-auto rounded-full border border-white/10 bg-[#1B1B1A] px-3 py-2 shadow-[0_14px_34px_rgba(0,0,0,0.22)] backdrop-blur-xl lg:justify-between [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex w-full items-center gap-2 overflow-x-auto rounded-full border border-white/55 bg-[rgba(247,245,240,0.58)] px-3 py-2 shadow-[0_14px_34px_rgba(0,0,0,0.14)] backdrop-blur-xl lg:justify-between [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <div className="flex min-w-max flex-1 items-center gap-2 lg:min-w-0 lg:justify-between">
               {facilityAnchors.map(anchor => {
                 const isActive = activeAnchor === anchor;
@@ -426,7 +426,7 @@ return (
                     className={`inline-flex shrink-0 items-center rounded-full border px-4 py-2.5 text-[0.64rem] font-semibold uppercase tracking-[0.28em] transition-all duration-300 ${
                       isActive
                         ? 'border-[var(--accent)]/35 bg-[var(--accent)] text-white shadow-[0_10px_22px_rgba(185,28,28,0.28)]'
-                        : 'border-transparent bg-transparent text-[#E7E0D3] hover:border-white/12 hover:bg-white/10 hover:text-white'
+                        : 'border-transparent bg-transparent text-[#4B463D] hover:border-black/8 hover:bg-white/45 hover:text-[#1F1D19]'
                     }`}
                   >
                     {copy.rail[anchor]}
@@ -446,13 +446,12 @@ return (
               title={<span className="text-[#1F1D19]">{copy.proShops.title}</span>}
               subtitle={copy.proShops.subtitle}
               align="left"
-              animated={false}
             />
             <div className="space-y-4 lg:max-w-md lg:justify-self-end">
-              <p className="text-sm leading-relaxed text-[#4C4A44] sm:text-base">
+              <p className="text-sm leading-relaxed text-[#4C4A44] reveal reveal-up reveal-delay-3 sm:text-base">
                 {copy.proShops.description}
               </p>
-              <div className="inline-flex items-center gap-3 rounded-full border border-[#DDD3C5] bg-white/80 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-[#6B665C]">
+              <div className="inline-flex items-center gap-3 rounded-full border border-[#DDD3C5] bg-white/80 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-[#6B665C] reveal reveal-up reveal-delay-4">
                 <span className="h-2 w-2 rounded-full bg-[var(--accent)]" />
                 {copy.proShops.stat}
               </div>
@@ -466,32 +465,35 @@ return (
               const isGolfKidClub = business.slug === 'm-golf-kid-club';
 
 return (
-                <Link key={business.slug} href={`/facilities/${business.slug}`} className={`${golfCardClasses} ${spanClass}`}>
-                  <div className="absolute inset-0">
-                    <Image
-                      src={business.heroImage}
-                      alt={business.name}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      style={isGolfGarage ? { objectPosition: 'center top' } : undefined}
-                    />
-                  </div>
-                  <div className="pointer-events-none absolute inset-0 border border-white/0 transition-colors duration-500 group-hover:border-white/18" aria-hidden="true">
-                    <div
-                      className={`absolute left-5 top-5 rounded-full px-3 py-1 text-[0.58rem] font-semibold uppercase tracking-[0.32em] backdrop-blur-md sm:left-6 sm:top-6 ${
-                        isGolfKidClub
-                          ? 'border border-[#D8CEC0] bg-white/88 text-[#2F2B25]'
-                          : 'border border-white/18 bg-black/25 text-white/78'
-                      }`}
-                    >
-                      {copy.tags.proShop}
+                <div
+                  key={business.slug}
+                  className={`${spanClass} reveal reveal-up reveal-delay-${Math.min(index + 1, 4)}`}
+                >
+                  <Link
+                    href={`/facilities/${business.slug}`}
+                    className={golfCardClasses}
+                  >
+                    <div className="absolute inset-0">
+                      <Image
+                        src={business.heroImage}
+                        alt={business.name}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        style={isGolfGarage ? { objectPosition: 'center top' } : undefined}
+                      />
                     </div>
-                  </div>
-                  <div className="relative z-10 mt-auto flex flex-col items-start gap-3">
-                    <div className="space-y-1">
-                      <p className={`text-[1.65rem] font-black tracking-tight sm:text-[1.9rem] ${isGolfKidClub ? 'text-[#1F1D19]' : 'text-white'}`}>
-                        {business.name}
-                      </p>
+                    <div className="pointer-events-none absolute inset-0 border border-white/0 transition-colors duration-500 group-hover:border-white/18" aria-hidden="true">
+                      <div
+                        className={`absolute left-5 top-5 rounded-full px-3 py-1 text-[0.58rem] font-semibold uppercase tracking-[0.32em] backdrop-blur-md sm:left-6 sm:top-6 ${
+                          isGolfKidClub
+                            ? 'border border-[#D8CEC0] bg-white/88 text-[#2F2B25]'
+                            : 'border border-white/18 bg-black/25 text-white/78'
+                        }`}
+                      >
+                        {isGolfKidClub ? 'Apparel' : copy.tags.proShop}
+                      </div>
+                    </div>
+                    <div className="relative z-10 mt-auto flex flex-col items-start gap-3">
                       <div
                         className={`h-px w-16 transition-all duration-500 group-hover:w-24 ${
                           isGolfKidClub
@@ -499,16 +501,16 @@ return (
                             : 'bg-gradient-to-r from-[var(--accent)] via-white/60 to-transparent'
                         }`}
                       />
+                      <span
+                        className={`inline-flex items-center gap-2 text-sm font-semibold transition-colors group-hover:text-[var(--accent)] ${
+                          isGolfKidClub ? 'text-[#2F2B25]' : 'text-white/88'
+                        }`}
+                      >
+                        {copy.tags.viewDetails} <span aria-hidden="true">→</span>
+                      </span>
                     </div>
-                    <span
-                      className={`inline-flex items-center gap-2 text-sm font-semibold transition-colors group-hover:text-[var(--accent)] ${
-                        isGolfKidClub ? 'text-[#2F2B25]' : 'text-white/88'
-                      }`}
-                    >
-                      {copy.tags.viewDetails} <span aria-hidden="true">→</span>
-                    </span>
-                  </div>
-                </Link>
+                  </Link>
+                </div>
               );
             })}
           </div>
@@ -517,7 +519,7 @@ return (
 
       <section id="cafe" className={`scroll-mt-32 ${sectionSpacing} bg-white`}>
         <div className="mx-auto grid w-full max-w-6xl gap-6 rounded-[34px] border border-[#E6DED2] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,245,239,0.96))] p-5 shadow-[0_24px_70px_rgba(0,0,0,0.07)] lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:p-7">
-          <div className="relative h-72 w-full overflow-hidden rounded-[28px] border border-[#E3E3E0]">
+          <div className="relative h-72 w-full overflow-hidden rounded-[28px] border border-[#E3E3E0] reveal reveal-left reveal-delay-1">
             <Image
               src={rangeCafeHeroImage}
               alt={rangeCafe.name}
@@ -532,22 +534,21 @@ return (
               title={<span className="text-[#1F1D19]">{copy.cafe.title}</span>}
               subtitle={copy.cafe.subtitle}
               align="left"
-              animated={false}
             />
-            <p className="text-base leading-relaxed text-[#4C4A44]">
+            <p className="text-base leading-relaxed text-[#4C4A44] reveal reveal-up reveal-delay-3">
               {copy.cafe.description}
             </p>
             <div className="grid gap-3 sm:grid-cols-3">
-              {copy.cafe.chips.map(item => (
+              {copy.cafe.chips.map((item, index) => (
                 <div
                   key={item}
-                  className="rounded-[18px] border border-[#E3DDD2] bg-[#F7F5F0] px-4 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[#6E685D]"
+                  className={`rounded-[18px] border border-[#E3DDD2] bg-[#F7F5F0] px-4 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[#6E685D] reveal reveal-up reveal-delay-${Math.min(index + 2, 4)}`}
                 >
                   {item}
                 </div>
               ))}
             </div>
-            <Link href={`/facilities/${rangeCafe.slug}`} className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)]">
+            <Link href={`/facilities/${rangeCafe.slug}`} className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] reveal reveal-up reveal-delay-4">
               {copy.tags.viewDetails} <span aria-hidden="true">→</span>
             </Link>
           </div>
@@ -562,17 +563,16 @@ return (
               title={<span className="text-white">{copy.vip.title}</span>}
               subtitle={copy.vip.subtitle}
               align="left"
-              animated={false}
               subtitleClassName="subtitle-accent text-white/85"
             />
-            <p className="text-base leading-relaxed text-white/85">
+            <p className="text-base leading-relaxed text-white/85 reveal reveal-up reveal-delay-3">
               {copy.vip.description}
             </p>
             <div className="grid gap-3 sm:grid-cols-3">
-              {copy.vip.chips.map(item => (
+              {copy.vip.chips.map((item, index) => (
                 <div
                   key={item}
-                  className="rounded-[18px] border border-white/10 bg-white/6 px-4 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-white/78"
+                  className={`rounded-[18px] border border-white/10 bg-white/6 px-4 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-white/78 reveal reveal-up reveal-delay-${Math.min(index + 2, 4)}`}
                 >
                   {item}
                 </div>
@@ -580,12 +580,12 @@ return (
             </div>
             <Link
               href="/facilities/vip-room"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)]"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] reveal reveal-up reveal-delay-4"
             >
               {copy.tags.viewDetails} <span aria-hidden="true">→</span>
             </Link>
           </div>
-          <div className="relative h-72 w-full overflow-hidden rounded-[28px] border border-white/16">
+          <div className="relative h-72 w-full overflow-hidden rounded-[28px] border border-white/16 reveal reveal-right reveal-delay-2">
             <Image src="/images/Facilities/Room for rent/roomforrent03.png" alt="VIP room for rent" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-l from-black/70 via-black/20 to-transparent" />
           </div>
@@ -603,9 +603,8 @@ return (
               title={<span className="text-[#1F1D19]">{copy.wellness.title}</span>}
               subtitle={copy.wellness.subtitle}
               align="left"
-              animated={false}
             />
-            <p className="text-sm leading-relaxed text-[#4C4A44] sm:text-base lg:max-w-md lg:justify-self-end">
+            <p className="text-sm leading-relaxed text-[#4C4A44] reveal reveal-up reveal-delay-3 sm:text-base lg:max-w-md lg:justify-self-end">
               {copy.wellness.description}
             </p>
           </div>
@@ -614,20 +613,32 @@ return (
               const spanClass = wellnessSpanClasses[index] ?? 'lg:col-span-1';
               
 return (
-                <Link key={item.slug} href={`/facilities/${item.slug}`} className={`${cardClasses} ${spanClass}`}>
-                  <div className="absolute inset-0">
-                    <Image src={item.heroImage} alt={item.name} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
-                  </div>
-                  <div className="relative z-10 mt-auto flex flex-col items-start gap-3">
-                    <div className="space-y-1">
-                      <p className="text-[0.6rem] uppercase tracking-[0.34em] text-[#3C372F]/75">{copy.tags.recovery}</p>
-                      <p className="text-2xl font-black tracking-tight text-[#1F1D19]">{item.name}</p>
+                <div
+                  key={item.slug}
+                  className={`${spanClass} reveal reveal-up reveal-delay-${Math.min(index + 1, 4)}`}
+                >
+                  <Link
+                    href={`/facilities/${item.slug}`}
+                    className={cardClasses}
+                  >
+                    <div className="absolute inset-0">
+                      <Image src={item.heroImage} alt={item.name} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
                     </div>
-                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#2F2B25] transition-colors group-hover:text-[var(--accent)]">
-                      {copy.tags.viewDetails} <span aria-hidden="true">→</span>
-                    </span>
-                  </div>
-                </Link>
+                    <div className="relative z-10 mt-auto flex flex-col items-start gap-3">
+                      <div className="space-y-1">
+                        {item.slug === 'myo-recovery' || item.slug === 'sakuna-thai-massage' ? null : (
+                          <p className="text-[0.6rem] uppercase tracking-[0.34em] text-[#3C372F]/75">{copy.tags.recovery}</p>
+                        )}
+                        {item.slug === 'myo-recovery' || item.slug === 'sakuna-thai-massage' ? null : (
+                          <p className="text-2xl font-black tracking-tight text-[#1F1D19]">{item.name}</p>
+                        )}
+                      </div>
+                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#2F2B25] transition-colors group-hover:text-[var(--accent)]">
+                        {copy.tags.viewDetails} <span aria-hidden="true">→</span>
+                      </span>
+                    </div>
+                  </Link>
+                </div>
               );
             })}
           </div>
@@ -642,9 +653,8 @@ return (
               title={<span className="text-[#1F1D19]">{copy.dining.title}</span>}
               subtitle={copy.dining.subtitle}
               align="left"
-              animated={false}
             />
-            <p className="text-sm leading-relaxed text-[#4C4A44] sm:text-base lg:max-w-md lg:justify-self-end">
+            <p className="text-sm leading-relaxed text-[#4C4A44] reveal reveal-up reveal-delay-3 sm:text-base lg:max-w-md lg:justify-self-end">
               {copy.dining.description}
             </p>
           </div>
@@ -654,27 +664,35 @@ return (
               const isTungLok = restaurant.slug === 'tung-lok-seafood';
               
 return (
-                <Link key={restaurant.slug} href={`/facilities/${restaurant.slug}`} className={`${cardClasses} ${spanClass}`}>
-                  <div className="absolute inset-0">
-                    <Image
-                      src={restaurant.heroImage}
-                      alt={restaurant.name}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      style={isTungLok ? { objectPosition: 'center top' } : undefined}
-                    />
-                    <div className={cardGradientOverlay} />
-                  </div>
-                  <div className="relative z-10 mt-auto flex flex-col items-start gap-3">
-                    <div className="space-y-1">
-                      <p className="text-[0.6rem] uppercase tracking-[0.34em] text-white/68">{copy.tags.dining}</p>
-                      <p className="text-2xl font-black tracking-tight">{restaurant.name}</p>
+                <div
+                  key={restaurant.slug}
+                  className={`${spanClass} reveal reveal-up reveal-delay-${Math.min(index + 1, 4)}`}
+                >
+                  <Link
+                    href={`/facilities/${restaurant.slug}`}
+                    className={cardClasses}
+                  >
+                    <div className="absolute inset-0">
+                      <Image
+                        src={restaurant.heroImage}
+                        alt={restaurant.name}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        style={isTungLok ? { objectPosition: 'center top' } : undefined}
+                      />
+                      <div className={cardGradientOverlay} />
                     </div>
-                    <span className={detailLinkClasses}>
-                      {copy.tags.viewDetails} <span aria-hidden="true">→</span>
-                    </span>
-                  </div>
-                </Link>
+                    <div className="relative z-10 mt-auto flex flex-col items-start gap-3">
+                      <div className="space-y-1">
+                        <p className="text-[0.6rem] uppercase tracking-[0.34em] text-white/68">{copy.tags.dining}</p>
+                        <p className="text-2xl font-black tracking-tight">{restaurant.name}</p>
+                      </div>
+                      <span className={detailLinkClasses}>
+                        {copy.tags.viewDetails} <span aria-hidden="true">→</span>
+                      </span>
+                    </div>
+                  </Link>
+                </div>
               );
             })}
           </div>
@@ -690,9 +708,8 @@ return (
                 title={<span className="text-[#1F1D19]">{copy.services.title}</span>}
                 subtitle={copy.services.subtitle}
                 align="left"
-                animated={false}
               />
-              <p className="text-sm leading-relaxed text-[#4C4A44] sm:text-base lg:max-w-md lg:justify-self-end">
+              <p className="text-sm leading-relaxed text-[#4C4A44] reveal reveal-up reveal-delay-3 sm:text-base lg:max-w-md lg:justify-self-end">
                 {copy.services.description}
               </p>
             </div>
@@ -702,27 +719,35 @@ return (
                 const isCarSpa = service.slug === 'm-car-spa';
                 
 return (
-                  <Link key={service.slug} href={`/facilities/${service.slug}`} className={`${cardClasses} ${spanClass}`}>
-                    <div className="absolute inset-0">
-                      <Image
-                        src={service.heroImage}
-                        alt={service.name}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        style={isCarSpa ? { objectPosition: 'center 35%' } : undefined}
-                      />
-                      <div className={cardGradientOverlay} />
-                    </div>
-                    <div className="relative z-10 mt-auto flex flex-col items-start gap-3">
-                      <div className="space-y-1">
-                        <p className="text-[0.6rem] uppercase tracking-[0.34em] text-white/68">{copy.tags.service}</p>
-                        <p className="text-2xl font-black tracking-tight">{service.name}</p>
+                  <div
+                    key={service.slug}
+                    className={`${spanClass} reveal reveal-up reveal-delay-${Math.min(index + 1, 4)}`}
+                  >
+                    <Link
+                      href={`/facilities/${service.slug}`}
+                      className={cardClasses}
+                    >
+                      <div className="absolute inset-0">
+                        <Image
+                          src={service.heroImage}
+                          alt={service.name}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          style={isCarSpa ? { objectPosition: 'center 35%' } : undefined}
+                        />
+                        <div className={cardGradientOverlay} />
                       </div>
-                      <span className={detailLinkClasses}>
-                        {copy.tags.viewDetails} <span aria-hidden="true">→</span>
-                      </span>
-                    </div>
-                  </Link>
+                      <div className="relative z-10 mt-auto flex flex-col items-start gap-3">
+                        <div className="space-y-1">
+                          <p className="text-[0.6rem] uppercase tracking-[0.34em] text-white/68">{copy.tags.service}</p>
+                          <p className="text-2xl font-black tracking-tight">{service.name}</p>
+                        </div>
+                        <span className={detailLinkClasses}>
+                          {copy.tags.viewDetails} <span aria-hidden="true">→</span>
+                        </span>
+                      </div>
+                    </Link>
+                  </div>
                 );
               })}
             </div>

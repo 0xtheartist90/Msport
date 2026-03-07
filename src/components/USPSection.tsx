@@ -32,7 +32,7 @@ export function USPSection({ metrics, campusLabel }: USPSectionProps) {
 
   const metricLinks: Record<string, string> = {
     '8': '/about',
-    '68': '/driving-range',
+    '68': '/contact',
     '10+': '/facilities',
     '3': '/simulators',
     '7': '/academy'

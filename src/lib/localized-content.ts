@@ -711,14 +711,12 @@ export function getLocalizedFacilityBySlug(language: LanguageCode, slug: string)
 export function getLocalizedNewsItems(language: LanguageCode) {
   const contentLanguage = resolveContentLanguage(language);
 
-  if (contentLanguage === 'EN') {
-    return newsItems;
-  }
-
-  return newsItems.map(article => ({
-    ...article,
-    ...newsOverrides[contentLanguage][article.slug]
-  }));
+  return [...newsItems]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .map(article => ({
+      ...article,
+      ...(contentLanguage === 'EN' ? undefined : newsOverrides[contentLanguage][article.slug])
+    }));
 }
 
 export function getLocalizedProductCategoryLabel(language: LanguageCode, category: Product['category']) {
