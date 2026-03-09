@@ -42,7 +42,7 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-6xl px-6 lg:px-8 py-10 space-y-5 md:py-14 md:space-y-6">
         <div className="grid gap-6 md:grid-cols-[auto_minmax(0,0.9fr)_minmax(0,1fr)_minmax(0,0.95fr)] md:items-start md:gap-8">
           <div className="flex items-start">
-            <Image src="/images/Msport%20logo.png" alt="Msport Driving Range logo" width={150} height={50} className="w-24 h-auto md:w-28" />
+            <Image src="/images/Home/Msport%20logo.png" alt="Msport Driving Range logo" width={150} height={50} className="w-24 h-auto md:w-28" />
           </div>
 
           <div className="space-y-4 lg:space-y-5">

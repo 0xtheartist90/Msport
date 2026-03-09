@@ -18,7 +18,7 @@ export type Facility = {
   facebook?: string;
 };
 
-const placeholder = '/images/placeholder-golf.jpg';
+const placeholder = '/images/Home/baylayoutvisual.jpg';
 
 export const facilityDirectory: Facility[] = [
   {
@@ -50,7 +50,7 @@ export const facilityDirectory: Facility[] = [
     category: 'golf',
     description: 'Performance bay operators offering fittings, lessons, and gear built for Chiang Mai players.',
     heroImage: '/images/Facilities/North Golf CNX/northgolfcnxHero.png',
-    logo: '/images/Facilities/North Golf CNX/NorthgolfCnxLogo.png',
+    logo: '/images/Facilities/North Golf CNX/northgolfcnxHero.png',
     gallery: [
       '/images/Facilities/North Golf CNX/Northgolfcnx01.png',
       '/images/Facilities/North Golf CNX/Northgolfcnx02.png',

@@ -354,7 +354,7 @@ export default function FacilitiesPage() {
     localizedFacilities.find(facility => facility.category === 'cafe') ?? {
       name: 'Coffee On Green',
       description: 'Signature café located within the range, serving players and visitors throughout the day.',
-      heroImage: '/images/placeholder-golf.jpg',
+      heroImage: '/images/Home/baylayoutvisual.jpg',
       slug: 'coffee-on-green',
       category: 'cafe',
       summary: '',
@@ -398,9 +398,9 @@ export default function FacilitiesPage() {
 
 return (
     <main className="bg-[#F7F5F0] text-[#25231F] min-h-screen">
-      <section className="relative h-[50vh] min-h-[380px] overflow-hidden">
+      <section className="relative h-[55vh] min-h-[420px] overflow-hidden">
         <video autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover">
-          <source src="/images/Msport.webm" type="video/webm" />
+          <source src="/images/Facilities/Facilitieshero.webm" type="video/webm" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-transparent" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-6 lg:px-12 text-white space-y-6">

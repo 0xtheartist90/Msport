@@ -153,7 +153,7 @@ export default function Navbar() {
           <div className="relative flex h-[72px] items-center justify-between">
             <Link href="/" className="hidden items-center md:flex" aria-label="Msport Driving Range Home">
               <Image
-                src="/images/logo topnav.png"
+                src="/images/Home/logo%20topnav.png"
                 alt="Msport Driving Range logo"
                 width={160}
                 height={48}
@@ -169,7 +169,7 @@ export default function Navbar() {
               aria-label="Msport Driving Range Home"
             >
               <Image
-                src="/images/logo topnav.png"
+                src="/images/Home/logo%20topnav.png"
                 alt="Msport Driving Range logo"
                 width={160}
                 height={48}

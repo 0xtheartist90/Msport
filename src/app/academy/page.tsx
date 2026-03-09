@@ -511,13 +511,9 @@ export default async function AcademyPage() {
   return (
     <main className="min-h-screen bg-[#1B1B1A] text-white">
       <section className="relative h-[55vh] min-h-[420px] overflow-hidden bg-[#1B1B1A]">
-        <Image
-          src="/images/thaipgacoaching.jpg"
-          alt="Msport Golf Academy coaching session"
-          fill
-          priority
-          className="object-cover"
-        />
+        <video autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover" poster="/images/thaipgacoaching.jpg">
+          <source src="/images/Academy/hero academy.webm" type="video/webm" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/82 via-black/46 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
         <div className="relative z-10 mx-auto flex h-full max-w-4xl flex-col items-center justify-center gap-4 px-6 text-center text-white lg:px-12">

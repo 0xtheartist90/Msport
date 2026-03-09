@@ -249,8 +249,8 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen">
       <section className="relative h-[50vh] min-h-[360px] overflow-hidden bg-black md:h-[55vh] md:min-h-[420px]">
-        <video autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover">
-          <source src="/images/female driver.mp4" type="video/mp4" />
+        <video autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover object-[center_35%]">
+          <source src="/images/Abouthero.webm" type="video/webm" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/82 via-black/48 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />

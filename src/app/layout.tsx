@@ -18,7 +18,7 @@ const Layout = async ({ children }: Readonly<{ children: ReactNode }>) => {
     return (
         <html lang={language.toLowerCase()}>
             <head>
-                <link rel="preload" as="image" href="/images/Msport%20logo.png" />
+                <link rel="preload" as="image" href="/images/Home/Msport%20logo.png" />
             </head>
             <body className="overscroll-none antialiased">
                 <LanguageProvider initialLanguage={language}>

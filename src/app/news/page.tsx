@@ -82,7 +82,7 @@ export default async function NewsPage() {
     <main className="section-cream min-h-screen">
       <section className="relative h-[55vh] min-h-[420px] overflow-hidden bg-black">
         <video autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover">
-          <source src="/images/drivingrangeMSPORT.mp4" type="video/mp4" />
+          <source src="/images/Home/drivingrangeMSPORT.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/82 via-black/42 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/68 via-black/18 to-transparent" />

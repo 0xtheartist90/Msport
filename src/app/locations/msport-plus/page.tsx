@@ -1,25 +1,50 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import { Building2, Cpu, Sparkles, Store } from 'lucide-react';
 import { getServerLanguage } from '@/lib/i18n';
+import { SectionHeader } from '@/components/SectionHeader';
 
 const msportPlusCopy = {
   EN: {
     hero: {
       label: 'The Future of Msport',
-      title: ['MSPORT+', 'NEXT FLAGSHIP'],
+      title: ['MSPORT+', 'COMING SOON'],
       description: 'A preview of the expanded Msport experience with deeper retail, tech, and social space.'
     },
     intro: {
-      label: 'Preview',
-      title: 'Expanded culture, deeper performance.',
+      label: 'Current Phase',
+      title: 'The Build',
+      subtitle: 'A larger footprint, built with the same discipline.',
       description:
-        'Msport+ introduces a multi-level experience blending advanced tech labs, social lounges, curated retail, and chef-led F&B for a full-day destination.'
+        'Msport+ is being shaped as a more expansive destination with stronger architecture, longer dwell time, and a cleaner mix of performance, retail, and hospitality.'
+    },
+    future: {
+      label: 'Next Phase',
+      title: 'The Future',
+      subtitle: 'Designed for the next chapter of the campus.',
+      description:
+        'The next phase extends the Msport standard into a broader social and technical environment, with more room for premium services, sharper programming, and longer visits.'
+    },
+    retail: {
+      label: 'Retail Opportunity',
+      title: 'Retail Space',
+      subtitle: 'Built for golf, lifestyle, and high-frequency daily traffic.',
+      description: [
+        'Msport+ is being positioned as a mixed-use destination for golf retail, cafes, coaching, services, and community-facing businesses.',
+        'The project sits in a strong everyday catchment near schools, family traffic, and active lifestyle demand, giving the right tenants the chance to become part of a destination that is designed to stay busy beyond golf alone. A limited number of units are still available for lease.'
+      ],
+      contact: 'Call 065 134 1111'
     },
     features: [
-      { title: 'Retail Gallery', detail: 'Limited capsules, fittings, and custom builds.' },
-      { title: 'TrackMan Labs', detail: 'Dedicated data studios with concierge support.' },
-      { title: 'Social Wing', detail: 'Chef-led lounge, mixology, and private suites.' },
-      { title: 'Performance Atelier', detail: 'Thai PGA coaching, recovery, and tech integrations.' }
+      { title: 'Golf Retail', detail: 'Shops for golf, sport, and apparel brands.' },
+      { title: 'Food & Service', detail: 'Cafes, restaurants, and service concepts.' },
+      { title: 'Academy & Fitness', detail: 'Coaching, studios, tutoring, and wellness.' },
+      { title: 'Strong Catchment', detail: 'Students, families, athletes, and professionals.' }
     ],
+    lease: {
+      label: 'Retail Opportunity',
+      title: 'A limited number of units are still available for lease.'
+    },
     cta: {
       label: 'Stay informed',
       title: 'Launching soon in Chiang Mai.',
@@ -30,21 +55,43 @@ const msportPlusCopy = {
   TH: {
     hero: {
       label: 'อนาคตของ Msport',
-      title: ['MSPORT+', 'แฟลกชิปถัดไป'],
+      title: ['MSPORT+', 'เร็ว ๆ นี้'],
       description: 'ภาพรวมของประสบการณ์ Msport รุ่นถัดไปที่มีทั้งรีเทล เทคโนโลยี และโซนโซเชียลที่มากขึ้น'
     },
     intro: {
-      label: 'พรีวิว',
-      title: 'วัฒนธรรมที่ขยายขึ้น ประสิทธิภาพที่ลึกขึ้น',
+      label: 'เฟสปัจจุบัน',
+      title: 'การก่อสร้าง',
+      subtitle: 'พื้นที่ที่ใหญ่ขึ้น พร้อมวินัยแบบเดิมของ Msport',
       description:
-        'Msport+ จะเป็นประสบการณ์แบบหลายชั้นที่รวมแล็บเทคโนโลยี เลานจ์ รีเทลคัดสรร และอาหารเครื่องดื่มระดับปลายทางไว้ในที่เดียว'
+        'Msport+ กำลังถูกพัฒนาให้เป็นปลายทางที่กว้างขึ้น ทั้งในด้านสถาปัตยกรรม เวลาที่ผู้คนใช้ภายในพื้นที่ และการผสานระหว่างเพอร์ฟอร์แมนซ์ รีเทล และฮอสพิทาลิตี้'
+    },
+    future: {
+      label: 'เฟสถัดไป',
+      title: 'อนาคต',
+      subtitle: 'ออกแบบเพื่อบทถัดไปของแคมปัส',
+      description:
+        'เฟสถัดไปจะขยายมาตรฐานของ Msport ไปสู่สภาพแวดล้อมที่ครบขึ้นทั้งด้านสังคมและเทคโนโลยี พร้อมพื้นที่สำหรับบริการพรีเมียม โปรแกรมที่ชัดขึ้น และการใช้เวลาในคอมเพล็กซ์ที่ยาวนานขึ้น'
+    },
+    retail: {
+      label: 'โอกาสเช่าพื้นที่',
+      title: 'พื้นที่เช่า',
+      subtitle: 'ออกแบบมาเพื่อกอล์ฟ ไลฟ์สไตล์ และทราฟฟิกประจำวัน',
+      description: [
+        'Msport+ กำลังถูกวางให้เป็นปลายทางแบบมิกซ์ยูสสำหรับร้านกอล์ฟ คาเฟ่ อะคาเดมี และธุรกิจบริการที่เข้ากับคอมมูนิตี้',
+        'ทำเลนี้ยังอยู่ใกล้โรงเรียน ทราฟฟิกครอบครัว และกลุ่มลูกค้าที่ใช้ชีวิตเชิงแอคทีฟ จึงเปิดโอกาสให้ผู้เช่าที่เหมาะสมได้อยู่ในพื้นที่ที่ไม่ได้พึ่งกอล์ฟเพียงอย่างเดียวในการสร้างทราฟฟิก โดยยังมีบางยูนิตที่เปิดให้เช่าอยู่ในขณะนี้'
+      ],
+      contact: 'โทร 065 134 1111'
     },
     features: [
-      { title: 'Retail Gallery', detail: 'แคปซูลคอลเลกชัน ฟิตติ้ง และงานคัสตอมที่เลือกมาอย่างตั้งใจ' },
-      { title: 'TrackMan Labs', detail: 'สตูดิโอข้อมูลเฉพาะทางพร้อมบริการคอนเซียร์จ' },
-      { title: 'Social Wing', detail: 'เลานจ์อาหารและเครื่องดื่ม พร้อมห้องส่วนตัว' },
-      { title: 'Performance Atelier', detail: 'โค้ช Thailand PGA รีคัฟเวอรี และเทคโนโลยีประสิทธิภาพ' }
+      { title: 'Golf Retail', detail: 'ร้านกอล์ฟ สปอร์ต และแบรนด์เครื่องแต่งกาย' },
+      { title: 'Food & Service', detail: 'คาเฟ่ ร้านอาหาร และธุรกิจบริการ' },
+      { title: 'Academy & Fitness', detail: 'โค้ช สตูดิโอ ฟิตเนส และคลาสเรียน' },
+      { title: 'Strong Catchment', detail: 'นักเรียน ครอบครัว นักกีฬา และคนทำงาน' }
     ],
+    lease: {
+      label: 'โอกาสเช่าพื้นที่',
+      title: 'ยังมีบางยูนิตที่เปิดให้เช่าอยู่ในขณะนี้'
+    },
     cta: {
       label: 'ติดตามข่าวสาร',
       title: 'เปิดตัวเร็ว ๆ นี้ในเชียงใหม่',
@@ -55,21 +102,43 @@ const msportPlusCopy = {
   KO: {
     hero: {
       label: 'Msport의 미래',
-      title: ['MSPORT+', 'NEXT FLAGSHIP'],
+      title: ['MSPORT+', 'COMING SOON'],
       description: '더 깊어진 리테일, 기술, 소셜 공간을 담은 확장된 Msport 경험의 프리뷰입니다.'
     },
     intro: {
-      label: 'Preview',
-      title: '확장된 문화, 더 깊은 퍼포먼스.',
+      label: '현재 단계',
+      title: '건설',
+      subtitle: '더 큰 공간, 같은 규율.',
       description:
-        'Msport+는 첨단 테크 랩, 소셜 라운지, 큐레이션 리테일, 셰프 주도 F&B를 결합한 멀티레벨 경험입니다.'
+        'Msport+는 더 넓은 건축 스케일과 더 긴 체류 경험, 그리고 퍼포먼스·리테일·호스피탈리티의 더 정교한 구성을 갖춘 목적지로 준비되고 있습니다.'
+    },
+    future: {
+      label: '다음 단계',
+      title: '미래',
+      subtitle: '캠퍼스의 다음 장을 위해 설계됩니다.',
+      description:
+        '다음 단계는 Msport의 기준을 더 넓은 소셜·테크 환경으로 확장하며, 프리미엄 서비스와 정교한 프로그램, 더 긴 방문 경험을 담아냅니다.'
+    },
+    retail: {
+      label: 'Retail Opportunity',
+      title: '임대 공간',
+      subtitle: '골프와 라이프스타일, 일상 유동을 함께 담는 구성입니다.',
+      description: [
+        'Msport+는 골프 리테일, 카페, 코칭, 서비스, 커뮤니티형 비즈니스를 위한 복합 목적지로 계획되고 있습니다.',
+        '학교와 가족 수요, 액티브 라이프스타일 고객층이 만나는 입지이기 때문에, 적합한 테넌트는 골프만이 아닌 일상 유동까지 함께 가져갈 수 있습니다. 현재 일부 유닛은 아직 임대 가능합니다.'
+      ],
+      contact: '문의 065 134 1111'
     },
     features: [
-      { title: 'Retail Gallery', detail: '한정 컬렉션, 피팅, 커스텀 빌드를 한곳에.' },
-      { title: 'TrackMan Labs', detail: '컨시어지 지원이 포함된 데이터 스튜디오.' },
-      { title: 'Social Wing', detail: '셰프 라운지, 믹솔로지, 프라이빗 스위트.' },
-      { title: 'Performance Atelier', detail: 'Thai PGA 코칭, 리커버리, 테크 통합.' }
+      { title: 'Golf Retail', detail: '골프, 스포츠, 어패럴 브랜드를 위한 공간.' },
+      { title: 'Food & Service', detail: '카페, 레스토랑, 서비스 업종.' },
+      { title: 'Academy & Fitness', detail: '코칭, 스튜디오, 피트니스, 교육.' },
+      { title: 'Strong Catchment', detail: '학생, 가족, 운동선수, 직장인 수요.' }
     ],
+    lease: {
+      label: 'Retail Opportunity',
+      title: '일부 리테일 유닛은 아직 임대 가능합니다.'
+    },
     cta: {
       label: 'Stay informed',
       title: '치앙마이에서 곧 시작됩니다.',
@@ -80,21 +149,43 @@ const msportPlusCopy = {
   ZH: {
     hero: {
       label: 'Msport 的未来',
-      title: ['MSPORT+', 'NEXT FLAGSHIP'],
+      title: ['MSPORT+', '即将推出'],
       description: '预览一个拥有更大零售、更强科技与更多社交空间的 Msport 新体验。'
     },
     intro: {
-      label: '预览',
-      title: '更丰富的文化，更深入的表现。',
+      label: '当前阶段',
+      title: '建设',
+      subtitle: '更大的体量，延续同样的纪律。',
       description:
-        'Msport+ 将以多层空间融合先进技术实验室、社交休息区、精选零售与主厨主导的餐饮体验。'
+        'Msport+ 正在被打造为一个更完整的目的地，在建筑尺度、停留时间，以及表现、零售与餐饮的组合上都更进一步。'
+    },
+    future: {
+      label: '下一阶段',
+      title: '未来',
+      subtitle: '为园区的下一阶段而设计。',
+      description:
+        '下一阶段将把 Msport 的标准延伸到更完整的社交与技术环境中，为高端服务、更清晰的项目规划和更长的停留体验预留空间。'
+    },
+    retail: {
+      label: '租赁机会',
+      title: '租赁铺位',
+      subtitle: '面向高尔夫、生活方式与高频日常客流而打造。',
+      description: [
+        'Msport+ 正在被规划为一个适合高尔夫零售、咖啡餐饮、教学与服务业态的复合型目的地。',
+        '项目周边拥有学校、家庭客流与活跃生活方式人群，这意味着合适的品牌不仅能接触高尔夫客群，也能获得稳定的日常到访流量。目前仍有少量铺位可供租赁。'
+      ],
+      contact: '致电 065 134 1111'
     },
     features: [
-      { title: 'Retail Gallery', detail: '限量系列、配杆与定制服务。' },
-      { title: 'TrackMan Labs', detail: '配有礼宾支持的数据工作室。' },
-      { title: 'Social Wing', detail: '主厨餐饮、酒吧与私密套房。' },
-      { title: 'Performance Atelier', detail: 'Thailand PGA 教学、恢复与科技整合。' }
+      { title: 'Golf Retail', detail: '高尔夫、运动与服饰品牌空间。' },
+      { title: 'Food & Service', detail: '咖啡、餐饮与服务业态。' },
+      { title: 'Academy & Fitness', detail: '教学、工作室、健身与培训。' },
+      { title: 'Strong Catchment', detail: '学生、家庭、运动人群与职场客群。' }
     ],
+    lease: {
+      label: '租赁机会',
+      title: '目前仍有少量商铺单元可供租赁。'
+    },
     cta: {
       label: '关注更新',
       title: '即将在清迈登场。',
@@ -105,21 +196,43 @@ const msportPlusCopy = {
   JA: {
     hero: {
       label: 'Msport の未来',
-      title: ['MSPORT+', 'NEXT FLAGSHIP'],
+      title: ['MSPORT+', 'COMING SOON'],
       description: 'より深いリテール、テクノロジー、ソーシャル空間を備えた新しい Msport 体験のプレビューです。'
     },
     intro: {
-      label: 'Preview',
-      title: '広がるカルチャー、深まるパフォーマンス。',
+      label: '現在のフェーズ',
+      title: '建設',
+      subtitle: 'より大きく、それでも同じ規律で。',
       description:
-        'Msport+ は先進テックラボ、ソーシャルラウンジ、厳選リテール、シェフ主導の F&B を融合したマルチレベル体験です。'
+        'Msport+ は、より大きな建築スケール、より長い滞在体験、そしてパフォーマンス・リテール・ホスピタリティをより洗練して組み合わせた新しい拠点として準備されています。'
+    },
+    future: {
+      label: '次のフェーズ',
+      title: '未来',
+      subtitle: 'キャンパスの次章のために設計。',
+      description:
+        '次のフェーズでは Msport の基準を、より広いソーシャル・テクノロジー環境へと拡張し、プレミアムサービスと明確なプログラム、より長い滞在時間を実現します。'
+    },
+    retail: {
+      label: 'Retail Opportunity',
+      title: '賃貸区画',
+      subtitle: 'ゴルフ、ライフスタイル、日常利用を支える立地です。',
+      description: [
+        'Msport+ はゴルフリテール、カフェ、コーチング、各種サービスに向けた複合型デスティネーションとして計画されています。',
+        '学校やファミリー層、アクティブな生活者が集まる立地のため、適したテナントはゴルフ来場者だけでなく日常的な集客も見込めます。現在も一部区画は賃貸可能です。'
+      ],
+      contact: '電話 065 134 1111'
     },
     features: [
-      { title: 'Retail Gallery', detail: '限定カプセル、フィッティング、カスタムビルド。' },
-      { title: 'TrackMan Labs', detail: 'コンシェルジュ付きのデータスタジオ。' },
-      { title: 'Social Wing', detail: 'シェフラウンジ、ミクソロジー、プライベートスイート。' },
-      { title: 'Performance Atelier', detail: 'Thai PGA コーチング、回復、テクノロジー統合。' }
+      { title: 'Golf Retail', detail: 'ゴルフ、スポーツ、アパレル向け区画。' },
+      { title: 'Food & Service', detail: 'カフェ、飲食、サービス業態。' },
+      { title: 'Academy & Fitness', detail: 'コーチング、スタジオ、フィットネス、教育。' },
+      { title: 'Strong Catchment', detail: '学生、家族、アスリート、ビジネス層。' }
     ],
+    lease: {
+      label: 'Retail Opportunity',
+      title: '現在、いくつかのショップ区画はまだ賃貸可能です。'
+    },
     cta: {
       label: '最新情報を受け取る',
       title: 'チェンマイでまもなく始動。',
@@ -132,12 +245,13 @@ const msportPlusCopy = {
 export default async function MsportPlusPage() {
   const language = await getServerLanguage();
   const copy = msportPlusCopy[language];
+  const featureIcons = [Store, Cpu, Sparkles, Building2] as const;
 
   return (
-    <main className="bg-[#040404] text-[#F5F1E6] min-h-screen">
+    <main className="min-h-screen bg-[#F7F5F0] text-[#1C1C1A]">
       <section className="relative h-[55vh] min-h-[420px] overflow-hidden">
         <video autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover" poster="/images/Srixonnewballs.png">
-          <source src="/images/drivingrangeMSPORT.mp4" type="video/mp4" />
+          <source src="/images/Msport.webm" type="video/webm" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/46 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/56 via-transparent to-transparent" />
@@ -153,35 +267,128 @@ export default async function MsportPlusPage() {
         </div>
       </section>
 
-      <section className="py-24 px-6 lg:px-12 border-t border-white/10">
-        <div className="mx-auto w-full max-w-5xl space-y-8 text-center">
-          <p className="text-sm uppercase tracking-[0.4em] text-white/60">{copy.intro.label}</p>
-          <h2 className="text-[clamp(2.4rem,5vw,3.8rem)] font-black text-white">{copy.intro.title}</h2>
-          <p className="text-lg text-white/75 max-w-3xl mx-auto">
-            {copy.intro.description}
-          </p>
+      <section className="section-cream border-t border-[#DED8CC] px-6 py-16 lg:px-12 lg:py-20">
+        <div className="mx-auto grid w-full max-w-6xl items-center gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-10">
+          <div className="space-y-5">
+            <SectionHeader
+              label={copy.intro.label}
+              title={<span className="text-[#1C1C1A]">{copy.intro.title}</span>}
+              subtitle={copy.intro.subtitle}
+              align="left"
+              subtitleClassName="subtitle-accent text-[#4A473F]"
+            />
+            <p className="max-w-2xl text-base leading-relaxed text-[#4A473F] reveal reveal-up reveal-delay-3 lg:text-lg">
+              {copy.intro.description}
+            </p>
+          </div>
+          <div className="overflow-hidden rounded-[30px] border border-[#DDD6C8] bg-white shadow-[0_22px_60px_rgba(0,0,0,0.08)] reveal reveal-right reveal-delay-2">
+            <div className="relative min-h-[240px]">
+              <video autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover">
+                <source src="/images/Msport+/msportbuild.webm" type="video/webm" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/18 via-transparent to-transparent" />
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="py-16 px-6 lg:px-12 border-t border-white/10">
-        <div className="mx-auto w-full max-w-6xl grid gap-6 md:grid-cols-2">
-          {copy.features.map(feature => (
-            <article key={feature.title} className="rounded-[28px] border border-white/10 bg-white/[0.02] p-8 space-y-3">
-              <p className="text-sm uppercase tracking-[0.35em] text-[var(--accent)]">{feature.title}</p>
-              <p className="text-lg text-white/80">{feature.detail}</p>
-            </article>
-          ))}
+      <section className="section-smoke border-t border-white/8 px-6 py-16 lg:px-12 lg:py-20">
+        <div className="mx-auto grid w-full max-w-6xl items-center gap-8 lg:grid-cols-[0.58fr_1.42fr] lg:gap-10">
+          <div className="reveal reveal-left reveal-delay-2">
+            <div className="relative mx-auto aspect-[9/16] w-full max-w-[240px] overflow-hidden rounded-[30px]">
+              <video autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover">
+                <source src="/images/Msport+/msportrobot.webm" type="video/webm" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/28 via-transparent to-transparent" />
+            </div>
+          </div>
+          <div className="space-y-5">
+            <SectionHeader
+              label={copy.future.label}
+              title={<span className="text-white">{copy.future.title}</span>}
+              subtitle={copy.future.subtitle}
+              align="left"
+              subtitleClassName="subtitle-accent text-white/70"
+            />
+            <p className="max-w-2xl text-base leading-relaxed text-white/72 reveal reveal-up reveal-delay-3 lg:text-lg">
+              {copy.future.description}
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="py-20 px-6 lg:px-12 border-t border-white/10">
-        <div className="mx-auto w-full max-w-4xl text-center space-y-6">
-          <p className="text-sm uppercase tracking-[0.35em] text-white/60">{copy.cta.label}</p>
+      <section className="section-cream border-t border-[#DED8CC] px-6 py-16 lg:px-12 lg:py-20">
+        <div className="mx-auto w-full max-w-6xl space-y-8">
+          <div className="grid gap-8 xl:grid-cols-[0.95fr_1.05fr] xl:gap-10">
+            <div className="space-y-5">
+              <SectionHeader
+                label={copy.retail.label}
+                title={<span className="text-[#1C1C1A]">{copy.retail.title}</span>}
+                subtitle={copy.retail.subtitle}
+                align="left"
+                subtitleClassName="subtitle-accent text-[#4A473F]"
+              />
+              <div className="max-w-2xl space-y-4 text-base leading-relaxed text-[#4A473F] reveal reveal-up reveal-delay-3 lg:text-lg">
+                {copy.retail.description.map(paragraph => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+              <div className="reveal reveal-up reveal-delay-4">
+                <Link
+                  href="tel:0651341111"
+                  className="inline-flex items-center justify-center rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#d90b0b]"
+                >
+                  {copy.retail.contact}
+                </Link>
+              </div>
+            </div>
+            <div className="space-y-4 reveal reveal-right reveal-delay-2">
+              <div className="overflow-hidden rounded-[32px] border border-[#DDD6C8] bg-white shadow-[0_22px_60px_rgba(0,0,0,0.08)]">
+                <div className="relative min-h-[360px]">
+                  <Image
+                    src="/images/Msport+/shopforrent.png"
+                    alt={copy.lease.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4 xl:grid-cols-4">
+                {copy.features.map((feature, index) => {
+                  const Icon = featureIcons[index] ?? Store;
+
+                  return (
+                    <article
+                      key={feature.title}
+                      className={`rounded-[22px] border border-[#DED6C9] bg-white p-4 shadow-[0_12px_30px_rgba(0,0,0,0.05)] reveal reveal-up reveal-delay-${Math.min(index + 1, 4)} flex flex-col items-center justify-center space-y-3 text-center`}
+                    >
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#E5DED2] bg-[#F7F5F0]">
+                        <Icon className="h-4.5 w-4.5 text-[var(--accent)]" aria-hidden="true" />
+                      </div>
+                      <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[#1C1C1A]">{feature.title}</p>
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden border-t border-white/10 px-6 py-16 lg:px-12 lg:py-20">
+        <video autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover" poster="/images/Srixonnewballs.png">
+          <source src="/images/Msport.webm" type="video/webm" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/56 to-black/62" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+        <div className="relative mx-auto w-full max-w-4xl space-y-6 text-center text-white">
+          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.35em] text-white/72">{copy.cta.label}</p>
           <h3 className="text-[clamp(2rem,4vw,3rem)] font-black text-white">{copy.cta.title}</h3>
-          <p className="text-white/70">{copy.cta.description}</p>
+          <p className="text-white/78">{copy.cta.description}</p>
           <Link
             href="/news"
-            className="inline-flex items-center justify-center accent-bg px-10 py-4 rounded-xl font-semibold text-base"
+            className="inline-flex items-center justify-center rounded-full bg-[var(--accent)] px-8 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#d90b0b]"
           >
             {copy.cta.button}
           </Link>

@@ -228,7 +228,9 @@ export default async function ContactPage() {
   return (
     <main className="min-h-screen bg-[#F7F5F0] text-[#1B1B1A]">
       <section className="relative h-[55vh] min-h-[420px] overflow-hidden bg-black">
-        <div className="absolute inset-0 bg-[url('/images/baylayoutvisual.jpg')] bg-cover bg-center" />
+        <video autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover object-[center_35%]">
+          <source src="/images/Abouthero.webm" type="video/webm" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/82 via-black/46 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/56 via-transparent to-transparent" />
         <div className="relative z-10 mx-auto flex h-full max-w-4xl flex-col items-center justify-center gap-4 px-6 text-center text-white lg:px-12">

@@ -27,7 +27,7 @@ const rangeOverviewCards = [
     translationKey: 'facilities' as RangeCardKey,
     href: bayLayoutFeature.href ?? '/facilities',
     mediaType: 'image' as const,
-    mediaSrc: '/images/baylayoutvisual.jpg'
+    mediaSrc: '/images/Home/baylayoutvisual.jpg'
   },
   {
     key: 'simulators',
@@ -164,15 +164,15 @@ const membershipCardConfigs: MembershipCardConfig[] = [
   {
     key: 'pro',
     translationKey: 'pro',
-    image: '/images/redcard.png',
-    video: '/images/redcard.mp4',
+    image: '/images/Home/redcard.png',
+    video: '/images/Home/redcard.mp4',
     packages: ballRates.memberships.old
   },
   {
     key: 'gold',
     translationKey: 'gold',
-    image: '/images/goldcard.png',
-    video: '/images/goldcard.mp4',
+    image: '/images/Home/goldcard.png',
+    video: '/images/Home/goldcard.mp4',
     packages: ballRates.memberships.fresh
   }
 ];
@@ -218,8 +218,8 @@ export default function HomePage() {
         className="section-anchor relative h-[78vh] min-h-[624px] flex items-center justify-center section-cream w-full overflow-hidden"
       >
         <VideoPlayer
-          src="/images/drivingrangeMSPORT.mp4"
-          poster="/images/drivingrangeMSPORT.mp4"
+          src="/images/Home/HERO MSPORT.webm"
+          poster="/images/Home/drivingrangeMSPORT.mp4"
           className="absolute inset-0 w-full h-full object-cover"
           observe={false}
         />
@@ -228,7 +228,7 @@ export default function HomePage() {
         <div className="relative z-10 text-center px-6 flex flex-col items-center gap-6 max-w-4xl">
           <p className="accent-pill reveal reveal-down">{t.hero.label}</p>
           <Image
-            src="/images/Msport%20logo.png"
+            src="/images/Home/Msport%20logo.png"
             alt="Msport Driving Range logo"
             width={420}
             height={180}
@@ -362,7 +362,7 @@ export default function HomePage() {
             >
                 <div className="flex w-full flex-shrink-0 snap-center pr-4">
                   <div className="relative h-full w-full overflow-hidden rounded-[32px] border border-white/10 shadow-none">
-                    <VideoPlayer src="/images/ballsmsport.mp4" poster="/images/ballsmsport.mp4" className="absolute inset-0 w-full h-full object-cover" />
+                    <VideoPlayer src="/images/Home/ballsmsport.mp4" poster="/images/Home/ballsmsport.mp4" className="absolute inset-0 w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-transparent" />
                     <div className="relative z-10 p-8 text-white">
                       <div className="flex flex-col gap-6">
@@ -546,7 +546,7 @@ export default function HomePage() {
           </div>
 
           <div className="hidden md:block relative overflow-hidden rounded-[32px] border border-white/10 shadow-[0_25px_70px_rgba(0,0,0,0.35)] reveal reveal-up reveal-delay-1">
-            <VideoPlayer src="/images/ballsmsport.mp4" poster="/images/ballsmsport.mp4" className="absolute inset-0 w-full h-full object-cover" />
+            <VideoPlayer src="/images/Home/ballsmsport.mp4" poster="/images/Home/ballsmsport.mp4" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-transparent" />
             <div className="relative z-10 p-8 text-white">
               <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -796,7 +796,7 @@ export default function HomePage() {
         <div className="grid w-full items-stretch gap-0 py-0 lg:grid-cols-[1.08fr_0.92fr] lg:gap-0 lg:py-0">
           <div className="relative order-1 h-[260px] overflow-hidden reveal reveal-left reveal-delay-1 lg:h-[360px]">
             <VideoPlayer
-              src="/images/Msportheritagehome.mp4"
+              src="/images/Home/Msportheritagehome.mp4"
               poster="/images/Msportheritagehome.png"
               className="absolute inset-0 h-full w-full object-cover"
             />
