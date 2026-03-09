@@ -83,10 +83,10 @@ const msportPlusCopy = {
       contact: 'โทร 065 134 1111'
     },
     features: [
-      { title: 'Golf Retail', detail: 'ร้านกอล์ฟ สปอร์ต และแบรนด์เครื่องแต่งกาย' },
-      { title: 'Food & Service', detail: 'คาเฟ่ ร้านอาหาร และธุรกิจบริการ' },
-      { title: 'Academy & Fitness', detail: 'โค้ช สตูดิโอ ฟิตเนส และคลาสเรียน' },
-      { title: 'Strong Catchment', detail: 'นักเรียน ครอบครัว นักกีฬา และคนทำงาน' }
+      { title: 'กอล์ฟรีเทล', detail: 'ร้านกอล์ฟ สปอร์ต และแบรนด์เครื่องแต่งกาย' },
+      { title: 'อาหารและบริการ', detail: 'คาเฟ่ ร้านอาหาร และธุรกิจบริการ' },
+      { title: 'อะคาเดมีและฟิตเนส', detail: 'โค้ช สตูดิโอ ฟิตเนส และคลาสเรียน' },
+      { title: 'ทำเลศักยภาพสูง', detail: 'นักเรียน ครอบครัว นักกีฬา และคนทำงาน' }
     ],
     lease: {
       label: 'โอกาสเช่าพื้นที่',
@@ -130,10 +130,10 @@ const msportPlusCopy = {
       contact: '문의 065 134 1111'
     },
     features: [
-      { title: 'Golf Retail', detail: '골프, 스포츠, 어패럴 브랜드를 위한 공간.' },
-      { title: 'Food & Service', detail: '카페, 레스토랑, 서비스 업종.' },
-      { title: 'Academy & Fitness', detail: '코칭, 스튜디오, 피트니스, 교육.' },
-      { title: 'Strong Catchment', detail: '학생, 가족, 운동선수, 직장인 수요.' }
+      { title: '골프 리테일', detail: '골프, 스포츠, 어패럴 브랜드를 위한 공간.' },
+      { title: '푸드 & 서비스', detail: '카페, 레스토랑, 서비스 업종.' },
+      { title: '아카데미 & 피트니스', detail: '코칭, 스튜디오, 피트니스, 교육.' },
+      { title: '강한 생활권', detail: '학생, 가족, 운동선수, 직장인 수요.' }
     ],
     lease: {
       label: 'Retail Opportunity',
@@ -177,10 +177,10 @@ const msportPlusCopy = {
       contact: '致电 065 134 1111'
     },
     features: [
-      { title: 'Golf Retail', detail: '高尔夫、运动与服饰品牌空间。' },
-      { title: 'Food & Service', detail: '咖啡、餐饮与服务业态。' },
-      { title: 'Academy & Fitness', detail: '教学、工作室、健身与培训。' },
-      { title: 'Strong Catchment', detail: '学生、家庭、运动人群与职场客群。' }
+      { title: '高尔夫零售', detail: '高尔夫、运动与服饰品牌空间。' },
+      { title: '餐饮与服务', detail: '咖啡、餐饮与服务业态。' },
+      { title: '学院与健身', detail: '教学、工作室、健身与培训。' },
+      { title: '优质客群', detail: '学生、家庭、运动人群与职场客群。' }
     ],
     lease: {
       label: '租赁机会',
@@ -224,10 +224,10 @@ const msportPlusCopy = {
       contact: '電話 065 134 1111'
     },
     features: [
-      { title: 'Golf Retail', detail: 'ゴルフ、スポーツ、アパレル向け区画。' },
-      { title: 'Food & Service', detail: 'カフェ、飲食、サービス業態。' },
-      { title: 'Academy & Fitness', detail: 'コーチング、スタジオ、フィットネス、教育。' },
-      { title: 'Strong Catchment', detail: '学生、家族、アスリート、ビジネス層。' }
+      { title: 'ゴルフ小売', detail: 'ゴルフ、スポーツ、アパレル向け区画。' },
+      { title: '飲食・サービス', detail: 'カフェ、飲食、サービス業態。' },
+      { title: 'アカデミー・フィットネス', detail: 'コーチング、スタジオ、フィットネス、教育。' },
+      { title: '強い商圏', detail: '学生、家族、アスリート、ビジネス層。' }
     ],
     lease: {
       label: 'Retail Opportunity',
@@ -244,6 +244,7 @@ const msportPlusCopy = {
 
 export default async function MsportPlusPage() {
   const language = await getServerLanguage();
+  const isThai = language === 'TH';
   const copy = msportPlusCopy[language];
   const featureIcons = [Store, Cpu, Sparkles, Building2] as const;
 
@@ -321,13 +322,11 @@ export default async function MsportPlusPage() {
         <div className="mx-auto w-full max-w-6xl space-y-8">
           <div className="grid gap-8 xl:grid-cols-[0.95fr_1.05fr] xl:gap-10">
             <div className="space-y-5">
-              <SectionHeader
-                label={copy.retail.label}
-                title={<span className="text-[#1C1C1A]">{copy.retail.title}</span>}
-                subtitle={copy.retail.subtitle}
-                align="left"
-                subtitleClassName="subtitle-accent text-[#4A473F]"
-              />
+              <div className="space-y-2">
+                <p className={`section-label reveal reveal-down ${isThai ? 'tracking-[0.12em] leading-[1.3]' : ''}`}>{copy.retail.label}</p>
+                <h2 className={`section-title reveal reveal-up text-[#1C1C1A] ${isThai ? 'text-[clamp(2.35rem,4.8vw,3.85rem)] leading-[1.14] tracking-[-0.01em]' : ''}`}>{copy.retail.title}</h2>
+                <p className="subtitle-accent reveal reveal-up reveal-delay-2 text-[#4A473F]">{copy.retail.subtitle}</p>
+              </div>
               <div className="max-w-2xl space-y-4 text-base leading-relaxed text-[#4A473F] reveal reveal-up reveal-delay-3 lg:text-lg">
                 {copy.retail.description.map(paragraph => (
                   <p key={paragraph}>{paragraph}</p>
@@ -366,7 +365,7 @@ export default async function MsportPlusPage() {
                       <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#E5DED2] bg-[#F7F5F0]">
                         <Icon className="h-4.5 w-4.5 text-[var(--accent)]" aria-hidden="true" />
                       </div>
-                      <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[#1C1C1A]">{feature.title}</p>
+                      <p className={`text-[0.68rem] font-semibold text-[#1C1C1A] ${isThai ? 'leading-snug tracking-[0.08em]' : 'uppercase tracking-[0.22em]'}`}>{feature.title}</p>
                     </article>
                   );
                 })}

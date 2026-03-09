@@ -56,7 +56,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setLanguageOpen(false);
-  }, [pathname]);
+  }, [pathname, language]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {

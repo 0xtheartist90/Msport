@@ -228,6 +228,7 @@ export default function AboutPage() {
   const [definesPosition, setDefinesPosition] = useState({ x: 50, y: 20 });
   const [definesActive, setDefinesActive] = useState(false);
   const { language } = useLanguage();
+  const isThai = language === 'TH';
   const copy = aboutCopy[language];
 
   const handleDefinesMove = (event: React.MouseEvent<HTMLElement>) => {
@@ -255,8 +256,8 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/82 via-black/48 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
         <div className="relative z-10 mx-auto flex h-full max-w-4xl flex-col items-center justify-center gap-3 px-6 text-center text-white md:gap-4 lg:px-12">
-          <p className="accent-pill reveal reveal-down">{copy.hero.label}</p>
-          <h1 className="hero-title reveal reveal-up text-white">
+          <p className={`accent-pill reveal reveal-down ${isThai ? 'px-4 py-2 tracking-[0.1em] leading-[1.3]' : ''}`}>{copy.hero.label}</p>
+          <h1 className={`reveal reveal-up text-white ${isThai ? 'font-black leading-[1.14] tracking-[-0.01em] text-[clamp(2.55rem,7vw,4.7rem)]' : 'hero-title'}`}>
             <span className="block">{copy.hero.title[0]}</span>
             <span className="block whitespace-nowrap">{copy.hero.title[1]}</span>
           </h1>

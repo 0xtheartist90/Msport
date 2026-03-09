@@ -183,6 +183,7 @@ function parseCurrencyValue(value: string) {
 
 export default function HomePage() {
   const { t, language } = useLanguage();
+  const isThai = language === 'TH';
   const copy = homepageCopy[language];
   const locale = LOCALE_MAP[language];
   const localizedNewsItems = useMemo(() => getLocalizedNewsItems(language), [language]);
@@ -814,8 +815,8 @@ export default function HomePage() {
 
           <div className="order-2 flex items-center px-6 py-8 lg:px-10 lg:py-6 xl:px-14">
             <div className="mx-auto w-full max-w-xl space-y-3.5">
-              <p className="section-label reveal reveal-down reveal-delay-1">{t.heritage.eyebrow}</p>
-              <h2 className="text-[clamp(2.7rem,5vw,4.4rem)] font-black uppercase leading-[0.92] tracking-tight text-[#1C1C1A] reveal reveal-up reveal-delay-2">
+              <p className={`section-label reveal reveal-down reveal-delay-1 ${isThai ? 'tracking-[0.12em] leading-[1.3]' : ''}`}>{t.heritage.eyebrow}</p>
+              <h2 className={`text-[clamp(2.7rem,5vw,4.4rem)] font-black tracking-tight text-[#1C1C1A] reveal reveal-up reveal-delay-2 ${isThai ? 'text-[clamp(2.5rem,4.8vw,4rem)] leading-[1.14]' : 'uppercase leading-[0.92]'}`}>
                 {t.heritage.title}
               </h2>
               <p className="label-accent reveal reveal-up reveal-delay-3">{t.heritage.subtitle}</p>
@@ -842,7 +843,7 @@ export default function HomePage() {
             <div className="order-2 space-y-6 text-[#1C1C1A] lg:order-1">
               <div className="space-y-4">
                 <p className="section-label reveal reveal-down reveal-delay-1">{t.expansion.label}</p>
-                <h2 className="text-[clamp(2.8rem,5.2vw,4.5rem)] font-black uppercase leading-[0.92] tracking-tight text-[#1C1C1A] reveal reveal-up reveal-delay-2">
+                <h2 className={`text-[clamp(2.8rem,5.2vw,4.5rem)] font-black tracking-tight text-[#1C1C1A] reveal reveal-up reveal-delay-2 ${isThai ? 'text-[clamp(2.4rem,4.8vw,4rem)] leading-[1.14]' : 'uppercase leading-[0.92]'}`}>
                   {t.expansion.title}
                 </h2>
                 <p className="label-muted reveal reveal-up reveal-delay-3">{t.expansion.subtitle}</p>

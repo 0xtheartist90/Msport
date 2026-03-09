@@ -301,7 +301,7 @@
   .section-title {
     @apply font-black uppercase leading-[1] tracking-[-0.04em] text-[clamp(2.5rem,6vw,4.5rem)];
   }
-  
+
   .serif-subtext {
     @apply font-serif italic text-lg md:text-xl opacity-90;
   }

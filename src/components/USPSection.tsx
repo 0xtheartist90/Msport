@@ -171,7 +171,7 @@ export function USPSection({ metrics, campusLabel }: USPSectionProps) {
           if (href) {
             return (
               <Link
-                key={metric.label}
+                key={metric.value}
                 href={href}
                 className={`group block h-full rounded-[30px] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 reveal reveal-up ${delayClass} ${mobileSpanClass}`}
               >
@@ -181,7 +181,7 @@ export function USPSection({ metrics, campusLabel }: USPSectionProps) {
           }
 
           return (
-            <div key={metric.label} className={`group block h-full reveal reveal-up ${delayClass} ${mobileSpanClass}`}>
+            <div key={metric.value} className={`group block h-full reveal reveal-up ${delayClass} ${mobileSpanClass}`}>
               {card}
             </div>
           );

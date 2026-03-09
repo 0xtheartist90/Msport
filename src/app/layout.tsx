@@ -9,7 +9,12 @@ import { getServerLanguage } from '@/lib/i18n';
 
 export const metadata: Metadata = {
     title: 'Msport Driving Range — Chiang Mai',
-    description: 'Book TrackMan sims, golf coaching, and your Msport membership at Chiang Mai’s flagship driving range.'
+    description: 'Book TrackMan sims, golf coaching, and your Msport membership at Chiang Mai’s flagship driving range.',
+    icons: {
+        icon: '/images/Home/Msport%20logo.png',
+        shortcut: '/images/Home/Msport%20logo.png',
+        apple: '/images/Home/Msport%20logo.png'
+    }
 };
 
 const Layout = async ({ children }: Readonly<{ children: ReactNode }>) => {

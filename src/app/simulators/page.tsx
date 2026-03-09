@@ -461,6 +461,7 @@ const simulatorsCopy = {
 
 export default async function SimulatorsPage() {
     const language = await getServerLanguage();
+    const isThai = language === 'TH';
     const copy = simulatorsCopy[language];
     const packages = copy.pricing.packages;
     const performanceFeatures = copy.features.cards;
@@ -475,8 +476,8 @@ export default async function SimulatorsPage() {
                 <div className='absolute inset-0 bg-gradient-to-r from-black/82 via-black/42 to-transparent' />
                 <div className='absolute inset-0 bg-gradient-to-t from-black/58 via-transparent to-transparent' />
                 <div className='relative z-10 mx-auto flex h-full max-w-4xl flex-col items-center justify-center gap-4 px-6 text-center text-white lg:px-12'>
-                    <p className='accent-pill reveal reveal-down'>{copy.hero.label}</p>
-                    <h1 className='hero-title reveal reveal-up text-white'>
+                    <p className={`accent-pill reveal reveal-down ${isThai ? 'px-4 py-2 tracking-[0.1em] leading-[1.3]' : ''}`}>{copy.hero.label}</p>
+                    <h1 className={`reveal reveal-up text-white ${isThai ? 'font-black leading-[1.12] tracking-[-0.01em] text-[clamp(2.6rem,7vw,4.85rem)]' : 'hero-title'}`}>
                         <span className='block'>{copy.hero.title}</span>
                     </h1>
                     <p className='reveal reveal-up reveal-delay-1 max-w-2xl text-sm leading-relaxed text-white/78 sm:text-base'>
