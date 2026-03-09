@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Clock3, PhoneCall, Mail } from 'lucide-react';
+import { Clock3, PhoneCall, Mail, Instagram, MessageCircleMore, Facebook, Music4 } from 'lucide-react';
 
 import { SectionHeader } from '@/components/SectionHeader';
 import { getServerLanguage } from '@/lib/i18n';
@@ -30,7 +30,12 @@ const contactCopy = {
       phoneValue: '+66 87 419 9199',
       emailLabel: 'Email',
       emailValue: 'msportcomplex@hotmail.com',
-      mapTitle: 'Msport Driving Range map'
+      mapTitle: 'Msport Driving Range map',
+      extras: [
+        { label: 'Instagram', value: '@MSPORT_COMPLEX', href: 'https://www.instagram.com/MSPORT_COMPLEX' },
+        { label: 'Facebook', value: 'Msport Driving Range', href: 'https://www.facebook.com/msportdrivingrange' },
+        { label: 'TikTok', value: '@MSPORTCOMPLEX2023', href: 'https://www.tiktok.com/@MSPORTCOMPLEX2023' }
+      ]
     },
     simulators: {
       label: 'Simulators',
@@ -41,7 +46,8 @@ const contactCopy = {
         { label: 'Hours', value: 'Daily · 10:00 – 22:00', helper: 'After 20:00, book at least one day in advance.' },
         { label: 'Phone', value: '065 134 7777', helper: 'Best for quick confirmations and same-day slot checks.', href: 'tel:+66651347777' },
         { label: 'Email', value: 'msport.golfsimulator@gmail.com', helper: 'Best for advance bookings and private groups.', href: 'mailto:msport.golfsimulator@gmail.com' }
-      ]
+      ],
+      extras: [{ label: 'Instagram', value: '@msport_golfsimulator', href: 'https://www.instagram.com/msport_golfsimulator' }]
     },
     academy: {
       label: 'Academy',
@@ -52,7 +58,8 @@ const contactCopy = {
         { label: 'Hours', value: 'Daily · 10:00 – 20:00', helper: 'Open daily for academy lessons and student sessions.' },
         { label: 'Phone', value: '065 134 7777', helper: 'Best for quick questions and lesson scheduling.', href: 'tel:+66651347777' },
         { label: 'Email', value: 'msportgolfacademy@gmail.com', helper: 'Best for detailed requests and coaching plans.', href: 'mailto:msportgolfacademy@gmail.com' }
-      ]
+      ],
+      extras: [{ label: 'LINE', value: 'Add on LINE', href: 'https://lin.ee/k2I9b1a' }]
     }
   },
   TH: {
@@ -71,7 +78,12 @@ const contactCopy = {
       phoneValue: '+66 87 419 9199',
       emailLabel: 'อีเมล',
       emailValue: 'msportcomplex@hotmail.com',
-      mapTitle: 'แผนที่ Msport Driving Range'
+      mapTitle: 'แผนที่ Msport Driving Range',
+      extras: [
+        { label: 'Instagram', value: '@MSPORT_COMPLEX', href: 'https://www.instagram.com/MSPORT_COMPLEX' },
+        { label: 'Facebook', value: 'Msport Driving Range', href: 'https://www.facebook.com/msportdrivingrange' },
+        { label: 'TikTok', value: '@MSPORTCOMPLEX2023', href: 'https://www.tiktok.com/@MSPORTCOMPLEX2023' }
+      ]
     },
     simulators: {
       label: 'ซิมูเลเตอร์',
@@ -82,7 +94,8 @@ const contactCopy = {
         { label: 'เวลาเปิดบริการ', value: 'ทุกวัน · 10:00 – 22:00', helper: 'หลัง 20:00 ต้องจองล่วงหน้าอย่างน้อย 1 วัน.' },
         { label: 'โทรศัพท์', value: '065 134 7777', helper: 'เหมาะสำหรับคอนเฟิร์มเร็วและเช็กคิววันเดียวกัน.', href: 'tel:+66651347777' },
         { label: 'อีเมล', value: 'msport.golfsimulator@gmail.com', helper: 'เหมาะสำหรับการจองล่วงหน้าและกลุ่มส่วนตัว.', href: 'mailto:msport.golfsimulator@gmail.com' }
-      ]
+      ],
+      extras: [{ label: 'Instagram', value: '@msport_golfsimulator', href: 'https://www.instagram.com/msport_golfsimulator' }]
     },
     academy: {
       label: 'อะคาเดมี',
@@ -93,7 +106,8 @@ const contactCopy = {
         { label: 'เวลาเปิดบริการ', value: 'ทุกวัน · 10:00 – 20:00', helper: 'เปิดทุกวันสำหรับคอร์สเรียนและเวลาฝึกของนักเรียน.' },
         { label: 'โทรศัพท์', value: '065 134 7777', helper: 'เหมาะสำหรับคำถามด่วนและการนัดหมายเรียน.', href: 'tel:+66651347777' },
         { label: 'อีเมล', value: 'msportgolfacademy@gmail.com', helper: 'เหมาะสำหรับคำขอแบบละเอียดและแผนการฝึก.', href: 'mailto:msportgolfacademy@gmail.com' }
-      ]
+      ],
+      extras: [{ label: 'LINE', value: 'เพิ่มเพื่อนบน LINE', href: 'https://lin.ee/k2I9b1a' }]
     }
   },
   KO: {
@@ -112,7 +126,12 @@ const contactCopy = {
       phoneValue: '+66 87 419 9199',
       emailLabel: '이메일',
       emailValue: 'msportcomplex@hotmail.com',
-      mapTitle: 'Msport Driving Range 지도'
+      mapTitle: 'Msport Driving Range 지도',
+      extras: [
+        { label: 'Instagram', value: '@MSPORT_COMPLEX', href: 'https://www.instagram.com/MSPORT_COMPLEX' },
+        { label: 'Facebook', value: 'Msport Driving Range', href: 'https://www.facebook.com/msportdrivingrange' },
+        { label: 'TikTok', value: '@MSPORTCOMPLEX2023', href: 'https://www.tiktok.com/@MSPORTCOMPLEX2023' }
+      ]
     },
     simulators: {
       label: '시뮬레이터',
@@ -123,7 +142,8 @@ const contactCopy = {
         { label: '운영 시간', value: '매일 · 10:00 – 22:00', helper: '20:00 이후는 최소 하루 전 예약이 필요합니다.' },
         { label: '전화', value: '065 134 7777', helper: '빠른 확인과 당일 슬롯 문의에 적합합니다.', href: 'tel:+66651347777' },
         { label: '이메일', value: 'msport.golfsimulator@gmail.com', helper: '사전 예약과 그룹 문의에 가장 적합합니다.', href: 'mailto:msport.golfsimulator@gmail.com' }
-      ]
+      ],
+      extras: [{ label: 'Instagram', value: '@msport_golfsimulator', href: 'https://www.instagram.com/msport_golfsimulator' }]
     },
     academy: {
       label: '아카데미',
@@ -134,7 +154,8 @@ const contactCopy = {
         { label: '운영 시간', value: '매일 · 10:00 – 20:00', helper: '아카데미 레슨과 학생 세션을 위해 매일 운영합니다.' },
         { label: '전화', value: '065 134 7777', helper: '빠른 질문과 레슨 일정 조율에 적합합니다.', href: 'tel:+66651347777' },
         { label: '이메일', value: 'msportgolfacademy@gmail.com', helper: '상세 문의와 코칭 플랜 상담용입니다.', href: 'mailto:msportgolfacademy@gmail.com' }
-      ]
+      ],
+      extras: [{ label: 'LINE', value: 'LINE으로 추가', href: 'https://lin.ee/k2I9b1a' }]
     }
   },
   ZH: {
@@ -153,7 +174,12 @@ const contactCopy = {
       phoneValue: '+66 87 419 9199',
       emailLabel: '邮箱',
       emailValue: 'msportcomplex@hotmail.com',
-      mapTitle: 'Msport Driving Range 地图'
+      mapTitle: 'Msport Driving Range 地图',
+      extras: [
+        { label: 'Instagram', value: '@MSPORT_COMPLEX', href: 'https://www.instagram.com/MSPORT_COMPLEX' },
+        { label: 'Facebook', value: 'Msport Driving Range', href: 'https://www.facebook.com/msportdrivingrange' },
+        { label: 'TikTok', value: '@MSPORTCOMPLEX2023', href: 'https://www.tiktok.com/@MSPORTCOMPLEX2023' }
+      ]
     },
     simulators: {
       label: '模拟器',
@@ -164,7 +190,8 @@ const contactCopy = {
         { label: '营业时间', value: '每日 · 10:00 – 22:00', helper: '20:00 之后需至少提前一天预约。' },
         { label: '电话', value: '065 134 7777', helper: '适合快速确认与当天时段查询。', href: 'tel:+66651347777' },
         { label: '邮箱', value: 'msport.golfsimulator@gmail.com', helper: '适合提前预订与团体安排。', href: 'mailto:msport.golfsimulator@gmail.com' }
-      ]
+      ],
+      extras: [{ label: 'Instagram', value: '@msport_golfsimulator', href: 'https://www.instagram.com/msport_golfsimulator' }]
     },
     academy: {
       label: '学院',
@@ -175,7 +202,8 @@ const contactCopy = {
         { label: '营业时间', value: '每日 · 10:00 – 20:00', helper: '学院课程与学员训练每天开放。' },
         { label: '电话', value: '065 134 7777', helper: '适合快速问题与课程预约。', href: 'tel:+66651347777' },
         { label: '邮箱', value: 'msportgolfacademy@gmail.com', helper: '适合详细咨询与教学计划。', href: 'mailto:msportgolfacademy@gmail.com' }
-      ]
+      ],
+      extras: [{ label: 'LINE', value: '添加 LINE', href: 'https://lin.ee/k2I9b1a' }]
     }
   },
   JA: {
@@ -194,7 +222,12 @@ const contactCopy = {
       phoneValue: '+66 87 419 9199',
       emailLabel: 'メール',
       emailValue: 'msportcomplex@hotmail.com',
-      mapTitle: 'Msport Driving Range マップ'
+      mapTitle: 'Msport Driving Range マップ',
+      extras: [
+        { label: 'Instagram', value: '@MSPORT_COMPLEX', href: 'https://www.instagram.com/MSPORT_COMPLEX' },
+        { label: 'Facebook', value: 'Msport Driving Range', href: 'https://www.facebook.com/msportdrivingrange' },
+        { label: 'TikTok', value: '@MSPORTCOMPLEX2023', href: 'https://www.tiktok.com/@MSPORTCOMPLEX2023' }
+      ]
     },
     simulators: {
       label: 'シミュレーター',
@@ -205,7 +238,8 @@ const contactCopy = {
         { label: '営業時間', value: '毎日 · 10:00 – 22:00', helper: '20:00 以降は少なくとも1日前の予約が必要です。' },
         { label: '電話', value: '065 134 7777', helper: '素早い確認や当日枠の相談に適しています。', href: 'tel:+66651347777' },
         { label: 'メール', value: 'msport.golfsimulator@gmail.com', helper: '事前予約と団体利用に最適です。', href: 'mailto:msport.golfsimulator@gmail.com' }
-      ]
+      ],
+      extras: [{ label: 'Instagram', value: '@msport_golfsimulator', href: 'https://www.instagram.com/msport_golfsimulator' }]
     },
     academy: {
       label: 'アカデミー',
@@ -216,7 +250,8 @@ const contactCopy = {
         { label: '営業時間', value: '毎日 · 10:00 – 20:00', helper: 'アカデミーレッスンと受講生セッションのため毎日営業しています。' },
         { label: '電話', value: '065 134 7777', helper: '簡単な質問やレッスン予約向けです。', href: 'tel:+66651347777' },
         { label: 'メール', value: 'msportgolfacademy@gmail.com', helper: '詳細相談やコーチングプラン向けです。', href: 'mailto:msportgolfacademy@gmail.com' }
-      ]
+      ],
+      extras: [{ label: 'LINE', value: 'LINEで追加', href: 'https://lin.ee/k2I9b1a' }]
     }
   }
 } as const;
@@ -226,7 +261,7 @@ export default async function ContactPage() {
   const copy = contactCopy[language];
 
   return (
-    <main className="min-h-screen bg-[#F7F5F0] text-[#1B1B1A]">
+    <main className="min-h-screen overflow-x-hidden bg-[#F7F5F0] text-[#1B1B1A]">
       <section className="relative h-[55vh] min-h-[420px] overflow-hidden bg-black">
         <video autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover object-[center_35%]">
           <source src="/images/Abouthero.webm" type="video/webm" />
@@ -292,6 +327,26 @@ export default async function ContactPage() {
                     </div>
                   </Link>
                 </div>
+                <div className="flex flex-wrap items-center gap-3">
+                  {copy.range.extras.map(extra => (
+                    <Link
+                      key={extra.label}
+                      href={extra.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/6 px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-white/78 transition-colors hover:border-white/20 hover:text-white"
+                    >
+                      {extra.label === 'Instagram' ? (
+                        <Instagram className="h-4 w-4 text-[var(--accent)]" aria-hidden="true" />
+                      ) : extra.label === 'Facebook' ? (
+                        <Facebook className="h-4 w-4 text-[var(--accent)]" aria-hidden="true" />
+                      ) : (
+                        <Music4 className="h-4 w-4 text-[var(--accent)]" aria-hidden="true" />
+                      )}
+                      {extra.value}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -320,7 +375,7 @@ export default async function ContactPage() {
                   width={640}
                   height={360}
                   loading="lazy"
-                  className="block h-48 w-auto flex-shrink-0 object-cover sm:h-56"
+                  className="block h-56 w-auto flex-shrink-0 object-cover sm:h-64"
                 />
               ))
             )}
@@ -331,7 +386,7 @@ export default async function ContactPage() {
       <section id="simulators" className="bg-[#1B1B1A] scroll-mt-28 py-16 sm:py-20 text-white">
         <div className="mx-auto w-full max-w-6xl space-y-8 px-6 lg:px-10">
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="space-y-4">
+            <div className="mx-auto min-w-0 w-full max-w-2xl space-y-4 lg:max-w-none">
               {copy.simulators.contacts.map((item, index) => (
                 <article
                   key={item.label}
@@ -356,7 +411,7 @@ export default async function ContactPage() {
                 </article>
               ))}
             </div>
-            <div className="rounded-[34px] border border-white/10 bg-white/5 p-7 shadow-[0_24px_60px_rgba(0,0,0,0.22)] sm:p-8">
+            <div className="mx-auto min-w-0 w-full max-w-2xl rounded-[34px] border border-white/10 bg-white/5 p-7 shadow-[0_24px_60px_rgba(0,0,0,0.22)] sm:p-8 lg:max-w-none">
               <SectionHeader
                 label={copy.simulators.label}
                 title={<span className="text-white">{copy.simulators.title}</span>}
@@ -364,6 +419,20 @@ export default async function ContactPage() {
                 align="left"
                 subtitleClassName="subtitle-accent text-white/78"
               />
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                {copy.simulators.extras.map(extra => (
+                  <Link
+                    key={extra.label}
+                    href={extra.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/6 px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-white/78 transition-colors hover:border-white/20 hover:text-white"
+                  >
+                    <Instagram className="h-4 w-4 text-[var(--accent)]" aria-hidden="true" />
+                    {extra.value}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -381,7 +450,7 @@ export default async function ContactPage() {
                   width={640}
                   height={360}
                   loading="lazy"
-                  className="block h-48 w-auto flex-shrink-0 object-cover sm:h-56"
+                  className="block h-56 w-auto flex-shrink-0 object-cover sm:h-64"
                 />
               ))
             )}
@@ -392,15 +461,29 @@ export default async function ContactPage() {
       <section id="academy" className="section-cream scroll-mt-28 py-16 sm:py-20">
         <div className="mx-auto w-full max-w-6xl space-y-8 px-6 lg:px-10">
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="rounded-[34px] bg-[#F0EBE2] p-7 shadow-[0_20px_54px_rgba(0,0,0,0.05)] sm:p-8">
+            <div className="mx-auto min-w-0 w-full max-w-2xl rounded-[34px] bg-[#F0EBE2] p-7 shadow-[0_20px_54px_rgba(0,0,0,0.05)] sm:p-8 lg:max-w-none">
               <SectionHeader
                 label={copy.academy.label}
                 title={<span className="text-[#1B1B1A]">{copy.academy.title}</span>}
                 subtitle={copy.academy.subtitle}
                 align="left"
               />
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                {copy.academy.extras.map(extra => (
+                  <Link
+                    key={extra.label}
+                    href={extra.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-[#E3DED3] bg-white px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-[#4A473F] transition-colors hover:border-[#d7c8ba] hover:text-[#1B1B1A]"
+                  >
+                    <MessageCircleMore className="h-4 w-4 text-[var(--accent)]" aria-hidden="true" />
+                    {extra.value}
+                  </Link>
+                ))}
+              </div>
             </div>
-            <div className="space-y-4">
+            <div className="mx-auto min-w-0 w-full max-w-2xl space-y-4 lg:max-w-none">
               {copy.academy.contacts.map((item, index) => (
                 <article
                   key={item.label}

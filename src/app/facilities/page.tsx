@@ -374,26 +374,39 @@ export default function FacilitiesPage() {
       .filter((section): section is HTMLElement => Boolean(section));
 
     if (!sections.length) return;
+    let ticking = false;
 
-    const observer = new IntersectionObserver(
-      entries => {
-        const visible = entries
-          .filter(entry => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    const updateActiveAnchor = () => {
+      const offset = window.innerHeight * 0.28;
+      let nextAnchor = `#${sections[0]?.id ?? 'pro-shops'}`;
 
-        if (visible?.target.id) {
-          setActiveAnchor(`#${visible.target.id}`);
+      for (const section of sections) {
+        const rect = section.getBoundingClientRect();
+
+        if (rect.top <= offset) {
+          nextAnchor = `#${section.id}`;
         }
-      },
-      {
-        rootMargin: '-20% 0px -55% 0px',
-        threshold: [0.2, 0.4, 0.6]
       }
-    );
 
-    sections.forEach(section => observer.observe(section));
+      setActiveAnchor(prev => (prev === nextAnchor ? prev : nextAnchor));
+      ticking = false;
+    };
 
-    return () => observer.disconnect();
+    const handleScroll = () => {
+      if (ticking) return;
+
+      ticking = true;
+      window.requestAnimationFrame(updateActiveAnchor);
+    };
+
+    updateActiveAnchor();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, []);
 
 return (

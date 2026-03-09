@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getServerLanguage } from '@/lib/i18n';
 
+import { MobilePagedGridCarousel } from '@/components/MobilePagedGridCarousel';
 import { SectionHeader } from '@/components/SectionHeader';
 
 import {
@@ -11,7 +12,6 @@ import {
     Crosshair,
     Gamepad2,
     Globe2,
-    Instagram,
     LineChart,
     Mail,
     PhoneCall,
@@ -111,18 +111,18 @@ const simulatorsCopy = {
                     icon: Clock4
                 },
                 {
+                    label: 'Phone',
+                    value: '065 134 7777',
+                    helper: 'Best for quick confirmations and same-day slot checks.',
+                    icon: PhoneCall,
+                    href: 'tel:+66651347777'
+                },
+                {
                     label: 'Email',
                     value: 'msport.golfsimulator@gmail.com',
                     helper: 'Best for advance reservations and private groups.',
                     icon: Mail,
                     href: 'mailto:msport.golfsimulator@gmail.com'
-                },
-                {
-                    label: 'Instagram',
-                    value: '@msport_golfsimulator',
-                    helper: 'DM for fast confirmations and same-day slots.',
-                    icon: Instagram,
-                    href: 'https://www.instagram.com/msport_golfsimulator'
                 }
             ],
             flow: {
@@ -220,18 +220,18 @@ const simulatorsCopy = {
                     icon: Clock4
                 },
                 {
+                    label: 'โทรศัพท์',
+                    value: '065 134 7777',
+                    helper: 'เหมาะสำหรับคอนเฟิร์มเร็วและเช็กคิววันเดียวกัน',
+                    icon: PhoneCall,
+                    href: 'tel:+66651347777'
+                },
+                {
                     label: 'อีเมล',
                     value: 'msport.golfsimulator@gmail.com',
                     helper: 'เหมาะสำหรับการจองล่วงหน้าและกลุ่มส่วนตัว',
                     icon: Mail,
                     href: 'mailto:msport.golfsimulator@gmail.com'
-                },
-                {
-                    label: 'Instagram',
-                    value: '@msport_golfsimulator',
-                    helper: 'ส่งข้อความเพื่อคอนเฟิร์มเร็วและเช็กคิววันเดียวกัน',
-                    icon: Instagram,
-                    href: 'https://www.instagram.com/msport_golfsimulator'
                 }
             ],
             flow: {
@@ -303,8 +303,8 @@ const simulatorsCopy = {
             subtitle: '프라이빗 스위트, 깊이 있는 데이터, 현장 지원까지.',
             contacts: [
                 { label: '운영 시간', value: '매일 10:00 – 22:00 운영', helper: '20:00 이후는 하루 전 사전 예약 필요.', icon: Clock4 },
-                { label: '이메일', value: 'msport.golfsimulator@gmail.com', helper: '사전 예약과 프라이빗 그룹 문의에 적합.', icon: Mail, href: 'mailto:msport.golfsimulator@gmail.com' },
-                { label: '인스타그램', value: '@msport_golfsimulator', helper: '빠른 확인과 당일 슬롯 문의는 메시지로 문의.', icon: Instagram, href: 'https://www.instagram.com/msport_golfsimulator' }
+                { label: '전화', value: '065 134 7777', helper: '빠른 확인과 당일 슬롯 문의에 적합.', icon: PhoneCall, href: 'tel:+66651347777' },
+                { label: '이메일', value: 'msport.golfsimulator@gmail.com', helper: '사전 예약과 프라이빗 그룹 문의에 적합.', icon: Mail, href: 'mailto:msport.golfsimulator@gmail.com' }
             ],
             flow: {
                 label: '추천 흐름',
@@ -374,8 +374,8 @@ const simulatorsCopy = {
             subtitle: '私密套房、专业数据与现场支持，一次到位。',
             contacts: [
                 { label: '营业时间', value: '每日 10:00 – 22:00 开放', helper: '20:00 后需至少提前一天预约。', icon: Clock4 },
-                { label: '邮箱', value: 'msport.golfsimulator@gmail.com', helper: '适合提前预约与私密团体。', icon: Mail, href: 'mailto:msport.golfsimulator@gmail.com' },
-                { label: 'Instagram', value: '@msport_golfsimulator', helper: '如需快速确认与当天时段，请直接发消息。', icon: Instagram, href: 'https://www.instagram.com/msport_golfsimulator' }
+                { label: '电话', value: '065 134 7777', helper: '适合快速确认与当天时段查询。', icon: PhoneCall, href: 'tel:+66651347777' },
+                { label: '邮箱', value: 'msport.golfsimulator@gmail.com', helper: '适合提前预约与私密团体。', icon: Mail, href: 'mailto:msport.golfsimulator@gmail.com' }
             ],
             flow: {
                 label: '推荐流程',
@@ -445,8 +445,8 @@ const simulatorsCopy = {
             subtitle: 'プライベートスイート、深いデータ、現地サポートまで一体で。',
             contacts: [
                 { label: '営業時間', value: '毎日 10:00 – 22:00', helper: '20:00 以降は前日までの事前予約が必要です。', icon: Clock4 },
-                { label: 'メール', value: 'msport.golfsimulator@gmail.com', helper: '事前予約やプライベートグループに最適。', icon: Mail, href: 'mailto:msport.golfsimulator@gmail.com' },
-                { label: 'Instagram', value: '@msport_golfsimulator', helper: '当日枠や早い確認はメッセージで。', icon: Instagram, href: 'https://www.instagram.com/msport_golfsimulator' }
+                { label: '電話', value: '065 134 7777', helper: '素早い確認や当日枠の相談に適しています。', icon: PhoneCall, href: 'tel:+66651347777' },
+                { label: 'メール', value: 'msport.golfsimulator@gmail.com', helper: '事前予約やプライベートグループに最適。', icon: Mail, href: 'mailto:msport.golfsimulator@gmail.com' }
             ],
             flow: {
                 label: 'おすすめの流れ',
@@ -524,7 +524,11 @@ export default async function SimulatorsPage() {
                         subtitle={copy.pricing.subtitle}
                         align='center'
                     />
-                    <div className='grid gap-5 lg:grid-cols-2'>
+                    <MobilePagedGridCarousel
+                        className='sm:hidden'
+                        itemsPerPage={1}
+                        pageClassName='grid grid-cols-1'
+                    >
                         {packages.map((pkg, index) => {
                             const isPerformance = index === 1;
 
@@ -534,7 +538,7 @@ export default async function SimulatorsPage() {
                                     className={`reveal reveal-up reveal-delay-${Math.min(index + 1, 2)}`}
                                 >
                                     <article
-                                        className={`group relative transform-gpu overflow-hidden rounded-[30px] px-5 py-5 shadow-[0_24px_65px_rgba(0,0,0,0.1)] transition-transform duration-700 ease-out hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(0,0,0,0.14)] sm:px-6 sm:py-6 ${
+                                        className={`group relative transform-gpu overflow-hidden rounded-[30px] px-5 py-5 transition-transform duration-700 ease-out hover:-translate-y-2 ${
                                             isPerformance
                                                 ? 'border border-[var(--accent)]/25 bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(247,245,240,0.92))]'
                                                 : 'border border-[#E4DDD0] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(247,245,240,0.88))]'
@@ -549,55 +553,135 @@ export default async function SimulatorsPage() {
                                             aria-hidden='true'
                                         />
                                         <div className='relative z-10 space-y-5'>
-                                        <div className='flex items-start justify-between gap-4'>
-                                            <div className='space-y-2'>
-                                                <p className='text-[0.58rem] tracking-[0.45em] text-[var(--accent)] uppercase'>
-                                                    {pkg.title}
-                                                </p>
-                                                <h4 className='text-[clamp(2.2rem,4vw,3rem)] font-black text-[#161513]'>
-                                                    {pkg.hourly}
-                                                </h4>
-                                            </div>
-                                            {isPerformance ? (
-                                                <span className='rounded-full border border-[var(--accent)]/20 bg-[var(--accent)]/8 px-3 py-1 text-[0.58rem] font-semibold tracking-[0.28em] text-[var(--accent)] uppercase'>
-                                                    {'premium' in pkg ? pkg.premium : null}
-                                                </span>
-                                            ) : null}
-                                        </div>
-
-                                        <div className='flex flex-wrap gap-2'>
-                                            {pkg.capacity ? (
-                                                <p className='inline-flex items-center rounded-full border border-[#DCD4C6] bg-white/70 px-4 py-1.5 text-[0.68rem] font-semibold tracking-[0.28em] text-[#2F2B24] uppercase'>
-                                                    {pkg.capacity}
-                                                </p>
-                                            ) : null}
-                                            <p className='inline-flex items-center rounded-full border border-[#E5DED2] bg-[#F7F5F0] px-4 py-1.5 text-[0.68rem] font-semibold tracking-[0.28em] text-[#6A6458] uppercase'>
-                                                {pkg.instantAccess}
-                                            </p>
-                                        </div>
-
-                                        <div className='overflow-hidden rounded-[24px] border border-[#E8E1D6] bg-white/80'>
-                                            <div className='grid grid-cols-[1fr_auto] gap-3 border-b border-[#ECE4D7] px-4 py-3 text-[0.58rem] tracking-[0.35em] text-[#7A7468] uppercase sm:px-5'>
-                                                <span>{copy.pricing.packageLabel}</span>
-                                                <span>{copy.pricing.priceLabel}</span>
-                                            </div>
-                                            {pkg.tiers.map((tier, idx) => (
-                                                <div
-                                                    key={tier.label}
-                                                    className={`grid grid-cols-[1fr_auto] items-center gap-3 px-4 py-4 text-[#1F1D19] sm:px-5 ${
-                                                        idx !== 0 ? 'border-t border-[#EBE4D8]' : ''
-                                                    }`}
-                                                >
-                                                    <div className='space-y-1'>
-                                                        <p className='text-sm font-semibold tracking-[0.16em] text-[#2B2823] uppercase'>
-                                                            {tier.label}
-                                                        </p>
-                                                        <p className='text-xs text-[#7A7468]'>{copy.pricing.prepaidHours}</p>
-                                                    </div>
-                                                    <span className='text-xl font-black sm:text-2xl'>{tier.price}</span>
+                                            <div className='flex items-start justify-between gap-4'>
+                                                <div className='space-y-2'>
+                                                    <p className='text-[0.58rem] tracking-[0.45em] text-[var(--accent)] uppercase'>
+                                                        {pkg.title}
+                                                    </p>
+                                                    <h4 className='text-[clamp(2.2rem,4vw,3rem)] font-black text-[#161513]'>
+                                                        {pkg.hourly}
+                                                    </h4>
                                                 </div>
-                                            ))}
+                                                {isPerformance ? (
+                                                    <span className='rounded-full border border-[var(--accent)]/20 bg-[var(--accent)]/8 px-3 py-1 text-[0.58rem] font-semibold tracking-[0.28em] text-[var(--accent)] uppercase'>
+                                                        {'premium' in pkg ? pkg.premium : null}
+                                                    </span>
+                                                ) : null}
+                                            </div>
+
+                                            <div className='flex flex-wrap gap-2'>
+                                                {pkg.capacity ? (
+                                                    <p className='inline-flex items-center rounded-full border border-[#DCD4C6] bg-white/70 px-4 py-1.5 text-[0.68rem] font-semibold tracking-[0.28em] text-[#2F2B24] uppercase'>
+                                                        {pkg.capacity}
+                                                    </p>
+                                                ) : null}
+                                                <p className='inline-flex items-center rounded-full border border-[#E5DED2] bg-[#F7F5F0] px-4 py-1.5 text-[0.68rem] font-semibold tracking-[0.28em] text-[#6A6458] uppercase'>
+                                                    {pkg.instantAccess}
+                                                </p>
+                                            </div>
+
+                                            <div className='overflow-hidden rounded-[24px] border border-[#E8E1D6] bg-white/80'>
+                                                <div className='grid grid-cols-[1fr_auto] gap-3 border-b border-[#ECE4D7] px-4 py-3 text-[0.58rem] tracking-[0.35em] text-[#7A7468] uppercase'>
+                                                    <span>{copy.pricing.packageLabel}</span>
+                                                    <span>{copy.pricing.priceLabel}</span>
+                                                </div>
+                                                {pkg.tiers.map((tier, idx) => (
+                                                    <div
+                                                        key={tier.label}
+                                                        className={`grid grid-cols-[1fr_auto] items-center gap-3 px-4 py-4 text-[#1F1D19] ${
+                                                            idx !== 0 ? 'border-t border-[#EBE4D8]' : ''
+                                                        }`}
+                                                    >
+                                                        <div className='space-y-1'>
+                                                            <p className='text-sm font-semibold tracking-[0.16em] text-[#2B2823] uppercase'>
+                                                                {tier.label}
+                                                            </p>
+                                                            <p className='text-xs text-[#7A7468]'>{copy.pricing.prepaidHours}</p>
+                                                        </div>
+                                                        <span className='text-xl font-black'>{tier.price}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
                                         </div>
+                                    </article>
+                                </div>
+                            );
+                        })}
+                    </MobilePagedGridCarousel>
+                    <div className='hidden gap-5 sm:grid lg:grid-cols-2'>
+                        {packages.map((pkg, index) => {
+                            const isPerformance = index === 1;
+
+                            return (
+                                <div
+                                    key={pkg.title}
+                                    className={`reveal reveal-up reveal-delay-${Math.min(index + 1, 2)}`}
+                                >
+                                    <article
+                                        className={`group relative transform-gpu overflow-hidden rounded-[30px] px-6 py-6 shadow-[0_24px_65px_rgba(0,0,0,0.1)] transition-transform duration-700 ease-out hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(0,0,0,0.14)] ${
+                                            isPerformance
+                                                ? 'border border-[var(--accent)]/25 bg-[linear-gradient(180deg,rgba(255,255,255,0.99),rgba(247,245,240,0.92))]'
+                                                : 'border border-[#E4DDD0] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(247,245,240,0.88))]'
+                                        }`}
+                                    >
+                                        <div
+                                            className={`pointer-events-none absolute inset-0 opacity-90 ${
+                                                isPerformance
+                                                    ? 'bg-[radial-gradient(circle_at_top_right,rgba(214,201,184,0.28),transparent_42%)]'
+                                                    : 'bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.55),transparent_38%)]'
+                                            }`}
+                                            aria-hidden='true'
+                                        />
+                                        <div className='relative z-10 space-y-5'>
+                                            <div className='flex items-start justify-between gap-4'>
+                                                <div className='space-y-2'>
+                                                    <p className='text-[0.58rem] tracking-[0.45em] text-[var(--accent)] uppercase'>
+                                                        {pkg.title}
+                                                    </p>
+                                                    <h4 className='text-[clamp(2.2rem,4vw,3rem)] font-black text-[#161513]'>
+                                                        {pkg.hourly}
+                                                    </h4>
+                                                </div>
+                                                {isPerformance ? (
+                                                    <span className='rounded-full border border-[var(--accent)]/20 bg-[var(--accent)]/8 px-3 py-1 text-[0.58rem] font-semibold tracking-[0.28em] text-[var(--accent)] uppercase'>
+                                                        {'premium' in pkg ? pkg.premium : null}
+                                                    </span>
+                                                ) : null}
+                                            </div>
+
+                                            <div className='flex flex-wrap gap-2'>
+                                                {pkg.capacity ? (
+                                                    <p className='inline-flex items-center rounded-full border border-[#DCD4C6] bg-white/70 px-4 py-1.5 text-[0.68rem] font-semibold tracking-[0.28em] text-[#2F2B24] uppercase'>
+                                                        {pkg.capacity}
+                                                    </p>
+                                                ) : null}
+                                                <p className='inline-flex items-center rounded-full border border-[#E5DED2] bg-[#F7F5F0] px-4 py-1.5 text-[0.68rem] font-semibold tracking-[0.28em] text-[#6A6458] uppercase'>
+                                                    {pkg.instantAccess}
+                                                </p>
+                                            </div>
+
+                                            <div className='overflow-hidden rounded-[24px] border border-[#E8E1D6] bg-white/80'>
+                                                <div className='grid grid-cols-[1fr_auto] gap-3 border-b border-[#ECE4D7] px-4 py-3 text-[0.58rem] tracking-[0.35em] text-[#7A7468] uppercase sm:px-5'>
+                                                    <span>{copy.pricing.packageLabel}</span>
+                                                    <span>{copy.pricing.priceLabel}</span>
+                                                </div>
+                                                {pkg.tiers.map((tier, idx) => (
+                                                    <div
+                                                        key={tier.label}
+                                                        className={`grid grid-cols-[1fr_auto] items-center gap-3 px-4 py-4 text-[#1F1D19] sm:px-5 ${
+                                                            idx !== 0 ? 'border-t border-[#EBE4D8]' : ''
+                                                        }`}
+                                                    >
+                                                        <div className='space-y-1'>
+                                                            <p className='text-sm font-semibold tracking-[0.16em] text-[#2B2823] uppercase'>
+                                                                {tier.label}
+                                                            </p>
+                                                            <p className='text-xs text-[#7A7468]'>{copy.pricing.prepaidHours}</p>
+                                                        </div>
+                                                        <span className='text-xl font-black sm:text-2xl'>{tier.price}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
                                         </div>
                                     </article>
                                 </div>
@@ -623,7 +707,7 @@ export default async function SimulatorsPage() {
 
             <section className='overflow-hidden bg-[#FAF2E5]'>
                 <div className='relative'>
-                    <div className='flex w-max flex-nowrap animate-marquee-seamless-top' style={{ gap: 0 }}>
+                    <div className='flex w-max min-w-max flex-nowrap animate-marquee-seamless-top [backface-visibility:hidden]' style={{ gap: 0, transform: 'translate3d(0,0,0)' }}>
                         {[0, 1].map(setIndex =>
                             simLoopImages.map(image => (
                                 <Image
@@ -642,14 +726,14 @@ export default async function SimulatorsPage() {
             </section>
 
             <section className='py-20 text-white'>
-                <div className='mx-auto grid max-w-6xl gap-8 px-6 md:grid-cols-2 lg:px-10 xl:grid-cols-4'>
+                <div className='mx-auto grid max-w-6xl grid-cols-2 gap-4 px-6 md:gap-8 lg:px-10 xl:grid-cols-4'>
                     {[
                         ...copy.highlights
                     ].map((card, index) => (
                         <div
                             key={card.title}
-                            className={`reveal reveal-up reveal-delay-${Math.min(index + 1, 4)}`}>
-                            <article className='group relative flex min-h-[200px] transform-gpu flex-col overflow-hidden rounded-[30px] border border-white/12 bg-gradient-to-b from-white/12 via-white/6 to-transparent px-8 py-8 shadow-[0_35px_90px_rgba(0,0,0,0.45)] transition-transform duration-700 ease-out hover:-translate-y-3 hover:rotate-1 hover:shadow-[0_45px_120px_rgba(0,0,0,0.55)]'>
+                            className={`h-full reveal reveal-up reveal-delay-${Math.min(index + 1, 4)}`}>
+                            <article className='group relative flex h-full min-h-[200px] transform-gpu flex-col overflow-hidden rounded-[30px] border border-white/12 bg-gradient-to-b from-white/12 via-white/6 to-transparent px-8 py-8 shadow-[0_35px_90px_rgba(0,0,0,0.45)] transition-transform duration-700 ease-out hover:-translate-y-3 hover:rotate-1 hover:shadow-[0_45px_120px_rgba(0,0,0,0.55)]'>
                                 <div
                                     className='absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100'
                                     aria-hidden='true'>
@@ -665,7 +749,7 @@ export default async function SimulatorsPage() {
                                             {card.title}
                                         </h4>
                                     </div>
-                                    <div className='mt-1 space-y-3 text-sm text-white/80'>
+                                    <div className='mt-auto space-y-3 text-sm text-white/80'>
                                         <div className='h-[1px] w-16 bg-gradient-to-r from-[#b91c1c] via-[#ef4444] to-transparent transition-all duration-500 group-hover:w-20' />
                                         <div className='flex min-h-[5.5rem] items-start'>
                                             <p className='text-base text-white/85 transition-colors duration-300 group-hover:text-white'>
@@ -689,12 +773,52 @@ export default async function SimulatorsPage() {
                         subtitle={copy.features.subtitle}
                         align='center'
                     />
-                    <div className='grid gap-4 sm:grid-cols-2 xl:grid-cols-4 lg:gap-5'>
+                    <MobilePagedGridCarousel
+                        className='sm:hidden'
+                        itemsPerPage={2}
+                        pageClassName='grid grid-cols-2 gap-3'
+                    >
                         {performanceFeatures.map((feature, index) => (
                             <div
                                 key={feature.title}
                                 className={`reveal reveal-up reveal-delay-${Math.min(index + 1, 4)}`}>
-                                <article className='group relative flex h-full transform-gpu flex-col overflow-hidden rounded-[24px] border border-[#E4DDD0] bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(247,245,240,0.86))] px-4 py-5 text-center text-[#1B1B1A] shadow-[0_14px_34px_rgba(0,0,0,0.07)] transition-transform duration-700 ease-out hover:-translate-y-1.5 hover:shadow-[0_22px_50px_rgba(0,0,0,0.1)] sm:px-5 sm:py-6'>
+                                <article className='group relative flex h-full min-h-[12.75rem] transform-gpu flex-col overflow-hidden rounded-[24px] border border-[#E4DDD0] bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(247,245,240,0.86))] px-3 py-4 text-center text-[#1B1B1A] transition-transform duration-700 ease-out hover:-translate-y-1.5'>
+                                    <div
+                                        className='pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.68),transparent_42%)]'
+                                        aria-hidden='true'
+                                    />
+                                    <div className='relative z-10 flex h-full flex-col'>
+                                        <div className='mb-3 flex justify-center'>
+                                            {(() => {
+                                                const Icon = feature.icon;
+
+                                                return <Icon className='h-6 w-6 text-[var(--accent)]' aria-hidden='true' />;
+                                            })()}
+                                        </div>
+                                        <div className='flex h-full flex-col items-center'>
+                                            <div className='flex min-h-[2.9rem] items-center'>
+                                                <h3 className='text-[0.82rem] font-black leading-tight tracking-tight text-[#161513]'>
+                                                    {feature.title}
+                                                </h3>
+                                            </div>
+                                            <div className='mt-2 h-[1px] w-10 bg-gradient-to-r from-[#C9BBA7] to-transparent transition-all duration-500 group-hover:w-16' />
+                                            <div className='mt-2 flex min-h-[4.4rem] items-start'>
+                                                <p className='text-[0.68rem] leading-relaxed text-[#4A473F]'>
+                                                    {feature.description}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        ))}
+                    </MobilePagedGridCarousel>
+                    <div className='hidden grid-cols-2 gap-4 sm:grid xl:grid-cols-4 lg:gap-5'>
+                        {performanceFeatures.map((feature, index) => (
+                            <div
+                                key={feature.title}
+                                className={`reveal reveal-up reveal-delay-${Math.min(index + 1, 4)}`}>
+                                <article className='group relative flex h-full transform-gpu flex-col overflow-hidden rounded-[24px] border border-[#E4DDD0] bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(247,245,240,0.86))] px-5 py-6 text-center text-[#1B1B1A] shadow-[0_14px_34px_rgba(0,0,0,0.07)] transition-transform duration-700 ease-out hover:-translate-y-1.5 hover:shadow-[0_22px_50px_rgba(0,0,0,0.1)]'>
                                     <div
                                         className='pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.68),transparent_42%)]'
                                         aria-hidden='true'
@@ -704,14 +828,12 @@ export default async function SimulatorsPage() {
                                             {(() => {
                                                 const Icon = feature.icon;
 
-                                                return (
-                                                    <Icon className='h-8 w-8 text-[var(--accent)]' aria-hidden='true' />
-                                                );
+                                                return <Icon className='h-8 w-8 text-[var(--accent)]' aria-hidden='true' />;
                                             })()}
                                         </div>
                                         <div className='flex h-full flex-col items-center'>
                                             <div className='flex min-h-[3.5rem] items-center'>
-                                                <h3 className='text-[1.05rem] font-black tracking-tight text-[#161513] sm:text-[1.18rem]'>
+                                                <h3 className='text-[1.18rem] font-black leading-tight tracking-tight text-[#161513]'>
                                                     {feature.title}
                                                 </h3>
                                             </div>
@@ -757,11 +879,13 @@ export default async function SimulatorsPage() {
                             </div>
 
                             <div className='relative'>
-                                <div className='grid gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-5'>
+                                <div className='grid grid-cols-2 gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-5'>
                                     {bookingContacts.map((contact, index) => (
                                         <div
                                             key={contact.label}
-                                            className={`reveal reveal-up reveal-delay-${Math.min(index + 1, 3)}`}>
+                                            className={`reveal reveal-up reveal-delay-${Math.min(index + 1, 3)} ${
+                                                index === 0 ? 'col-span-2 md:col-span-1 xl:col-span-1' : ''
+                                            }`}>
                                             <article
                                                 className={`group relative transform-gpu overflow-hidden rounded-[28px] border px-5 py-5 text-left shadow-[0_20px_50px_rgba(0,0,0,0.25)] transition-transform duration-700 ease-out sm:px-6 sm:py-6 ${
                                                     index === 0
@@ -820,29 +944,6 @@ export default async function SimulatorsPage() {
                                 </div>
                             </div>
 
-                            <div className='grid gap-4 rounded-[28px] border border-white/10 bg-black/20 p-4 backdrop-blur-sm reveal reveal-up reveal-delay-4 sm:p-5 lg:grid-cols-[1.1fr_auto] lg:items-center lg:gap-6'>
-                                <div className='space-y-2 text-left'>
-                                    <p className='text-[0.62rem] tracking-[0.45em] text-white/40 uppercase'>{copy.booking.flow.label}</p>
-                                    <p className='text-lg font-black text-white sm:text-2xl'>{copy.booking.flow.title}</p>
-                                    <p className='text-sm leading-relaxed text-white/60'>{copy.booking.flow.description}</p>
-                                </div>
-                                <div className='flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row'>
-                                    <Link
-                                        href='/checkout'
-                                        className='inline-flex items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-semibold text-white shadow-[0_16px_40px_rgba(239,68,68,0.35)] transition-transform duration-300 hover:-translate-y-0.5'
-                                    >
-                                        {copy.booking.flow.primaryCta}
-                                        <ArrowRight className='h-4 w-4' aria-hidden='true' />
-                                    </Link>
-                                    <Link
-                                        href='tel:+66651347777'
-                                        className='inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-white/40 hover:bg-white/[0.04]'
-                                    >
-                                        <PhoneCall className='h-4 w-4' aria-hidden='true' />
-                                        {copy.booking.flow.secondaryCta}
-                                    </Link>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

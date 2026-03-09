@@ -121,14 +121,14 @@ export default function Navbar() {
         });
       },
       {
-        threshold: 0.3,
-        rootMargin: '0px 0px -15% 0px'
+        threshold: 0.12,
+        rootMargin: '0px 0px -5% 0px'
       }
     );
 
     const animatedElements = document.querySelectorAll('.reveal');
     animatedElements.forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight * 0.3) {
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.78) {
         el.classList.add('reveal-visible');
       } else {
         animationObserver.observe(el);

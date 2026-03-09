@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Award, CalendarDays, Crosshair, Flag, Mail, MessageCircleMore, PhoneCall, Sparkles, Wind } from 'lucide-react';
+import { ArrowRight, Award, CalendarDays, Clock3, Crosshair, Flag, Mail, MessageCircleMore, PhoneCall, Sparkles, Wind } from 'lucide-react';
 
+import { AcademyCoachesCarousel } from '@/components/AcademyCoachesCarousel';
 import { SectionHeader } from '@/components/SectionHeader';
 import { getServerLanguage } from '@/lib/i18n';
 
@@ -108,6 +109,13 @@ const academyCopy = {
       subtitle: 'Three direct ways to reach the academy team.',
       channels: [
         {
+          label: 'Hours',
+          value: 'Daily · 10:00 – 20:00',
+          helper: 'Open daily for academy lessons and student sessions.',
+          href: '#booking',
+          icon: Clock3
+        },
+        {
           label: 'Email',
           value: 'msportgolfacademy@gmail.com',
           helper: 'Best for lesson planning and detailed requests.',
@@ -120,13 +128,6 @@ const academyCopy = {
           helper: 'Best for quick questions and same-day enquiries.',
           href: 'tel:+66651347777',
           icon: PhoneCall
-        },
-        {
-          label: 'LINE',
-          value: 'Add on LINE',
-          helper: 'Best for chat-based booking and follow-up.',
-          href: 'https://lin.ee/k2I9b1a',
-          icon: MessageCircleMore
         }
       ]
     }
@@ -227,6 +228,13 @@ const academyCopy = {
       subtitle: '3 ช่องทางตรงในการติดต่อทีมอะคาเดมี',
       channels: [
         {
+          label: 'เวลาเปิดบริการ',
+          value: 'ทุกวัน · 10:00 – 20:00',
+          helper: 'เปิดทุกวันสำหรับคอร์สเรียนและเวลาฝึกของนักเรียน',
+          href: '#booking',
+          icon: Clock3
+        },
+        {
           label: 'อีเมล',
           value: 'msportgolfacademy@gmail.com',
           helper: 'เหมาะสำหรับวางแผนบทเรียนและสอบถามรายละเอียด',
@@ -239,13 +247,6 @@ const academyCopy = {
           helper: 'เหมาะสำหรับคำถามสั้น ๆ และการนัดหมายด่วน',
           href: 'tel:+66651347777',
           icon: PhoneCall
-        },
-        {
-          label: 'LINE',
-          value: 'เพิ่มเพื่อนบน LINE',
-          helper: 'เหมาะสำหรับแชต จองเวลา และติดตามต่อได้ง่าย',
-          href: 'https://lin.ee/k2I9b1a',
-          icon: MessageCircleMore
         }
       ]
     }
@@ -326,9 +327,9 @@ const academyCopy = {
       title: '아카데미 예약',
       subtitle: '아카데미 팀과 연결되는 3가지 직접 채널.',
       channels: [
+        { label: '운영 시간', value: '매일 · 10:00 – 20:00', helper: '아카데미 레슨과 학생 세션을 위해 매일 운영합니다.', href: '#booking', icon: Clock3 },
         { label: '이메일', value: 'msportgolfacademy@gmail.com', helper: '레슨 계획과 상세 문의에 적합합니다.', href: 'mailto:msportgolfacademy@gmail.com', icon: Mail },
-        { label: '전화', value: '065 134 7777', helper: '빠른 질문과 당일 문의에 적합합니다.', href: 'tel:+66651347777', icon: PhoneCall },
-        { label: 'LINE', value: 'LINE으로 추가', helper: '채팅 기반 예약과 후속 소통에 적합합니다.', href: 'https://lin.ee/k2I9b1a', icon: MessageCircleMore }
+        { label: '전화', value: '065 134 7777', helper: '빠른 질문과 당일 문의에 적합합니다.', href: 'tel:+66651347777', icon: PhoneCall }
       ]
     }
   },
@@ -408,9 +409,9 @@ const academyCopy = {
       title: '预约学院时间',
       subtitle: '3 种直接联系学院团队的方式。',
       channels: [
+        { label: '营业时间', value: '每日 · 10:00 – 20:00', helper: '学院课程与学员训练每天开放。', href: '#booking', icon: Clock3 },
         { label: '邮箱', value: 'msportgolfacademy@gmail.com', helper: '适合课程规划与详细咨询。', href: 'mailto:msportgolfacademy@gmail.com', icon: Mail },
-        { label: '电话', value: '065 134 7777', helper: '适合快速提问与当天咨询。', href: 'tel:+66651347777', icon: PhoneCall },
-        { label: 'LINE', value: '添加 LINE', helper: '适合通过聊天完成预约与跟进。', href: 'https://lin.ee/k2I9b1a', icon: MessageCircleMore }
+        { label: '电话', value: '065 134 7777', helper: '适合快速提问与当天咨询。', href: 'tel:+66651347777', icon: PhoneCall }
       ]
     }
   },
@@ -490,9 +491,9 @@ const academyCopy = {
       title: 'アカデミー予約',
       subtitle: 'アカデミーチームへ直接つながる 3 つの連絡方法。',
       channels: [
+        { label: '営業時間', value: '毎日 · 10:00 – 20:00', helper: 'アカデミーレッスンと受講生セッションのため毎日営業しています。', href: '#booking', icon: Clock3 },
         { label: 'メール', value: 'msportgolfacademy@gmail.com', helper: 'レッスンプランや詳細相談に適しています。', href: 'mailto:msportgolfacademy@gmail.com', icon: Mail },
-        { label: '電話', value: '065 134 7777', helper: '簡単な質問や当日の問い合わせに適しています。', href: 'tel:+66651347777', icon: PhoneCall },
-        { label: 'LINE', value: 'LINEで追加', helper: 'チャットでの予約やフォローに適しています。', href: 'https://lin.ee/k2I9b1a', icon: MessageCircleMore }
+        { label: '電話', value: '065 134 7777', helper: '簡単な質問や当日の問い合わせに適しています。', href: 'tel:+66651347777', icon: PhoneCall }
       ]
     }
   }
@@ -603,17 +604,17 @@ export default async function AcademyPage() {
             subtitleClassName="subtitle-accent text-white/70"
           />
 
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 xl:grid-cols-4">
             {academyPackCards.map((program, index) => {
               const featured = program.title === 'Unlimited';
 
               return (
                 <div
                   key={program.title}
-                  className={`group reveal reveal-up reveal-delay-${Math.min(index + 1, 4)}`}
+                  className={`group h-full reveal reveal-up reveal-delay-${Math.min(index + 1, 4)}`}
                 >
                   <article
-                    className={`relative transform-gpu overflow-hidden rounded-[26px] border px-5 py-5 shadow-[0_18px_45px_rgba(0,0,0,0.12)] transition-transform duration-700 ease-out group-hover:-translate-y-2 group-hover:shadow-[0_24px_58px_rgba(0,0,0,0.18)] ${
+                    className={`relative flex h-full transform-gpu flex-col overflow-hidden rounded-[26px] border px-5 py-5 shadow-[0_18px_45px_rgba(0,0,0,0.12)] transition-transform duration-700 ease-out group-hover:-translate-y-2 group-hover:shadow-[0_24px_58px_rgba(0,0,0,0.18)] ${
                     featured
                       ? 'border-[var(--accent)]/22 bg-[linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.04))]'
                       : 'border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))]'
@@ -628,17 +629,17 @@ export default async function AcademyPage() {
                       aria-hidden="true"
                     />
 
-                    <div className="relative z-10 space-y-4">
-                      <div className="space-y-2">
+                    <div className="relative z-10 flex h-full flex-col space-y-3">
+                      <div className="min-h-[4.5rem] space-y-1.5">
                         <div className="flex items-start justify-between gap-4">
                           <p className="text-[0.58rem] uppercase tracking-[0.42em] text-[var(--accent)]">{program.label}</p>
                         </div>
                         <h3 className="text-[clamp(1.35rem,2.4vw,1.8rem)] font-black text-white">{program.title}</h3>
                       </div>
 
-                      <div className="rounded-[22px] border border-white/10 bg-white/6 px-4 py-4">
+                      <div className="mt-auto rounded-[22px] border border-white/10 bg-white/6 px-4 py-3.5">
                         <p className="text-[0.55rem] uppercase tracking-[0.35em] text-white/45">{copy.programs.bestForLabel}</p>
-                        <p className="mt-2 text-sm font-semibold leading-relaxed text-white/85">{program.bestFor}</p>
+                        <p className="mt-2 min-h-[3.5rem] text-sm font-semibold leading-relaxed text-white/85">{program.bestFor}</p>
                       </div>
                     </div>
                   </article>
@@ -780,14 +781,16 @@ export default async function AcademyPage() {
             subtitleClassName="subtitle-accent text-white/70"
           />
 
-          <div className="grid gap-5 md:grid-cols-3">
+          <AcademyCoachesCarousel coaches={academyCoaches} />
+
+          <div className="hidden gap-5 md:grid md:grid-cols-3">
             {academyCoaches.map((coach, index) => (
               <div
                 key={coach.name}
-                className={`group reveal reveal-up reveal-delay-${Math.min(index + 1, 3)}`}
+                className={`group h-full reveal reveal-up reveal-delay-${Math.min(index + 1, 3)}`}
               >
                 <article
-                  className={`transform-gpu rounded-[30px] border px-5 py-6 shadow-[0_24px_65px_rgba(0,0,0,0.22)] transition-transform duration-700 ease-out group-hover:-translate-y-2 group-hover:shadow-[0_30px_82px_rgba(0,0,0,0.28)] ${
+                  className={`flex h-full transform-gpu flex-col rounded-[30px] border px-5 py-6 shadow-[0_24px_65px_rgba(0,0,0,0.22)] transition-transform duration-700 ease-out group-hover:-translate-y-2 group-hover:shadow-[0_30px_82px_rgba(0,0,0,0.28)] ${
                   index === 1
                     ? 'border-[var(--accent)]/22 bg-[linear-gradient(180deg,rgba(239,68,68,0.12),rgba(255,255,255,0.04))]'
                     : 'border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))]'
@@ -844,14 +847,16 @@ export default async function AcademyPage() {
                 />
               </div>
 
-              <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-5">
+              <div className="grid grid-cols-2 gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-5">
                 {bookingChannels.map((channel, index) => {
                   const Icon = channel.icon;
 
                   return (
                     <div
                       key={channel.label}
-                      className={`group reveal reveal-up reveal-delay-${Math.min(index + 1, 3)}`}
+                      className={`group reveal reveal-up reveal-delay-${Math.min(index + 1, 3)} ${
+                        index === 0 ? 'col-span-2 md:col-span-1 xl:col-span-1' : ''
+                      }`}
                     >
                       <article className="relative transform-gpu overflow-hidden rounded-[28px] border border-[#E3DED3] bg-white px-5 py-5 text-center shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-transform duration-700 ease-out group-hover:-translate-y-2 group-hover:border-[#d7c8ba] group-hover:shadow-[0_26px_62px_rgba(0,0,0,0.12)] sm:px-6 sm:py-6">
                         <div
